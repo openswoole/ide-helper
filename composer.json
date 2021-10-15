@@ -1,12 +1,12 @@
 {
-    "name": "swoole/ide-helper",
+    "name": "openswoole/ide-helper",
     "type": "library",
-    "description": "IDE help files for Swoole.",
+    "description": "IDE help files for Open Swoole.",
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "Team Swoole",
-            "email": "team@swoole.com"
+            "name": "Swoole Development Group",
+            "email": "hello@swoole.co.uk"
         }
     ]
 }

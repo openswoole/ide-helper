@@ -1,26 +1,26 @@
-# Swoole IDE Helper
+# Open Swoole IDE Helper
 
-[![Latest Stable Version](https://poser.pugx.org/swoole/ide-helper/v/stable.svg)](https://packagist.org/packages/swoole/ide-helper)
-[![License](https://poser.pugx.org/swoole/ide-helper/license)](LICENSE)
+[![Latest Stable Version](https://poser.pugx.org/openswoole/ide-helper/v/stable.svg)](https://packagist.org/packages/openswoole/ide-helper)
+[![License](https://poser.pugx.org/openswoole/ide-helper/license)](LICENSE)
 
-This package contains IDE help files for [Swoole](https://github.com/swoole/swoole-src). You may use it in your IDE to provide accurate autocompletion. 
+This package contains IDE help files for [Swoole](https://github.com/openswoole/swoole-src). You may use it in your IDE to provide accurate autocompletion. 
 
 ## Install
 
 You can add this package to your project using [Composer](https://getcomposer.org):
 
 ```bash
-composer require swoole/ide-helper:@dev
+composer require openswoole/ide-helper:@dev
 # or you can install a specific version, like:
-composer require swoole/ide-helper:~4.4.7
+composer require openswoole/ide-helper:~4.4.7
 ```
 
 It's better to install this package on only development systems by adding the `--dev` flag to your Composer commands:
 
 ```bash
-composer require --dev swoole/ide-helper:@dev
+composer require --dev openswoole/ide-helper:@dev
 # or you can install a specific version, like:
-composer require --dev swoole/ide-helper:~4.4.7
+composer require --dev openswoole/ide-helper:~4.7.1
 ```
 
 ## Notes
