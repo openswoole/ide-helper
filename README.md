@@ -3,6 +3,8 @@
 [![Latest Stable Version](https://poser.pugx.org/openswoole/ide-helper/v/stable.svg)](https://packagist.org/packages/openswoole/ide-helper)
 [![License](https://poser.pugx.org/openswoole/ide-helper/license)](LICENSE)
 
+> This repo works with Open Swoole since release version v4.7.1. WIP
+
 This package contains IDE help files for [Swoole](https://github.com/openswoole/swoole-src). You may use it in your IDE to provide accurate autocompletion. 
 
 ## Install
