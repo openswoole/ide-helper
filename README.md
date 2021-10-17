@@ -12,7 +12,7 @@ You can add this package to your project using [Composer](https://getcomposer.or
 ```bash
 composer require openswoole/ide-helper:@dev
 # or you can install a specific version, like:
-composer require openswoole/ide-helper:~4.4.7
+composer require openswoole/ide-helper:~4.7.1
 ```
 
 It's better to install this package on only development systems by adding the `--dev` flag to your Composer commands:
@@ -21,6 +21,12 @@ It's better to install this package on only development systems by adding the `-
 composer require --dev openswoole/ide-helper:@dev
 # or you can install a specific version, like:
 composer require --dev openswoole/ide-helper:~4.7.1
+```
+
+## Fix code style before commit
+
+```
+./vendor/bin/php-cs-fixer fix
 ```
 
 ## Notes

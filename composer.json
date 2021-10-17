@@ -8,5 +8,8 @@
             "name": "Swoole Development Group",
             "email": "hello@swoole.co.uk"
         }
-    ]
+    ],
+    "require": {
+        "friendsofphp/php-cs-fixer": "^3.2"
+    }
 }
