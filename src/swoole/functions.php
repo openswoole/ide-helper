@@ -1,11 +1,11 @@
 <?php
 
 declare(strict_types=1);
-
 /**
- * Gets the current Swoole version. This information is also available in the predefined constant SWOOLE_VERSION.
- *
- * @return string returns a string containing the version of Swoole
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
  */
 function swoole_version()
 {

@@ -1,7 +1,12 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 define('SWOOLE_VERSION', '4.7.1');
 define('SWOOLE_VERSION_ID', 40701);
 define('SWOOLE_MAJOR_VERSION', 4);

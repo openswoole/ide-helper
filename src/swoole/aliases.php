@@ -1,7 +1,12 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 class_alias(Swoole\Coroutine\Channel::class, Co\Channel::class);
 class_alias(Swoole\Coroutine\Client::class, Co\Client::class);
 class_alias(Swoole\Coroutine\Context::class, Co\Context::class);

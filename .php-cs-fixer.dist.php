@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+$header = <<<'EOF'
+This file is part of OpenSwoole IDE Helper.
+@link     https://www.swoole.co.uk
+@contact  hello@swoole.co.uk
+@license  https://github.com/openswoole/library/blob/master/LICENSE
+EOF;
+
 return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
@@ -20,7 +27,12 @@ return (new PhpCsFixer\Config())
         'combine_consecutive_unsets'             => true,
         'declare_strict_types'                   => true,
         'general_phpdoc_annotation_remove'       => ['annotations' => ['author']],
-        'header_comment'                         => ['comment_type' => 'PHPDoc', 'header' => '', 'separate' => 'bottom', 'location' => 'after_open'],
+        'header_comment' => [
+            'comment_type' => 'PHPDoc',
+            'header' => $header,
+            'separate' => 'none',
+            'location' => 'after_declare_strict',
+        ],
         'increment_style'                        => ['style' => 'post'],
         'lambda_not_used_import'                 => false,
         'linebreak_after_opening_tag'            => true,
