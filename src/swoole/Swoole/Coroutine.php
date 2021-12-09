@@ -28,9 +28,9 @@ class Coroutine
 
     /**
      * @param array $options [required]
-     * @return ?mixed
+     * @return mixed
      */
-    public static function set(array $options): ?mixed
+    public static function set(array $options): mixed
     {
     }
 

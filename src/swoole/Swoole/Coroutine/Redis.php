@@ -48,9 +48,9 @@ class Redis
     }
 
     /**
-     * @return ?mixed
+     * @return mixed
      */
-    public function getAuth(): ?mixed
+    public function getAuth(): mixed
     {
     }
 
@@ -81,9 +81,9 @@ class Redis
     }
 
     /**
-     * @return ?mixed
+     * @return mixed
      */
-    public function recv(): ?mixed
+    public function recv(): mixed
     {
     }
 
@@ -566,9 +566,9 @@ class Redis
     }
 
     /**
-     * @return ?mixed
+     * @return mixed
      */
-    public function role(): ?mixed
+    public function role(): mixed
     {
     }
 
@@ -1292,9 +1292,9 @@ class Redis
      * @param string $script [required]
      * @param array $keys [optional] = null
      * @param int $num_keys [optional] = 0
-     * @return ?mixed
+     * @return mixed
      */
-    public function eval(string $script, array $keys = null, int $num_keys = 0): ?mixed
+    public function eval(string $script, array $keys = null, int $num_keys = 0): mixed
     {
     }
 
@@ -1302,18 +1302,18 @@ class Redis
      * @param string $sha1 [required]
      * @param array $keys [optional] = null
      * @param int $num_keys [optional] = 0
-     * @return ?mixed
+     * @return mixed
      */
-    public function evalSha(string $sha1, array $keys = null, int $num_keys = 0): ?mixed
+    public function evalSha(string $sha1, array $keys = null, int $num_keys = 0): mixed
     {
     }
 
     /**
      * @param string $command [required]
      * @param mixed ...$args
-     * @return ?mixed
+     * @return mixed
      */
-    public function script(string $command, ...$args): ?mixed
+    public function script(string $command, ...$args): mixed
     {
     }
 }
