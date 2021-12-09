@@ -106,7 +106,7 @@ class Client
      * @param mixed $host [required]
      * @param mixed $port [optional] = 0
      */
-    public function recvfrom(int $length, & $host, & $port = 0): string|bool
+    public function recvfrom(int $length, &$host, &$port = 0): string|bool
     {
     }
 

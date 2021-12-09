@@ -89,7 +89,7 @@ declare(strict_types=1);
   * @param mixed $timeout [optional]
   * @return mixed
   */
- function swoole_client_select(& $read_array, & $write_array, & $error_array, $timeout)
+ function swoole_client_select(&$read_array, &$write_array, &$error_array, $timeout)
  {
  }
 
@@ -100,7 +100,7 @@ declare(strict_types=1);
   * @param mixed $timeout [optional]
   * @return mixed
   */
- function swoole_select(& $read_array, & $write_array, & $error_array, $timeout)
+ function swoole_select(&$read_array, &$write_array, &$error_array, $timeout)
  {
  }
 

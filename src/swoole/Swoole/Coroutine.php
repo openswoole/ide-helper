@@ -28,7 +28,6 @@ class Coroutine
 
     /**
      * @param array $options [required]
-     * @return mixed
      */
     public static function set(array $options): mixed
     {

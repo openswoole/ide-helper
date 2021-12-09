@@ -32,7 +32,6 @@ class Channel
 
     /**
      * @param float $timeout [optional] = -1
-     * @return mixed
      */
     public function pop(float $timeout = -1): mixed
     {

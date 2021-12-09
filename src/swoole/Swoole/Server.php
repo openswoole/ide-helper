@@ -105,7 +105,6 @@ class Server
 
     /**
      * @param string $event [required]
-     * @return mixed
      */
     public function getCallback(string $event): mixed
     {

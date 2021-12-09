@@ -58,7 +58,6 @@ class Socket
      * @param string $host [required]
      * @param int $port [optional] = 0
      * @param float $timeout [optional] = 0
-     * @return mixed
      */
     public function connect(string $host, int $port = 0, float $timeout = 0): mixed
     {
@@ -175,7 +174,7 @@ class Socket
      * @param mixed $peerName [required]
      * @param float $timeout [optional] = 0
      */
-    public function recvfrom(& $peerName, float $timeout = 0): string|bool
+    public function recvfrom(&$peerName, float $timeout = 0): string|bool
     {
     }
 
@@ -191,7 +190,6 @@ class Socket
     /**
      * @param int $level [required]
      * @param int $name [required]
-     * @return mixed
      */
     public function getOption(int $level, int $name): mixed
     {
