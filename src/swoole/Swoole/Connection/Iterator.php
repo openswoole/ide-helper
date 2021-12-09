@@ -9,7 +9,7 @@ declare(strict_types=1);
  */
 namespace Swoole\Connection;
 
-class Iterator implements \Iterator, \ArrayAccess, \Countable
+class Iterator implements \Iterator, \Traversable, \ArrayAccess, \Countable
 {
     public function __construct()
     {
@@ -62,35 +62,35 @@ class Iterator implements \Iterator, \ArrayAccess, \Countable
     }
 
     /**
-     * @param mixed $fd
+     * @param mixed $key [required]
      * @return mixed
      */
-    public function offsetExists($fd)
+    public function offsetExists($key)
     {
     }
 
     /**
-     * @param mixed $fd
+     * @param mixed $key [required]
      * @return mixed
      */
-    public function offsetGet($fd)
+    public function offsetGet($key)
     {
     }
 
     /**
-     * @param mixed $fd
-     * @param mixed $value
+     * @param mixed $key [required]
+     * @param mixed $value [required]
      * @return mixed
      */
-    public function offsetSet($fd, $value)
+    public function offsetSet($key, $value)
     {
     }
 
     /**
-     * @param mixed $fd
+     * @param mixed $key [required]
      * @return mixed
      */
-    public function offsetUnset($fd)
+    public function offsetUnset($key)
     {
     }
 }

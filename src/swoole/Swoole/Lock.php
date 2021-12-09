@@ -19,57 +19,48 @@ class Lock
 
     public const RWLOCK = 1;
 
-    public const SPINLOCK = 5;
+    public $errCode;
 
-    public $errCode = 0;
+    /**
+     * @param int $type [optional] = \SWOOLE_MUTEX
+     * @param string $lockFile [optional] = ''
+     */
+    public function __construct(int $type = \SWOOLE_MUTEX, string $lockFile = '')
+    {
+    }
 
-    public function __construct(int $type = self::MUTEX, string $filename = '')
+    public function __destruct()
+    {
+    }
+
+    public function lock(): bool
     {
     }
 
     /**
-     * @return bool
+     * @param float $timeout [optional] = 1
      */
-    public function lock()
+    public function lockwait(float $timeout = 1): bool
     {
     }
 
-    /**
-     * @return bool
-     */
-    public function lockwait(float $timeout = 1.0)
+    public function trylock(): bool
     {
     }
 
-    /**
-     * @return bool
-     */
-    public function trylock()
+    public function lock_read(): bool
     {
     }
 
-    /**
-     * @return bool
-     */
-    public function lock_read()
+    public function trylock_read(): bool
     {
     }
 
-    /**
-     * @return bool
-     */
-    public function trylock_read()
+    public function unlock(): bool
     {
     }
 
-    /**
-     * @return bool
-     */
-    public function unlock()
-    {
-    }
-
-    public function destroy()
+    public function destroy(): void
     {
     }
 }

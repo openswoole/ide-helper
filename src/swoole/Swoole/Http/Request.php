@@ -11,9 +11,7 @@ namespace Swoole\Http;
 
 class Request
 {
-    public $fd = 0;
-
-    public $streamId = 0;
+    public $fd;
 
     public $header;
 
@@ -33,54 +31,37 @@ class Request
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function rawContent()
+    public function rawContent(): string|bool
+    {
+    }
+
+    public function getContent(): string|bool
+    {
+    }
+
+    public function getData(): string|bool
     {
     }
 
     /**
-     * @return mixed
+     * @param array|null $options [required]
      */
-    public function getContent()
+    public static function create(?array $options): Swoole\Http\Request|bool
     {
     }
 
     /**
-     * @return mixed
+     * @param string $data [required]
      */
-    public function getData()
+    public function parse(string $data): int|false
     {
     }
 
-    /**
-     * @param mixed|null $options
-     * @return mixed
-     */
-    public static function create($options = null)
+    public function isCompleted(): bool
     {
     }
 
-    /**
-     * @param mixed $data
-     * @return mixed
-     */
-    public function parse($data)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function isCompleted()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMethod()
+    public function getMethod(): string|bool
     {
     }
 }

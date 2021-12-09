@@ -9,11 +9,11 @@ declare(strict_types=1);
  */
 namespace Swoole;
 
-class ExitException extends Exception
+class ExitException extends \Swoole\Exception
 {
-    private $flags = 0;
+    private $flags;
 
-    private $status = 0;
+    private $status;
 
     /**
      * @return mixed

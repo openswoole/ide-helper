@@ -15,9 +15,9 @@ class Client
 
     public const MSG_PEEK = 2;
 
-    public const MSG_DONTWAIT = 64;
+    public const MSG_DONTWAIT = 128;
 
-    public const MSG_WAITALL = 256;
+    public const MSG_WAITALL = 64;
 
     public const SHUT_RDWR = 2;
 
@@ -25,21 +25,26 @@ class Client
 
     public const SHUT_WR = 1;
 
-    public $errCode = 0;
+    public $errCode;
 
-    public $sock = -1;
+    public $sock;
 
-    public $reuse = false;
+    public $reuse;
 
-    public $reuseCount = 0;
+    public $reuseCount;
 
-    public $type = 0;
+    public $type;
 
     public $id;
 
     public $setting;
 
-    public function __construct($type, $async = null, $id = null)
+    /**
+     * @param int $sockType [required]
+     * @param bool $async [optional] = false
+     * @param string $id [optional] = ''
+     */
+    public function __construct(int $sockType, bool $async = false, string $id = '')
     {
     }
 
@@ -48,123 +53,91 @@ class Client
     }
 
     /**
-     * @return mixed
+     * @param array $settings [required]
      */
-    public function set(array $settings)
+    public function set(array $settings): bool
     {
     }
 
     /**
-     * @param mixed $host
-     * @param mixed|null $port
-     * @param mixed|null $timeout
-     * @param mixed|null $sock_flag
-     * @return mixed
+     * @param string $host [required]
+     * @param int $port [required]
+     * @param float $timeout [optional] = 0.5
+     * @param int $sockFlag [optional] = 0
      */
-    public function connect($host, $port = null, $timeout = null, $sock_flag = null)
+    public function connect(string $host, int $port, float $timeout = 0.5, int $sockFlag = 0): bool
     {
     }
 
     /**
-     * @param mixed|null $size
-     * @param mixed|null $flag
-     * @return mixed
+     * @param int $length [optional] = 65535
+     * @param int $flags [optional] = 0
      */
-    public function recv($size = null, $flag = null)
+    public function recv(int $length = 65535, int $flags = 0): string|bool
     {
     }
 
     /**
-     * @param mixed $data
-     * @param mixed|null $flag
-     * @return mixed
+     * @param string $data [required]
+     * @param int $flags [optional] = 0
      */
-    public function send($data, $flag = null)
+    public function send(string $data, int $flags = 0): int|bool
     {
     }
 
     /**
-     * @param mixed $filename
-     * @param mixed|null $offset
-     * @param mixed|null $length
-     * @return mixed
+     * @param string $fileName [required]
+     * @param int $offset [optional] = 0
+     * @param int $length [optional] = 0
      */
-    public function sendfile($filename, $offset = null, $length = null)
+    public function sendfile(string $fileName, int $offset = 0, int $length = 0): bool
     {
     }
 
     /**
-     * @param mixed $ip
-     * @param mixed $port
-     * @param mixed $data
-     * @return mixed
+     * @param string $ip [required]
+     * @param int $port [required]
+     * @param string $data [required]
      */
-    public function sendto($ip, $port, $data)
+    public function sendto(string $ip, int $port, string $data): bool
     {
     }
 
     /**
-     * @param mixed $how
-     * @return mixed
+     * @param int $how [required]
      */
-    public function shutdown($how)
+    public function shutdown(int $how): bool
+    {
+    }
+
+    public function enableSSL(): bool
+    {
+    }
+
+    public function getPeerCert(): string|bool
+    {
+    }
+
+    public function verifyPeerCert(): bool
+    {
+    }
+
+    public function isConnected(): bool
+    {
+    }
+
+    public function getsockname(): array|bool
+    {
+    }
+
+    public function getpeername(): array|bool
     {
     }
 
     /**
-     * @return mixed
+     * @param bool $force [optional] = false
      */
-    public function enableSSL()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPeerCert()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function verifyPeerCert()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function isConnected()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getsockname()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getpeername()
-    {
-    }
-
-    /**
-     * @param mixed|null $force
-     * @return mixed
-     */
-    public function close($force = null)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSocket()
+    public function close(bool $force = false): bool
     {
     }
 }

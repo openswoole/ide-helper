@@ -33,7 +33,13 @@ class Process
 
     private $callback;
 
-    public function __construct(callable $callback, $redirect_stdin_and_stdout = null, $pipe_type = null, $enable_coroutine = null)
+    /**
+     * @param callable $callback [required]
+     * @param bool $redirectStdIO [optional] = false
+     * @param int $pipeType [optional] = \SOCK_DGRAM
+     * @param bool $enableCoroutine [optional] = false
+     */
+    public function __construct(callable $callback, bool $redirectStdIO = false, int $pipeType = \SOCK_DGRAM, bool $enableCoroutine = false)
     {
     }
 
@@ -42,189 +48,160 @@ class Process
     }
 
     /**
-     * @param mixed|null $blocking
-     * @return mixed
+     * @param bool $blocking [optional] = 1
      */
-    public static function wait($blocking = null)
+    public static function wait(bool $blocking = 1): array|bool
     {
     }
 
     /**
-     * @param mixed $signal_no
-     * @param mixed $callback
-     * @return mixed
+     * @param int $sigNo [required]
+     * @param callable|null $callback [optional] = null
      */
-    public static function signal($signal_no, $callback)
+    public static function signal(int $sigNo, ?callable $callback = null): bool
     {
     }
 
     /**
-     * @param mixed $usec
-     * @param mixed|null $type
-     * @return mixed
+     * @param int $intervalUsec [required]
+     * @param int $type [optional]
      */
-    public static function alarm($usec, $type = null)
+    public static function alarm(int $intervalUsec, int $type): bool
     {
     }
 
     /**
-     * @param mixed $pid
-     * @param mixed|null $signal_no
-     * @return mixed
+     * @param int $pid [required]
+     * @param int $sigNo [optional] = \SIGTERM
      */
-    public static function kill($pid, $signal_no = null)
+    public static function kill(int $pid, int $sigNo = \SIGTERM): bool
     {
     }
 
     /**
-     * @param mixed|null $nochdir
-     * @param mixed|null $noclose
-     * @param mixed|null $pipes
-     * @return mixed
+     * @param bool $noChdir [optional] = true
+     * @param bool $noClose [optional] = true
+     * @param array|null $pipes [optional] = null
      */
-    public static function daemon($nochdir = null, $noclose = null, $pipes = null)
+    public static function daemon(bool $noChdir = true, bool $noClose = true, ?array $pipes = null): bool
     {
     }
 
     /**
-     * @param mixed $which
-     * @param mixed $priority
-     * @return mixed
+     * @param int $which [required]
+     * @param int $priority [required]
      */
-    public function setPriority($which, $priority)
+    public function setPriority(int $which, int $priority): bool
     {
     }
 
     /**
-     * @param mixed $which
-     * @return mixed
+     * @param int $which [required]
      */
-    public function getPriority($which)
+    public function getPriority(int $which): int
     {
     }
 
     /**
-     * @return mixed
+     * @param array $settings [required]
      */
-    public function set(array $settings)
+    public function set(array $settings): void
     {
     }
 
     /**
-     * @param mixed $seconds
-     * @return mixed
+     * @param float $timeout [required]
      */
-    public function setTimeout($seconds)
+    public function setTimeout(float $timeout): void
     {
     }
 
     /**
-     * @param mixed $blocking
-     * @return mixed
+     * @param bool $blocking [required]
      */
-    public function setBlocking($blocking)
+    public function setBlocking(bool $blocking): void
     {
     }
 
     /**
-     * @param mixed|null $key
-     * @param mixed|null $mode
-     * @param mixed|null $capacity
-     * @return mixed
+     * @param int $key [optional] = 0
+     * @param int $mode [optional] = 2
+     * @param int $capacity [optional] = -1
      */
-    public function useQueue($key = null, $mode = null, $capacity = null)
+    public function useQueue(int $key = 0, int $mode = 2, int $capacity = -1): bool
+    {
+    }
+
+    public function statQueue(): array|bool
+    {
+    }
+
+    public function freeQueue(): bool
+    {
+    }
+
+    public function start(): int|bool
     {
     }
 
     /**
-     * @return mixed
+     * @param string $data [required]
      */
-    public function statQueue()
+    public function write(string $data): int|bool
     {
     }
 
     /**
-     * @return mixed
+     * @param int $reason [optional] = 0
      */
-    public function freeQueue()
+    public function close(int $reason = 0): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param int $bufferSize [optional] = 8192
      */
-    public function start()
+    public function read(int $bufferSize = 8192): string|bool
     {
     }
 
     /**
-     * @param mixed $data
-     * @return mixed
+     * @param string $data [required]
      */
-    public function write($data)
+    public function push(string $data): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param int $maxSize [optional] = 8192
      */
-    public function close()
+    public function pop(int $maxSize = 8192): string|bool
     {
     }
 
     /**
-     * @param mixed|null $size
-     * @return mixed
+     * @param int $status [optional] = 0
      */
-    public function read($size = null)
+    public function exit(int $status = 0): int
     {
     }
 
     /**
-     * @param mixed $data
-     * @return mixed
+     * @param string $execFile [required]
+     * @param array $args [required]
      */
-    public function push($data)
+    public function exec(string $execFile, array $args): bool
+    {
+    }
+
+    public function exportSocket(): Swoole\Coroutine\Socket|false
     {
     }
 
     /**
-     * @param mixed|null $size
-     * @return mixed
+     * @param string $processName [required]
      */
-    public function pop($size = null)
-    {
-    }
-
-    /**
-     * @param mixed|null $exit_code
-     * @return mixed
-     */
-    public function exit($exit_code = null)
-    {
-    }
-
-    /**
-     * @param mixed $exec_file
-     * @param mixed $args
-     * @return mixed
-     */
-    public function exec($exec_file, $args)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function exportSocket()
-    {
-    }
-
-    /**
-     * @param mixed $process_name
-     * @return mixed
-     */
-    public function name($process_name)
+    public function name(string $processName): bool
     {
     }
 }

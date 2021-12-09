@@ -11,13 +11,13 @@ namespace Swoole\Server;
 
 class StatusInfo
 {
-    public $worker_id = 0;
+    public $worker_id;
 
-    public $worker_pid = 0;
+    public $worker_pid;
 
-    public $status = 0;
+    public $status;
 
-    public $exit_code = 0;
+    public $exit_code;
 
-    public $signal = 0;
+    public $signal;
 }

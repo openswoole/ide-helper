@@ -13,21 +13,21 @@ class MySQL
 {
     public $serverInfo;
 
-    public $sock = -1;
+    public $sock;
 
-    public $connected = false;
+    public $connected;
 
-    public $connect_errno = 0;
+    public $connect_errno;
 
-    public $connect_error = '';
+    public $connect_error;
 
-    public $affected_rows = 0;
+    public $affected_rows;
 
-    public $insert_id = 0;
+    public $insert_id;
 
-    public $error = '';
+    public $error;
 
-    public $errno = 0;
+    public $errno;
 
     public function __construct()
     {
@@ -45,26 +45,27 @@ class MySQL
     }
 
     /**
-     * @param mixed|null $defer
+     * @param mixed $defer [optional]
      * @return mixed
      */
-    public function setDefer($defer = null)
+    public function setDefer($defer)
     {
     }
 
     /**
+     * @param array $server_config [optional]
      * @return mixed
      */
-    public function connect(array $server_config = null)
+    public function connect(array $server_config)
     {
     }
 
     /**
-     * @param mixed $sql
-     * @param mixed|null $timeout
+     * @param mixed $sql [required]
+     * @param mixed $timeout [optional]
      * @return mixed
      */
-    public function query($sql, $timeout = null)
+    public function query($sql, $timeout)
     {
     }
 
@@ -90,11 +91,11 @@ class MySQL
     }
 
     /**
-     * @param mixed $query
-     * @param mixed|null $timeout
+     * @param mixed $query [required]
+     * @param mixed $timeout [optional]
      * @return mixed
      */
-    public function prepare($query, $timeout = null)
+    public function prepare($query, $timeout)
     {
     }
 
@@ -106,35 +107,26 @@ class MySQL
     }
 
     /**
-     * @param mixed|null $timeout
+     * @param mixed $timeout [optional]
      * @return mixed
      */
-    public function begin($timeout = null)
+    public function begin($timeout)
     {
     }
 
     /**
-     * @param mixed|null $timeout
+     * @param mixed $timeout [optional]
      * @return mixed
      */
-    public function commit($timeout = null)
+    public function commit($timeout)
     {
     }
 
     /**
-     * @param mixed|null $timeout
+     * @param mixed $timeout [optional]
      * @return mixed
      */
-    public function rollback($timeout = null)
-    {
-    }
-
-    /**
-     * @param mixed $string
-     * @param mixed|null $flags
-     * @return mixed
-     */
-    public function escape($string, $flags = null)
+    public function rollback($timeout)
     {
     }
 

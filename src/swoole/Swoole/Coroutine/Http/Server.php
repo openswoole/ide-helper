@@ -9,23 +9,29 @@ declare(strict_types=1);
  */
 namespace Swoole\Coroutine\Http;
 
-class Server
+final class Server
 {
-    public $fd = -1;
+    public $fd;
 
     public $host;
 
-    public $port = -1;
+    public $port;
 
-    public $ssl = false;
+    public $ssl;
 
     public $settings;
 
-    public $errCode = 0;
+    public $errCode;
 
-    public $errMsg = '';
+    public $errMsg;
 
-    public function __construct($host, $port = null, $ssl = null, $reuse_port = null)
+    /**
+     * @param mixed $host [required]
+     * @param mixed $port [optional]
+     * @param mixed $ssl [optional]
+     * @param mixed $reuse_port [optional]
+     */
+    public function __construct($host, $port, $ssl, $reuse_port)
     {
     }
 
@@ -34,6 +40,7 @@ class Server
     }
 
     /**
+     * @param array $settings [required]
      * @return mixed
      */
     public function set(array $settings)
@@ -41,7 +48,8 @@ class Server
     }
 
     /**
-     * @param mixed $pattern
+     * @param mixed $pattern [required]
+     * @param callable $callback [required]
      * @return mixed
      */
     public function handle($pattern, callable $callback)

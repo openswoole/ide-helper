@@ -11,266 +11,235 @@ namespace Swoole\Coroutine;
 
 class Socket
 {
-    public $fd = -1;
+    public $fd;
 
-    public $domain = 0;
+    public $domain;
 
-    public $type = 0;
+    public $type;
 
-    public $protocol = 0;
+    public $protocol;
 
-    public $errCode = 0;
+    public $errCode;
 
-    public $errMsg = '';
+    public $errMsg;
 
-    public function __construct($domain, $type, $protocol = null)
+    /**
+     * @param int $domain [required]
+     * @param int $type [required]
+     * @param int $protocol [optional] = \IPPROTO_IP
+     */
+    public function __construct(int $domain, int $type, int $protocol = \IPPROTO_IP)
     {
     }
 
     /**
-     * @param mixed $address
-     * @param mixed|null $port
-     * @return mixed
+     * @param string $address [required]
+     * @param int $port [optional] = 0
      */
-    public function bind($address, $port = null)
+    public function bind(string $address, int $port = 0): bool
     {
     }
 
     /**
-     * @param mixed|null $backlog
-     * @return mixed
+     * @param int $backlog [optional] = 512
      */
-    public function listen($backlog = null)
+    public function listen(int $backlog = 512): bool
     {
     }
 
     /**
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param float $timeout [optional] = 0
      */
-    public function accept($timeout = null)
+    public function accept(float $timeout = 0): Swoole\Coroutine\Socket|false
     {
     }
 
     /**
-     * @param mixed $host
-     * @param mixed|null $port
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param string $host [required]
+     * @param int $port [optional] = 0
+     * @param float $timeout [optional] = 0
+     * @return ?mixed
      */
-    public function connect($host, $port = null, $timeout = null)
+    public function connect(string $host, int $port = 0, float $timeout = 0): ?mixed
+    {
+    }
+
+    public function checkLiveness(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param int $length [optional] = 65536
      */
-    public function checkLiveness()
+    public function peek(int $length = 65536): string|bool
     {
     }
 
     /**
-     * @param mixed|null $length
-     * @return mixed
+     * @param int $length [optional] = 65536
+     * @param float $timeout [optional] = 0
      */
-    public function peek($length = null)
+    public function recv(int $length = 65536, float $timeout = 0): string|bool
     {
     }
 
     /**
-     * @param mixed|null $length
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param int $length [optional] = 65536
+     * @param float $timeout [optional] = 0
      */
-    public function recv($length = null, $timeout = null)
+    public function recvAll(int $length = 65536, float $timeout = 0): string|bool
     {
     }
 
     /**
-     * @param mixed|null $length
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param int $length [optional] = 65536
+     * @param float $timeout [optional] = 0
      */
-    public function recvAll($length = null, $timeout = null)
+    public function recvLine(int $length = 65536, float $timeout = 0): string|bool
     {
     }
 
     /**
-     * @param mixed|null $length
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param int $length [optional] = 65536
+     * @param float $timeout [optional] = 0
      */
-    public function recvLine($length = null, $timeout = null)
+    public function recvWithBuffer(int $length = 65536, float $timeout = 0): string|bool
     {
     }
 
     /**
-     * @param mixed|null $length
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param float $timeout [optional] = 0
      */
-    public function recvWithBuffer($length = null, $timeout = null)
+    public function recvPacket(float $timeout = 0): string|bool
     {
     }
 
     /**
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param string $data [required]
+     * @param float $timeout [optional] = 0
      */
-    public function recvPacket($timeout = null)
+    public function send(string $data, float $timeout = 0): int|bool
     {
     }
 
     /**
-     * @param mixed $data
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param array $ioVector [required]
+     * @param float $timeout [optional] = 0
      */
-    public function send($data, $timeout = null)
+    public function readVector(array $ioVector, float $timeout = 0): array|bool
     {
     }
 
     /**
-     * @param mixed $io_vector
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param array $ioVector [required]
+     * @param float $timeout [optional] = 0
      */
-    public function readVector($io_vector, $timeout = null)
+    public function readVectorAll(array $ioVector, float $timeout = 0): array|bool
     {
     }
 
     /**
-     * @param mixed $io_vector
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param array $ioVector [required]
+     * @param float $timeout [optional] = 0
      */
-    public function readVectorAll($io_vector, $timeout = null)
+    public function writeVector(array $ioVector, float $timeout = 0): int|bool
     {
     }
 
     /**
-     * @param mixed $io_vector
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param array $ioVector [required]
+     * @param float $timeout [optional] = 0
      */
-    public function writeVector($io_vector, $timeout = null)
+    public function writeVectorAll(array $ioVector, float $timeout = 0): int|bool
     {
     }
 
     /**
-     * @param mixed $io_vector
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param string $fileName [required]
+     * @param int $offset [optional] = 0
+     * @param int $length [optional] = 0
      */
-    public function writeVectorAll($io_vector, $timeout = null)
+    public function sendFile(string $fileName, int $offset = 0, int $length = 0): bool
     {
     }
 
     /**
-     * @param mixed $filename
-     * @param mixed|null $offset
-     * @param mixed|null $length
-     * @return mixed
+     * @param string $data [required]
+     * @param float $timeout [optional] = 0
      */
-    public function sendFile($filename, $offset = null, $length = null)
+    public function sendAll(string $data, float $timeout = 0): int|bool
     {
     }
 
     /**
-     * @param mixed $data
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param mixed $peerName [required]
+     * @param float $timeout [optional] = 0
      */
-    public function sendAll($data, $timeout = null)
+    public function recvfrom(& $peerName, float $timeout = 0): string|bool
     {
     }
 
     /**
-     * @param mixed $peername
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param string $addr [required]
+     * @param int $port [required]
+     * @param string $data [required]
      */
-    public function recvfrom(&$peername, $timeout = null)
+    public function sendto(string $addr, int $port, string $data): int|bool
     {
     }
 
     /**
-     * @param mixed $addr
-     * @param mixed $port
-     * @param mixed $data
-     * @return mixed
+     * @param int $level [required]
+     * @param int $name [required]
+     * @return ?mixed
      */
-    public function sendto($addr, $port, $data)
+    public function getOption(int $level, int $name): ?mixed
     {
     }
 
     /**
-     * @param mixed $level
-     * @param mixed $opt_name
-     * @return mixed
+     * @param array $settings [required]
      */
-    public function getOption($level, $opt_name)
+    public function setProtocol(array $settings): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param int $level [required]
+     * @param int $name [required]
+     * @param mixed $value [required]
      */
-    public function setProtocol(array $settings)
+    public function setOption(int $level, int $name, $value): bool
+    {
+    }
+
+    public function sslHandshake(): bool
     {
     }
 
     /**
-     * @param mixed $level
-     * @param mixed $opt_name
-     * @param mixed $opt_value
-     * @return mixed
+     * @param int $how [optional] = 0
      */
-    public function setOption($level, $opt_name, $opt_value)
+    public function shutdown(int $how = 0): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param int $event [optional] = \SWOOLE_EVENT_READ
      */
-    public function sslHandshake()
+    public function cancel(int $event = \SWOOLE_EVENT_READ): bool
     {
     }
 
-    /**
-     * @param mixed|null $how
-     * @return mixed
-     */
-    public function shutdown($how = null)
+    public function close(): bool
     {
     }
 
-    /**
-     * @param mixed|null $event
-     * @return mixed
-     */
-    public function cancel($event = null)
+    public function getpeername(): array|bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function close()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getpeername()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getsockname()
+    public function getsockname(): array|bool
     {
     }
 }

@@ -9,31 +9,29 @@ declare(strict_types=1);
  */
 namespace Swoole\Server;
 
-class Task
+final class Task
 {
     public $data;
 
-    public $dispatch_time = 0;
+    public $dispatch_time;
 
-    public $id = -1;
+    public $id;
 
-    public $worker_id = -1;
+    public $worker_id;
 
-    public $flags = 0;
+    public $flags;
 
     /**
-     * @param mixed $data
-     * @return mixed
+     * @param mixed $data [required]
      */
-    public function finish($data)
+    public function finish($data): bool
     {
     }
 
     /**
-     * @param mixed $data
-     * @return mixed
+     * @param mixed $data [required]
      */
-    public static function pack($data)
+    public static function pack($data): string|bool
     {
     }
 }

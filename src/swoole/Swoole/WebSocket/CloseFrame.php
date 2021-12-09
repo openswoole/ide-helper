@@ -9,11 +9,11 @@ declare(strict_types=1);
  */
 namespace Swoole\WebSocket;
 
-class CloseFrame extends Frame
+class CloseFrame extends \Swoole\WebSocket\Frame
 {
-    public $opcode = 8;
+    public $opcode;
 
-    public $code = 1000;
+    public $code;
 
-    public $reason = '';
+    public $reason;
 }

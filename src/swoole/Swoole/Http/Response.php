@@ -11,7 +11,7 @@ namespace Swoole\Http;
 
 class Response
 {
-    public $fd = 0;
+    public $fd;
 
     public $socket;
 
@@ -25,208 +25,158 @@ class Response
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function initHeader()
+    public function initHeader(): bool
+    {
+    }
+
+    public function isWritable(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param string $key [required]
+     * @param string|null $value [optional] = null
+     * @param int $expire [optional] = 0
+     * @param string $path [optional] = ''
+     * @param string $domain [optional] = ''
+     * @param bool $secure [optional] = false
+     * @param bool $httpOnly [optional] = false
+     * @param string $sameSite [optional] = ''
+     * @param string $priority [optional] = ''
      */
-    public function isWritable()
+    public function cookie(string $key, ?string $value = null, int $expire = 0, string $path = '', string $domain = '', bool $secure = false, bool $httpOnly = false, string $sameSite = '', string $priority = ''): bool
     {
     }
 
     /**
-     * @param mixed $name
-     * @param mixed|null $value
-     * @param mixed|null $expires
-     * @param mixed|null $path
-     * @param mixed|null $domain
-     * @param mixed|null $secure
-     * @param mixed|null $httponly
-     * @param mixed|null $samesite
-     * @param mixed|null $priority
-     * @return mixed
+     * @param string $key [required]
+     * @param string|null $value [optional] = null
+     * @param int $expire [optional] = 0
+     * @param string $path [optional] = ''
+     * @param string $domain [optional] = ''
+     * @param bool $secure [optional] = false
+     * @param bool $httpOnly [optional] = false
+     * @param string $sameSite [optional] = ''
+     * @param string $priority [optional] = ''
      */
-    public function cookie($name, $value = null, $expires = null, $path = null, $domain = null, $secure = null, $httponly = null, $samesite = null, $priority = null)
+    public function setCookie(string $key, ?string $value = null, int $expire = 0, string $path = '', string $domain = '', bool $secure = false, bool $httpOnly = false, string $sameSite = '', string $priority = ''): bool
     {
     }
 
     /**
-     * @param mixed $name
-     * @param mixed|null $value
-     * @param mixed|null $expires
-     * @param mixed|null $path
-     * @param mixed|null $domain
-     * @param mixed|null $secure
-     * @param mixed|null $httponly
-     * @param mixed|null $samesite
-     * @param mixed|null $priority
-     * @return mixed
+     * @param string $key [required]
+     * @param string|null $value [optional] = null
+     * @param int $expire [optional] = 0
+     * @param string $path [optional] = ''
+     * @param string $domain [optional] = ''
+     * @param bool $secure [optional] = false
+     * @param bool $httpOnly [optional] = false
+     * @param string $sameSite [optional] = ''
+     * @param string $priority [optional] = ''
      */
-    public function setCookie($name, $value = null, $expires = null, $path = null, $domain = null, $secure = null, $httponly = null, $samesite = null, $priority = null)
+    public function rawcookie(string $key, ?string $value = null, int $expire = 0, string $path = '', string $domain = '', bool $secure = false, bool $httpOnly = false, string $sameSite = '', string $priority = ''): bool
     {
     }
 
     /**
-     * @param mixed $name
-     * @param mixed|null $value
-     * @param mixed|null $expires
-     * @param mixed|null $path
-     * @param mixed|null $domain
-     * @param mixed|null $secure
-     * @param mixed|null $httponly
-     * @param mixed|null $samesite
-     * @param mixed|null $priority
-     * @return mixed
+     * @param int $statusCode [required]
+     * @param string $reason [optional] = ''
      */
-    public function rawcookie($name, $value = null, $expires = null, $path = null, $domain = null, $secure = null, $httponly = null, $samesite = null, $priority = null)
+    public function status(int $statusCode, string $reason = ''): bool
     {
     }
 
     /**
-     * @param mixed $http_code
-     * @param mixed|null $reason
-     * @return mixed
+     * @param int $statusCode [required]
+     * @param string $reason [optional] = ''
      */
-    public function status($http_code, $reason = null)
+    public function setStatusCode(int $statusCode, string $reason = ''): bool
     {
     }
 
     /**
-     * @param mixed $http_code
-     * @param mixed|null $reason
-     * @return mixed
+     * @param string $key [required]
+     * @param string $value [required]
+     * @param bool $format [optional] = true
      */
-    public function setStatusCode($http_code, $reason = null)
+    public function header(string $key, string $value, bool $format = true): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $format
-     * @return mixed
+     * @param string $key [required]
+     * @param string $value [required]
+     * @param bool $format [optional] = true
      */
-    public function header($key, $value, $format = null)
+    public function setHeader(string $key, string $value, bool $format = true): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $format
-     * @return mixed
+     * @param string $data [required]
      */
-    public function setHeader($key, $value, $format = null)
+    public function write(string $data): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string|null $data [optional] = null
      */
-    public function trailer($key, $value)
+    public function end(?string $data = null): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param string $fileName [required]
+     * @param int $offset [optional] = 0
+     * @param int $length [optional] = 0
      */
-    public function ping()
+    public function sendfile(string $fileName, int $offset = 0, int $length = 0): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param string $url [required]
+     * @param int $status_code [optional] = 302
+     * @return ?bool
      */
-    public function goaway()
+    public function redirect(string $url, int $status_code = 302): ?bool
+    {
+    }
+
+    public function detach(): bool
     {
     }
 
     /**
-     * @param mixed $content
-     * @return mixed
+     * @param mixed $server [optional] = -1
+     * @param int $fd [optional] = -1
      */
-    public function write($content)
+    public static function create($server = -1, int $fd = -1): Swoole\Http\Response|bool
+    {
+    }
+
+    public function upgrade(): bool
     {
     }
 
     /**
-     * @param mixed|null $content
-     * @return mixed
+     * @param Swoole\WebSocket\Frame|string $data [required]
+     * @param int $opcode [optional] = \SWOOLE_WEBSOCKET_OPCODE_TEXT
+     * @param int $flags [optional] = \SWOOLE_WEBSOCKET_FLAG_FIN
      */
-    public function end($content = null)
+    public function push($data, int $opcode = \SWOOLE_WEBSOCKET_OPCODE_TEXT, int $flags = \SWOOLE_WEBSOCKET_FLAG_FIN): bool
     {
     }
 
     /**
-     * @param mixed $filename
-     * @param mixed|null $offset
-     * @param mixed|null $length
-     * @return mixed
+     * @param float $timeout [optional] = 0
      */
-    public function sendfile($filename, $offset = null, $length = null)
+    public function recv(float $timeout = 0): Swoole\WebSocket\Frame|string|bool
     {
     }
 
-    /**
-     * @param mixed $location
-     * @param mixed|null $http_code
-     * @return mixed
-     */
-    public function redirect($location, $http_code = null)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function detach()
-    {
-    }
-
-    /**
-     * @param mixed $server
-     * @param mixed|null $fd
-     * @return mixed
-     */
-    public static function create($server, $fd = null)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function upgrade()
-    {
-    }
-
-    /**
-     * @param mixed $data
-     * @param mixed|null $opcode
-     * @param mixed|null $flags
-     * @return mixed
-     */
-    public function push($data, $opcode = null, $flags = null)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function recv()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function close()
+    public function close(): bool
     {
     }
 }
