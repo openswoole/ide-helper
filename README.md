@@ -1,6 +1,6 @@
 # Open Swoole IDE Helper
 
-[![Latest Stable Version](https://poser.pugx.org/openswoole/ide-helper/v/stable.svg)](https://packagist.org/packages/openswoole/ide-helper)
+[![Latest Stable Version](https://img.shields.io/packagist/v/openswoole/ide-helper.svg)](https://packagist.org/packages/openswoole/ide-helper)
 [![License](https://poser.pugx.org/openswoole/ide-helper/license)](LICENSE)
 
 This package contains IDE help files for [OpenSwoole](https://github.com/openswoole/swoole-src). You may use it in your IDE to provide accurate autocompletion. 
