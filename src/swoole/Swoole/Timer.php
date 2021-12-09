@@ -1,71 +1,65 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole;
 
 class Timer
 {
     /**
-     * @return void
+     * @param array $settings [required]
      */
-    public static function set(array $settings)
+    public static function set(array $settings): bool
     {
     }
 
     /**
-     * @return int
-     */
-    public static function tick(int $ms, callable $callback, ...$params)
-    {
-    }
-
-    /**
-     * @return int
+     * @param int $ms [required]
+     * @param callable $callback [required]
+     * @param mixed ...$params
      */
     public static function after(int $ms, callable $callback, ...$params)
     {
     }
 
     /**
-     * @return bool
+     * @param int $ms [required]
+     * @param callable $callback [required]
+     * @param mixed ...$params
      */
-    public static function exists(int $timer_id)
+    public static function tick(int $ms, callable $callback, ...$params)
+    {
+    }
+
+    public static function exists(): bool
+    {
+    }
+
+    public static function info()
+    {
+    }
+
+    public static function stats(): array
     {
     }
 
     /**
-     * @return array
+     * @return \Swoole\Timer\Iterator
      */
-    public static function info(int $timer_id)
+    public static function list(): Timer\Iterator
     {
     }
 
-    /**
-     * @return array
-     */
-    public static function stats()
+    public static function clear(): bool
     {
     }
 
-    /**
-     * @return \Swoole\timer\Iterator
-     */
-    public static function list()
-    {
-    }
-
-    /**
-     * @return bool
-     */
-    public static function clear(int $timer_id)
-    {
-    }
-
-    /**
-     * @return bool
-     */
-    public static function clearAll()
+    public static function clearAll(): bool
     {
     }
 }

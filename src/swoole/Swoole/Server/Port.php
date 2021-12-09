@@ -1,18 +1,23 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Server;
 
 class Port
 {
     public $host;
 
-    public $port = 0;
+    public $port;
 
-    public $type = 0;
+    public $type;
 
-    public $sock = -1;
+    public $sock;
 
     public $setting;
 
@@ -49,32 +54,26 @@ class Port
     }
 
     /**
-     * @return mixed
+     * @param array $settings [required]
+     * @return ?bool
      */
-    public function set(array $settings)
+    public function set(array $settings): ?bool
     {
     }
 
     /**
-     * @param mixed $event_name
-     * @return mixed
+     * @param string $event [required]
+     * @param callable $callback [required]
      */
-    public function on($event_name, callable $callback)
+    public function on(string $event, callable $callback): bool
     {
     }
 
     /**
-     * @param mixed $event_name
-     * @return mixed
+     * @param string $event [required]
+     * @return ?callable
      */
-    public function getCallback($event_name)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSocket()
+    public function getCallback(string $event): ?callable
     {
     }
 }

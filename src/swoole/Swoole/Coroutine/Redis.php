@@ -1,28 +1,36 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Coroutine;
 
 class Redis
 {
-    public $host = '';
+    public $host;
 
-    public $port = 0;
+    public $port;
 
     public $setting;
 
-    public $sock = -1;
+    public $sock;
 
-    public $connected = false;
+    public $connected;
 
-    public $errType = 0;
+    public $errType;
 
-    public $errCode = 0;
+    public $errCode;
 
-    public $errMsg = '';
+    public $errMsg;
 
-    public function __construct($config = null)
+    /**
+     * @param array $setting [optional] = []
+     */
+    public function __construct(array $setting = [])
     {
     }
 
@@ -31,1455 +39,1269 @@ class Redis
     }
 
     /**
-     * @param mixed $host
-     * @param mixed|null $port
-     * @param mixed|null $serialize
-     * @return mixed
+     * @param string $host [required]
+     * @param int $port [required]
+     * @param bool $serialize [optional] = false
      */
-    public function connect($host, $port = null, $serialize = null)
+    public function connect(string $host, int $port, bool $serialize = false): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAuth()
+    public function getAuth(): mixed
     {
     }
 
-    /**
-     * @return mixed
-     */
     public function getDBNum()
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function getOptions()
+    public function getOptions(): array
     {
     }
 
     /**
-     * @param mixed $options
-     * @return mixed
+     * @param array $options [required]
      */
-    public function setOptions($options)
+    public function setOptions(array $options): bool
+    {
+    }
+
+    public function getDefer(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param bool $defer [optional] = true
      */
-    public function getDefer()
+    public function setDefer(bool $defer = true): bool
+    {
+    }
+
+    public function recv(): mixed
     {
     }
 
     /**
-     * @param mixed $defer
-     * @return mixed
+     * @param array $params [required]
      */
-    public function setDefer($defer)
+    public function request(array $params): void
+    {
+    }
+
+    public function close(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
+     * @param mixed $opt [optional] = null
      */
-    public function recv()
+    public function set(string $key, $value, $opt = null)
     {
     }
 
     /**
-     * @return mixed
+     * @param string $key [required]
+     * @param int $idx [required]
+     * @param bool $value [required]
      */
-    public function request(array $params)
+    public function setBit(string $key, int $idx, bool $value)
     {
     }
 
     /**
-     * @return mixed
+     * @param string $key [required]
+     * @param int $expire [required]
+     * @param mixed $value [required]
      */
-    public function close()
+    public function setEx(string $key, int $expire, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $timeout
-     * @param mixed|null $opt
-     * @return mixed
+     * @param string $key [required]
+     * @param int $expire [required]
+     * @param mixed $value [required]
      */
-    public function set($key, $value, $timeout = null, $opt = null)
+    public function psetEx(string $key, int $expire, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $offset
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param int $index [required]
+     * @param string $value [required]
      */
-    public function setBit($key, $offset, $value)
+    public function lSet(string $key, int $index, string $value): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $expire
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
      */
-    public function setEx($key, $expire, $value)
+    public function get(string $key)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $expire
-     * @param mixed $value
-     * @return mixed
+     * @param array $keys [required]
      */
-    public function psetEx($key, $expire, $value)
+    public function mGet(array $keys)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $index
-     * @param mixed $value
-     * @return mixed
+     * @param array|string $key [required]
+     * @param string ...$other_keys
      */
-    public function lSet($key, $index, $value)
+    public function del($key, string ...$other_keys)
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
+     * @param string ...$other_members
      */
-    public function get($key)
+    public function hDel(string $key, string $member, string ...$other_members): int
     {
     }
 
     /**
-     * @param mixed $keys
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
+     * @param string $value [required]
      */
-    public function mGet($keys)
+    public function hSet(string $key, string $member, string $value): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $key [required]
+     * @param array $keyvals [required]
      */
-    public function del($key, $other_keys = null)
+    public function hMSet(string $key, array $keyvals): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @param mixed|null $other_members
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
+     * @param string $value [required]
      */
-    public function hDel($key, $member, $other_members = null)
+    public function hSetNx(string $key, string $member, string $value): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @param mixed $value
-     * @return mixed
+     * @param array|string $key [required]
+     * @param string ...$other_keys
      */
-    public function hSet($key, $member, $value)
+    public function delete($key, string ...$other_keys)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $pairs
-     * @return mixed
+     * @param array $key_values [required]
      */
-    public function hMSet($key, $pairs)
+    public function mSet(array $key_values): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @param mixed $value
-     * @return mixed
+     * @param array $key_values [required]
      */
-    public function hSetNx($key, $member, $value)
+    public function mSetNx(array $key_values): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $pattern [required]
      */
-    public function delete($key, $other_keys = null)
+    public function getKeys(string $pattern)
     {
     }
 
     /**
-     * @param mixed $pairs
-     * @return mixed
+     * @param string $pattern [required]
      */
-    public function mSet($pairs)
+    public function keys(string $pattern)
     {
     }
 
     /**
-     * @param mixed $pairs
-     * @return mixed
+     * @param string $key [required]
      */
-    public function mSetNx($pairs)
+    public function exists(string $key)
     {
     }
 
     /**
-     * @param mixed $pattern
-     * @return mixed
+     * @param string $key [required]
      */
-    public function getKeys($pattern)
+    public function type(string $key)
     {
     }
 
     /**
-     * @param mixed $pattern
-     * @return mixed
+     * @param string $key [required]
      */
-    public function keys($pattern)
+    public function strLen(string $key)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $key [required]
      */
-    public function exists($key, $other_keys = null)
+    public function lPop(string $key)
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param array|string $key [required]
+     * @param string|int $timeout_or_key [required]
+     * @param mixed ...$extra_args
      */
-    public function type($key)
+    public function blPop($key, $timeout_or_key, ...$extra_args): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function strLen($key)
+    public function rPop(string $key)
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param array|string $key [required]
+     * @param string|int $timeout_or_key [required]
+     * @param mixed ...$extra_args
      */
-    public function lPop($key)
+    public function brPop($key, $timeout_or_key, ...$extra_args): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $timeout_or_key
-     * @param mixed|null $extra_args
-     * @return mixed
+     * @param string $src [required]
+     * @param string $dst [required]
+     * @param int $timeout [required]
      */
-    public function blPop($key, $timeout_or_key, $extra_args = null)
+    public function bRPopLPush(string $src, string $dst, int $timeout): string
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function rPop($key)
+    public function lSize(string $key): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $timeout_or_key
-     * @param mixed|null $extra_args
-     * @return mixed
+     * @param string $key [required]
      */
-    public function brPop($key, $timeout_or_key, $extra_args = null)
+    public function lLen(string $key): int
     {
     }
 
     /**
-     * @param mixed $src
-     * @param mixed $dst
-     * @param mixed $timeout
-     * @return mixed
+     * @param string $key [required]
      */
-    public function bRPopLPush($src, $dst, $timeout)
+    public function sSize(string $key): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function lSize($key)
+    public function scard(string $key): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
+     * @param int $count [optional] = 0
      */
-    public function lLen($key)
+    public function sPop(string $key, int $count = 0)
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function sSize($key)
+    public function sMembers(string $key): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function scard($key)
+    public function sGetMembers(string $key): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
+     * @param int $count [optional] = 0
      */
-    public function sPop($key)
+    public function sRandMember(string $key, int $count = 0)
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function sMembers($key)
+    public function persist(string $key): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function sGetMembers($key)
+    public function ttl(string $key): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed|null $count
-     * @return mixed
+     * @param string $key [required]
      */
-    public function sRandMember($key, $count = null)
+    public function pttl(string $key): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function persist($key)
+    public function zCard(string $key): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function ttl($key)
+    public function zSize(string $key): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function pttl($key)
+    public function hLen(string $key): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function zCard($key)
+    public function hKeys(string $key): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function zSize($key)
+    public function hVals(string $key): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function hLen($key)
+    public function hGetAll(string $key): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function hKeys($key)
+    public function debug(string $key): string
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
+     * @param int $timeout [required]
+     * @param string $value [required]
      */
-    public function hVals($key)
+    public function restore(string $key, int $timeout, string $value): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function hGetAll($key)
+    public function dump(string $key): string
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key_src [required]
+     * @param string $key_dst [required]
      */
-    public function debug($key)
+    public function renameKey(string $key_src, string $key_dst)
     {
     }
 
     /**
-     * @param mixed $ttl
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key_src [required]
+     * @param string $key_dst [required]
      */
-    public function restore($ttl, $key, $value)
+    public function rename(string $key_src, string $key_dst)
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key_src [required]
+     * @param string $key_dst [required]
      */
-    public function dump($key)
+    public function renameNx(string $key_src, string $key_dst)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $newkey
-     * @return mixed
+     * @param string $src [required]
+     * @param string $dst [required]
      */
-    public function renameKey($key, $newkey)
+    public function rpoplpush(string $src, string $dst): string
     {
     }
 
-    /**
-     * @param mixed $key
-     * @param mixed $newkey
-     * @return mixed
-     */
-    public function rename($key, $newkey)
-    {
-    }
-
-    /**
-     * @param mixed $key
-     * @param mixed $newkey
-     * @return mixed
-     */
-    public function renameNx($key, $newkey)
-    {
-    }
-
-    /**
-     * @param mixed $src
-     * @param mixed $dst
-     * @return mixed
-     */
-    public function rpoplpush($src, $dst)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
     public function randomKey()
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $elements
-     * @return mixed
+     * @param string $key [required]
+     * @param array $elements [required]
      */
-    public function pfadd($key, $elements)
+    public function pfadd(string $key, array $elements): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function pfcount($key)
+    public function pfcount(string $key): int
     {
     }
 
     /**
-     * @param mixed $dstkey
-     * @param mixed $keys
-     * @return mixed
+     * @param string $dst [required]
+     * @param array $keys [required]
      */
-    public function pfmerge($dstkey, $keys)
+    public function pfmerge(string $dst, array $keys): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param string|null $key [optional] = null
      */
-    public function ping()
+    public function ping(?string $key = null)
     {
     }
 
     /**
-     * @param mixed $password
-     * @return mixed
+     * @param mixed $credentials [required]
      */
-    public function auth($password)
+    public function auth($credentials): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
     public function unwatch()
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param array|string $key [required]
+     * @param string ...$other_keys
      */
-    public function watch($key, $other_keys = null)
+    public function watch($key, string ...$other_keys)
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function save()
+    public function save(): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function bgSave()
+    public function bgSave(): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function lastSave()
+    public function lastSave(): int
     {
     }
 
     /**
-     * @return mixed
+     * @param bool $async [optional] = false
      */
-    public function flushDB()
+    public function flushDB(bool $async = false): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param bool $async [optional] = false
      */
-    public function flushAll()
+    public function flushAll(bool $async = false): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function dbSize()
+    public function dbSize(): int
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function bgrewriteaof()
+    public function bgrewriteaof(): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function time()
+    public function time(): array
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function role()
+    public function role(): mixed
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $offset
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param string $value [required]
      */
-    public function setRange($key, $offset, $value)
+    public function setRange(string $key, int $start, string $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
      */
-    public function setNx($key, $value)
+    public function setNx(string $key, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
      */
-    public function getSet($key, $value)
+    public function getSet(string $key, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
      */
-    public function append($key, $value)
+    public function append(string $key, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
      */
-    public function lPushx($key, $value)
+    public function lPushx(string $key, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
      */
-    public function lPush($key, $value)
+    public function lPush(string $key, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
      */
-    public function rPush($key, $value)
+    public function rPush(string $key, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
      */
-    public function rPushx($key, $value)
+    public function rPushx(string $key, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
      */
-    public function sContains($key, $value)
+    public function sContains(string $key, $value): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
      */
-    public function sismember($key, $value)
+    public function sismember(string $key, $value): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $member [required]
      */
-    public function zScore($key, $member)
+    public function zScore(string $key, $member): float
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
      */
-    public function zRank($key, $member)
+    public function zRank(string $key, string $member): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
      */
-    public function zRevRank($key, $member)
+    public function zRevRank(string $key, string $member): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
      */
-    public function hGet($key, $member)
+    public function hGet(string $key, string $member): string
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $keys
-     * @return mixed
+     * @param string $key [required]
+     * @param array $keys [required]
      */
-    public function hMGet($key, $keys)
+    public function hMGet(string $key, array $keys): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
      */
-    public function hExists($key, $member)
+    public function hExists(string $key, string $member): bool
     {
     }
 
     /**
-     * @param mixed $channel
-     * @param mixed $message
-     * @return mixed
+     * @param string $channel [required]
+     * @param string $message [required]
      */
-    public function publish($channel, $message)
+    public function publish(string $channel, string $message): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed $member
-     * @return mixed
+     * @param string $key [required]
+     * @param float $value [required]
+     * @param mixed $member [required]
      */
-    public function zIncrBy($key, $value, $member)
+    public function zIncrBy(string $key, float $value, $member): float
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $score
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param int $score [required]
+     * @param string $value [required]
      */
-    public function zAdd($key, $score, $value)
+    public function zAdd(string $key, int $score, string $value): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $count
-     * @return mixed
+     * @param string $key [required]
+     * @param int|null $value [optional] = null
      */
-    public function zPopMin($key, $count)
+    public function zPopMin(string $key, ?int $value = null): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $count
-     * @return mixed
+     * @param string $key [required]
+     * @param int|null $value [optional] = null
      */
-    public function zPopMax($key, $count)
+    public function zPopMax(string $key, ?int $value = null): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $timeout_or_key
-     * @param mixed|null $extra_args
-     * @return mixed
+     * @param array|string $key [required]
+     * @param string|int $timeout_or_key [required]
+     * @param mixed ...$extra_args
      */
-    public function bzPopMin($key, $timeout_or_key, $extra_args = null)
+    public function bzPopMin($key, $timeout_or_key, ...$extra_args): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $timeout_or_key
-     * @param mixed|null $extra_args
-     * @return mixed
+     * @param array|string $key [required]
+     * @param string|int $timeout_or_key [required]
+     * @param mixed ...$extra_args
      */
-    public function bzPopMax($key, $timeout_or_key, $extra_args = null)
+    public function bzPopMax($key, $timeout_or_key, ...$extra_args): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $min
-     * @param mixed $max
-     * @return mixed
+     * @param string $key [required]
+     * @param string $start [required]
+     * @param string $end [required]
      */
-    public function zDeleteRangeByScore($key, $min, $max)
+    public function zDeleteRangeByScore(string $key, string $start, string $end): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $min
-     * @param mixed $max
-     * @return mixed
+     * @param string $key [required]
+     * @param string $start [required]
+     * @param string $end [required]
      */
-    public function zRemRangeByScore($key, $min, $max)
+    public function zRemRangeByScore(string $key, string $start, string $end): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $min
-     * @param mixed $max
-     * @return mixed
+     * @param string $key [required]
+     * @param string $start [required]
+     * @param string $end [required]
      */
-    public function zCount($key, $min, $max)
+    public function zCount(string $key, string $start, string $end): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $end
-     * @param mixed|null $scores
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param int $end [required]
+     * @param mixed $scores [optional] = null
      */
-    public function zRange($key, $start, $end, $scores = null)
+    public function zRange(string $key, int $start, int $end, $scores = null): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $end
-     * @param mixed|null $scores
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param int $end [required]
+     * @param mixed $scores [optional] = null
      */
-    public function zRevRange($key, $start, $end, $scores = null)
+    public function zRevRange(string $key, int $start, int $end, $scores = null): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $end
-     * @param mixed|null $options
-     * @return mixed
+     * @param string $key [required]
+     * @param string $start [required]
+     * @param string $end [required]
+     * @param array $options [optional] = []
      */
-    public function zRangeByScore($key, $start, $end, $options = null)
+    public function zRangeByScore(string $key, string $start, string $end, array $options = []): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $end
-     * @param mixed|null $options
-     * @return mixed
+     * @param string $key [required]
+     * @param string $start [required]
+     * @param string $end [required]
+     * @param array $options [optional] = []
      */
-    public function zRevRangeByScore($key, $start, $end, $options = null)
+    public function zRevRangeByScore(string $key, string $start, string $end, array $options = []): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $min
-     * @param mixed $max
-     * @param mixed|null $offset
-     * @param mixed|null $limit
-     * @return mixed
+     * @param string $key [required]
+     * @param string $min [required]
+     * @param string $max [required]
+     * @param int $offset [optional] = -1
+     * @param int $count [optional] = -1
      */
-    public function zRangeByLex($key, $min, $max, $offset = null, $limit = null)
+    public function zRangeByLex(string $key, string $min, string $max, int $offset = -1, int $count = -1): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $min
-     * @param mixed $max
-     * @param mixed|null $offset
-     * @param mixed|null $limit
-     * @return mixed
+     * @param string $key [required]
+     * @param string $min [required]
+     * @param string $max [required]
+     * @param int $offset [optional] = -1
+     * @param int $count [optional] = -1
      */
-    public function zRevRangeByLex($key, $min, $max, $offset = null, $limit = null)
+    public function zRevRangeByLex(string $key, string $min, string $max, int $offset = -1, int $count = -1): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $keys
-     * @param mixed|null $weights
-     * @param mixed|null $aggregate
-     * @return mixed
+     * @param array $keys [required]
+     * @param array $weights [optional] = null
+     * @param array $options [optional] = null
      */
-    public function zInter($key, $keys, $weights = null, $aggregate = null)
+    public function zInter(array $keys, array $weights = null, array $options = null): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $keys
-     * @param mixed|null $weights
-     * @param mixed|null $aggregate
-     * @return mixed
+     * @param string $dst [required]
+     * @param array $keys [required]
+     * @param array $weights [optional] = null
+     * @param string $aggregate [optional] = null
      */
-    public function zinterstore($key, $keys, $weights = null, $aggregate = null)
+    public function zinterstore(string $dst, array $keys, array $weights = null, string $aggregate = null): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $keys
-     * @param mixed|null $weights
-     * @param mixed|null $aggregate
-     * @return mixed
+     * @param array $keys [required]
+     * @param array $weights [optional] = null
+     * @param array $options [optional] = null
      */
-    public function zUnion($key, $keys, $weights = null, $aggregate = null)
+    public function zUnion(array $keys, array $weights = null, array $options = null): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $keys
-     * @param mixed|null $weights
-     * @param mixed|null $aggregate
-     * @return mixed
+     * @param string $dst [required]
+     * @param array $keys [required]
+     * @param array $weights [optional] = null
+     * @param string $aggregate [optional] = null
      */
-    public function zunionstore($key, $keys, $weights = null, $aggregate = null)
+    public function zunionstore(string $dst, array $keys, array $weights = null, string $aggregate = null): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param int $value [required]
      */
-    public function incrBy($key, $value)
+    public function incrBy(string $key, int $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
+     * @param int $value [required]
      */
-    public function hIncrBy($key, $member, $value)
+    public function hIncrBy(string $key, string $member, int $value): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function incr($key)
+    public function incr(string $key)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param int $value [required]
      */
-    public function decrBy($key, $value)
+    public function decrBy(string $key, int $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
      */
-    public function decr($key)
+    public function decr(string $key)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $offset
-     * @return mixed
+     * @param string $key [required]
+     * @param int $idx [required]
      */
-    public function getBit($key, $offset)
+    public function getBit(string $key, int $idx)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $position
-     * @param mixed $pivot
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param int $pos [required]
+     * @param mixed $pivot [required]
+     * @param mixed $value [required]
      */
-    public function lInsert($key, $position, $pivot, $value)
+    public function lInsert(string $key, int $pos, $pivot, $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $index
-     * @return mixed
+     * @param string $key [required]
+     * @param int $index [required]
      */
-    public function lGet($key, $index)
+    public function lGet(string $key, int $index): string
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $integer
-     * @return mixed
+     * @param string $key [required]
+     * @param int $index [required]
      */
-    public function lIndex($key, $integer)
+    public function lIndex(string $key, int $index): string
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $timeout
-     * @return mixed
+     * @param string $key [required]
+     * @param int $timeout [required]
      */
-    public function setTimeout($key, $timeout)
+    public function setTimeout(string $key, int $timeout): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $integer
-     * @return mixed
+     * @param string $key [required]
+     * @param int $timeout [required]
      */
-    public function expire($key, $integer)
+    public function expire(string $key, int $timeout): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $timestamp
-     * @return mixed
+     * @param string $key [required]
+     * @param int $timeout [required]
      */
-    public function pexpire($key, $timestamp)
+    public function pexpire(string $key, int $timeout): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $timestamp
-     * @return mixed
+     * @param string $key [required]
+     * @param int $timeout [required]
      */
-    public function expireAt($key, $timestamp)
+    public function expireAt(string $key, int $timeout): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $timestamp
-     * @return mixed
+     * @param string $key [required]
+     * @param int $timeout [required]
      */
-    public function pexpireAt($key, $timestamp)
+    public function pexpireAt(string $key, int $timeout): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $dbindex
-     * @return mixed
+     * @param string $key [required]
+     * @param int $index [required]
      */
-    public function move($key, $dbindex)
+    public function move(string $key, int $index): bool
     {
     }
 
     /**
-     * @param mixed $dbindex
-     * @return mixed
+     * @param int $db [required]
      */
-    public function select($dbindex)
+    public function select(int $db): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $end
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param int $end [required]
      */
-    public function getRange($key, $start, $end)
+    public function getRange(string $key, int $start, int $end)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $stop
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param int $end [required]
      */
-    public function listTrim($key, $start, $stop)
+    public function listTrim(string $key, int $start, int $end): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $stop
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param int $end [required]
      */
-    public function ltrim($key, $start, $stop)
+    public function ltrim(string $key, int $start, int $end): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $end
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param int $end [required]
      */
-    public function lGetRange($key, $start, $end)
+    public function lGetRange(string $key, int $start, int $end): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $end
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param int $end [required]
      */
-    public function lRange($key, $start, $end)
+    public function lRange(string $key, int $start, int $end): array
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed $count
-     * @return mixed
+     * @param string $key [required]
+     * @param string $value [required]
+     * @param int $count [optional] = 0
      */
-    public function lRem($key, $value, $count)
+    public function lRem(string $key, string $value, int $count = 0): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed $count
-     * @return mixed
+     * @param string $key [required]
+     * @param string $value [required]
+     * @param int $count [optional] = 0
      */
-    public function lRemove($key, $value, $count)
+    public function lRemove(string $key, string $value, int $count = 0): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $start
-     * @param mixed $end
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param int $end [required]
      */
-    public function zDeleteRangeByRank($key, $start, $end)
+    public function zDeleteRangeByRank(string $key, int $start, int $end): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $min
-     * @param mixed $max
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [required]
+     * @param int $end [required]
      */
-    public function zRemRangeByRank($key, $min, $max)
+    public function zRemRangeByRank(string $key, int $start, int $end): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param float $value [required]
      */
-    public function incrByFloat($key, $value)
+    public function incrByFloat(string $key, float $value)
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
+     * @param float $value [required]
      */
-    public function hIncrByFloat($key, $member, $value)
+    public function hIncrByFloat(string $key, string $member, float $value): float
     {
     }
 
     /**
-     * @param mixed $key
-     * @return mixed
+     * @param string $key [required]
+     * @param int $start [optional] = 0
+     * @param int $end [optional] = -1
      */
-    public function bitCount($key)
+    public function bitCount(string $key, int $start = 0, int $end = -1)
     {
     }
 
     /**
-     * @param mixed $operation
-     * @param mixed $ret_key
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $operation [required]
+     * @param string $deskey [required]
+     * @param string $srckey [required]
+     * @param string ...$other_keys
      */
-    public function bitOp($operation, $ret_key, $key, $other_keys = null)
+    public function bitOp(string $operation, string $deskey, string $srckey, string ...$other_keys): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param mixed $value [required]
+     * @param mixed ...$other_values
      */
-    public function sAdd($key, $value)
+    public function sAdd(string $key, $value, ...$other_values): int
     {
     }
 
     /**
-     * @param mixed $src
-     * @param mixed $dst
-     * @param mixed $value
-     * @return mixed
+     * @param string $src [required]
+     * @param string $dst [required]
+     * @param mixed $value [required]
      */
-    public function sMove($src, $dst, $value)
+    public function sMove(string $src, string $dst, $value): bool
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $key [required]
+     * @param string ...$other_keys
      */
-    public function sDiff($key, $other_keys = null)
+    public function sDiff(string $key, string ...$other_keys): array
     {
     }
 
     /**
-     * @param mixed $dst
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $dst [required]
+     * @param string $key [required]
+     * @param string ...$other_keys
      */
-    public function sDiffStore($dst, $key, $other_keys = null)
+    public function sDiffStore(string $dst, string $key, string ...$other_keys): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $key [required]
+     * @param string ...$other_keys
      */
-    public function sUnion($key, $other_keys = null)
+    public function sUnion(string $key, string ...$other_keys): array
     {
     }
 
     /**
-     * @param mixed $dst
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $dst [required]
+     * @param string $key [required]
+     * @param string ...$other_keys
      */
-    public function sUnionStore($dst, $key, $other_keys = null)
+    public function sUnionStore(string $dst, string $key, string ...$other_keys): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $key [required]
+     * @param string ...$other_keys
      */
-    public function sInter($key, $other_keys = null)
+    public function sInter(string $key, string ...$other_keys): array
     {
     }
 
     /**
-     * @param mixed $dst
-     * @param mixed $key
-     * @param mixed|null $other_keys
-     * @return mixed
+     * @param string $dst [required]
+     * @param string $key [required]
+     * @param string ...$other_keys
      */
-    public function sInterStore($dst, $key, $other_keys = null)
+    public function sInterStore(string $dst, string $key, string ...$other_keys): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param string $value [required]
+     * @param string ...$other_values
      */
-    public function sRemove($key, $value)
+    public function sRemove(string $key, string $value, string ...$other_values): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $value
-     * @return mixed
+     * @param string $key [required]
+     * @param string $value [required]
+     * @param string ...$other_values
      */
-    public function srem($key, $value)
+    public function srem(string $key, string $value, string ...$other_values): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @param mixed|null $other_members
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
+     * @param string ...$other_members
      */
-    public function zDelete($key, $member, $other_members = null)
+    public function zDelete(string $key, string $member, string ...$other_members): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @param mixed|null $other_members
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
+     * @param string ...$other_members
      */
-    public function zRemove($key, $member, $other_members = null)
+    public function zRemove(string $key, string $member, string ...$other_members): int
     {
     }
 
     /**
-     * @param mixed $key
-     * @param mixed $member
-     * @param mixed|null $other_members
-     * @return mixed
+     * @param string $key [required]
+     * @param string $member [required]
+     * @param string ...$other_members
      */
-    public function zRem($key, $member, $other_members = null)
+    public function zRem(string $key, string $member, string ...$other_members): int
     {
     }
 
     /**
-     * @param mixed $patterns
-     * @return mixed
+     * @param array $patterns [required]
      */
-    public function pSubscribe($patterns)
+    public function pSubscribe(array $patterns): void
     {
     }
 
     /**
-     * @param mixed $channels
-     * @return mixed
+     * @param string $channel [required]
+     * @param string ...$other_channels
      */
-    public function subscribe($channels)
+    public function subscribe(string $channel, string ...$other_channels): array
     {
     }
 
     /**
-     * @param mixed $channels
-     * @return mixed
+     * @param string $channel [required]
+     * @param string ...$other_channels
      */
-    public function unsubscribe($channels)
+    public function unsubscribe(string $channel, string ...$other_channels): array
     {
     }
 
     /**
-     * @param mixed $patterns
-     * @return mixed
+     * @param array $patterns [required]
      */
-    public function pUnSubscribe($patterns)
+    public function pUnSubscribe(array $patterns): array
     {
     }
 
     /**
-     * @return mixed
+     * @param int $value [optional]
      */
-    public function multi()
+    public function multi(int $value)
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function exec()
+    public function exec(): array
     {
     }
 
     /**
-     * @param mixed $script
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
-     * @return mixed
+     * @param string $script [required]
+     * @param array $keys [optional] = null
+     * @param int $num_keys [optional] = 0
      */
-    public function eval($script, $args = null, $num_keys = null)
+    public function eval(string $script, array $keys = null, int $num_keys = 0): mixed
     {
     }
 
     /**
-     * @param mixed $script_sha
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
-     * @return mixed
+     * @param string $sha1 [required]
+     * @param array $keys [optional] = null
+     * @param int $num_keys [optional] = 0
      */
-    public function evalSha($script_sha, $args = null, $num_keys = null)
+    public function evalSha(string $sha1, array $keys = null, int $num_keys = 0): mixed
     {
     }
 
     /**
-     * @param mixed $cmd
-     * @param mixed|null $args
-     * @return mixed
+     * @param string $command [required]
+     * @param mixed ...$args
      */
-    public function script($cmd, $args = null)
+    public function script(string $command, ...$args): mixed
     {
     }
 }

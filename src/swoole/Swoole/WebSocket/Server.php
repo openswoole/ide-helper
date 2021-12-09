@@ -1,55 +1,55 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\WebSocket;
 
 class Server extends \Swoole\Http\Server
 {
     /**
-     * @param mixed $fd
-     * @param mixed $data
-     * @param mixed|null $opcode
-     * @param mixed|null $flags
-     * @return mixed
+     * @param int $fd [required]
+     * @param Swoole\WebSocket\Frame|string $data [required]
+     * @param int $opcode [optional] = \SWOOLE_WEBSOCKET_OPCODE_TEXT
+     * @param int $flags [optional] = \SWOOLE_WEBSOCKET_FLAG_FIN
      */
-    public function push($fd, $data, $opcode = null, $flags = null)
+    public function push(int $fd, $data, int $opcode = \SWOOLE_WEBSOCKET_OPCODE_TEXT, int $flags = \SWOOLE_WEBSOCKET_FLAG_FIN): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @param mixed|null $code
-     * @param mixed|null $reason
-     * @return mixed
+     * @param int $fd [required]
+     * @param int $code [optional] = \SWOOLE_WEBSOCKET_CLOSE_NORMAL
+     * @param string $reason [optional] = ''
      */
-    public function disconnect($fd, $code = null, $reason = null)
+    public function disconnect(int $fd, int $code = \SWOOLE_WEBSOCKET_CLOSE_NORMAL, string $reason = ''): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @return mixed
+     * @param int $fd [required]
      */
-    public function isEstablished($fd)
+    public function isEstablished(int $fd): bool
     {
     }
 
     /**
-     * @param mixed $data
-     * @param mixed|null $opcode
-     * @param mixed|null $flags
-     * @return mixed
+     * @param Swoole\WebSocket\Frame|string $data [required]
+     * @param int $opcode [optional] = \SWOOLE_WEBSOCKET_OPCODE_TEXT
+     * @param int $flags [optional] = \SWOOLE_WEBSOCKET_FLAG_FIN
      */
-    public static function pack($data, $opcode = null, $flags = null)
+    public static function pack($data, int $opcode = \SWOOLE_WEBSOCKET_OPCODE_TEXT, int $flags = \SWOOLE_WEBSOCKET_FLAG_FIN): string
     {
     }
 
     /**
-     * @param mixed $data
-     * @return mixed
+     * @param string $data [required]
      */
-    public static function unpack($data)
+    public static function unpack(string $data)
     {
     }
 }

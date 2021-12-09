@@ -3,8 +3,6 @@
 [![Latest Stable Version](https://poser.pugx.org/openswoole/ide-helper/v/stable.svg)](https://packagist.org/packages/openswoole/ide-helper)
 [![License](https://poser.pugx.org/openswoole/ide-helper/license)](LICENSE)
 
-> This repo works with Open Swoole since release version v4.7.1.
-
 This package contains IDE help files for [OpenSwoole](https://github.com/openswoole/swoole-src). You may use it in your IDE to provide accurate autocompletion. 
 
 ## Install
@@ -14,7 +12,7 @@ You can add this package to your project using [Composer](https://getcomposer.or
 ```bash
 composer require openswoole/ide-helper:@dev
 # or you can install a specific version, like:
-composer require openswoole/ide-helper:~4.7.1
+composer require openswoole/ide-helper:~4.8.1
 ```
 
 It's better to install this package on only development systems by adding the `--dev` flag to your Composer commands:
@@ -22,7 +20,7 @@ It's better to install this package on only development systems by adding the `-
 ```bash
 composer require --dev openswoole/ide-helper:@dev
 # or you can install a specific version, like:
-composer require --dev openswoole/ide-helper:~4.7.1
+composer require --dev openswoole/ide-helper:~4.8.1
 ```
 
 ## Fix code style before commit

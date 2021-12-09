@@ -1,58 +1,68 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole;
 
 class Atomic
 {
+    /**
+     * @param int $value [optional] = 0
+     */
     public function __construct(int $value = 0)
     {
     }
 
     /**
-     * @return int
+     * @param int $value [optional] = 1
      */
-    public function add(int $add_value = 1)
+    public function add(int $value = 1): int
     {
     }
 
     /**
-     * @return int
+     * @param int $value [optional] = 1
      */
-    public function sub(int $sub_value = 1)
+    public function sub(int $value = 1): int
+    {
+    }
+
+    public function get(): int
     {
     }
 
     /**
-     * @return int
+     * @param int $value [required]
+     * @return ?bool
      */
-    public function get()
-    {
-    }
-
-    public function set(int $value)
-    {
-    }
-
-    /**
-     * @return bool
-     */
-    public function wait(float $timeout = 1.0)
+    public function set(int $value): ?bool
     {
     }
 
     /**
-     * @return bool
+     * @param float $timeout [optional] = 1
      */
-    public function wakeup(int $count = 1)
+    public function wait(float $timeout = 1): bool
     {
     }
 
     /**
-     * @return bool
+     * @param int $count [optional] = 1
      */
-    public function cmpset(int $cmp_value, int $new_value)
+    public function wakeup(int $count = 1): bool
+    {
+    }
+
+    /**
+     * @param int $cmpVal [optional] = 0
+     * @param int $newVal [optional] = 0
+     */
+    public function cmpset(int $cmpVal = 0, int $newVal = 0): bool
     {
     }
 }

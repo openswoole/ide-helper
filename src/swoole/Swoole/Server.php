@@ -1,7 +1,12 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole;
 
 class Server
@@ -10,25 +15,25 @@ class Server
 
     public $connections;
 
-    public $host = '';
+    public $host;
 
-    public $port = 0;
+    public $port;
 
-    public $type = 0;
+    public $type;
 
-    public $mode = 0;
+    public $mode;
 
     public $ports;
 
-    public $master_pid = 0;
+    public $master_pid;
 
-    public $manager_pid = 0;
+    public $manager_pid;
 
-    public $worker_id = -1;
+    public $worker_id;
 
-    public $taskworker = false;
+    public $taskworker;
 
-    public $worker_pid = 0;
+    public $worker_pid;
 
     public $stats_timer;
 
@@ -58,7 +63,13 @@ class Server
 
     private $onPipeMessage;
 
-    public function __construct($host, $port = null, $mode = null, $sock_type = null)
+    /**
+     * @param string $host [required]
+     * @param int $port [optional] = 0
+     * @param int $mode [optional] = \SWOOLE_PROCESS
+     * @param int $sockType [optional] = \SWOOLE_SOCK_TCP
+     */
+    public function __construct(string $host, int $port = 0, int $mode = \SWOOLE_PROCESS, int $sockType = \SWOOLE_SOCK_TCP)
     {
     }
 
@@ -67,391 +78,289 @@ class Server
     }
 
     /**
-     * @param mixed $host
-     * @param mixed $port
-     * @param mixed $sock_type
-     * @return mixed
+     * @param string $host [required]
+     * @param int $port [required]
+     * @param int $sockType [required]
      */
-    public function listen($host, $port, $sock_type)
+    public function listen(string $host, int $port, int $sockType)
     {
     }
 
     /**
-     * @param mixed $host
-     * @param mixed $port
-     * @param mixed $sock_type
-     * @return mixed
+     * @param string $host [required]
+     * @param int $port [required]
+     * @param int $sockType [required]
      */
-    public function addlistener($host, $port, $sock_type)
+    public function addlistener(string $host, int $port, int $sockType)
     {
     }
 
     /**
-     * @param mixed $event_name
-     * @return mixed
+     * @param string $event [required]
+     * @param callable $callback [required]
      */
-    public function on($event_name, callable $callback)
+    public function on(string $event, callable $callback): bool
     {
     }
 
     /**
-     * @param mixed $event_name
-     * @return mixed
+     * @param string $event [required]
      */
-    public function getCallback($event_name)
+    public function getCallback(string $event): mixed
     {
     }
 
     /**
-     * @return mixed
+     * @param array $settings [required]
      */
-    public function set(array $settings)
+    public function set(array $settings): bool
+    {
+    }
+
+    public function start(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param string|int $fd [required]
+     * @param mixed $data [required]
+     * @param int $serverSocket [optional] = -1
      */
-    public function start()
+    public function send($fd, $data, int $serverSocket = -1): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @param mixed $send_data
-     * @param mixed|null $server_socket
-     * @return mixed
+     * @param string $ip [required]
+     * @param int $port [required]
+     * @param string $data [required]
+     * @param int $serverSocket [optional] = -1
      */
-    public function send($fd, $send_data, $server_socket = null)
+    public function sendto(string $ip, int $port, string $data, int $serverSocket = -1): bool
     {
     }
 
     /**
-     * @param mixed $ip
-     * @param mixed $port
-     * @param mixed $send_data
-     * @param mixed|null $server_socket
-     * @return mixed
+     * @param int $fd [required]
+     * @param string $data [required]
      */
-    public function sendto($ip, $port, $send_data, $server_socket = null)
+    public function sendwait(int $fd, string $data): bool
     {
     }
 
     /**
-     * @param mixed $conn_fd
-     * @param mixed $send_data
-     * @return mixed
+     * @param int $fd [required]
      */
-    public function sendwait($conn_fd, $send_data)
+    public function exists(int $fd): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @return mixed
+     * @param int $fd [required]
      */
-    public function exists($fd)
+    public function exist(int $fd): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @return mixed
+     * @param int $fd [required]
+     * @param bool $isProtected [optional] = true
      */
-    public function exist($fd)
+    public function protect(int $fd, bool $isProtected = true): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @param mixed|null $is_protected
-     * @return mixed
+     * @param int $fd [required]
+     * @param string $fileName [required]
+     * @param int $offset [optional] = 0
+     * @param int $length [optional] = 0
      */
-    public function protect($fd, $is_protected = null)
+    public function sendfile(int $fd, string $fileName, int $offset = 0, int $length = 0): bool
     {
     }
 
     /**
-     * @param mixed $conn_fd
-     * @param mixed $filename
-     * @param mixed|null $offset
-     * @param mixed|null $length
-     * @return mixed
+     * @param int $fd [required]
+     * @param bool $reset [optional] = false
      */
-    public function sendfile($conn_fd, $filename, $offset = null, $length = null)
+    public function close(int $fd, bool $reset = false): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @param mixed|null $reset
-     * @return mixed
+     * @param int $fd [required]
      */
-    public function close($fd, $reset = null)
+    public function confirm(int $fd): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @return mixed
+     * @param int $fd [required]
      */
-    public function confirm($fd)
+    public function pause(int $fd): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @return mixed
+     * @param int $fd [required]
      */
-    public function pause($fd)
+    public function resume(int $fd): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @return mixed
+     * @param mixed $data [required]
+     * @param int $workerId [optional] = -1
+     * @param callable|null $finishCallback [optional] = null
      */
-    public function resume($fd)
+    public function task($data, int $workerId = -1, ?callable $finishCallback = null)
     {
     }
 
     /**
-     * @param mixed $data
-     * @param mixed|null $worker_id
-     * @return mixed
+     * @param mixed $data [required]
+     * @param float $timeout [optional] = 0.5
+     * @param int $workerId [optional] = -1
      */
-    public function task($data, $worker_id = null, ?callable $finish_callback = null)
+    public function taskwait($data, float $timeout = 0.5, int $workerId = -1): string
     {
     }
 
     /**
-     * @param mixed $data
-     * @param mixed|null $timeout
-     * @param mixed|null $worker_id
-     * @return mixed
+     * @param array $tasks [required]
+     * @param float $timeout [optional] = 0.5
      */
-    public function taskwait($data, $timeout = null, $worker_id = null)
+    public function taskWaitMulti(array $tasks, float $timeout = 0.5)
     {
     }
 
     /**
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param array $tasks [required]
+     * @param float $timeout [optional] = 0.5
      */
-    public function taskWaitMulti(array $tasks, $timeout = null)
+    public function taskCo(array $tasks, float $timeout = 0.5)
     {
     }
 
     /**
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param mixed $data [required]
      */
-    public function taskCo(array $tasks, $timeout = null)
+    public function finish($data): bool
+    {
+    }
+
+    public function reload(): bool
+    {
+    }
+
+    public function shutdown(): bool
     {
     }
 
     /**
-     * @param mixed $data
-     * @return mixed
+     * @param int $workerId [required]
+     * @param bool $waitEvent [optional] = false
      */
-    public function finish($data)
+    public function stop(int $workerId, bool $waitEvent = false): bool
+    {
+    }
+
+    public function getLastError(): int
     {
     }
 
     /**
-     * @return mixed
+     * @param bool $closeConn [optional] = false
      */
-    public function reload()
+    public function heartbeat(bool $closeConn = false)
     {
     }
 
     /**
-     * @return mixed
+     * @param int $fd [required]
+     * @param int $reactorId [optional] = -1
+     * @param bool $noCheckConn [optional] = false
      */
-    public function shutdown()
+    public function getClientInfo(int $fd, int $reactorId = -1, bool $noCheckConn = false)
     {
     }
 
     /**
-     * @param mixed|null $worker_id
-     * @return mixed
+     * @param int $startFd [optional] = 0
+     * @param int $pageSize [optional] = 10
      */
-    public function stop($worker_id = null)
+    public function getClientList(int $startFd = 0, int $pageSize = 10)
+    {
+    }
+
+    public function getWorkerId(): int
     {
     }
 
     /**
-     * @return mixed
+     * @param int $workerId [optional] = -1
      */
-    public function getLastError()
+    public function getWorkerPid(int $workerId = -1)
     {
     }
 
     /**
-     * @param mixed $reactor_id
-     * @return mixed
+     * @param int $workerId [optional] = -1
      */
-    public function heartbeat($reactor_id)
+    public function getWorkerStatus(int $workerId = -1)
+    {
+    }
+
+    public function getManagerPid(): int
+    {
+    }
+
+    public function getMasterPid(): int
     {
     }
 
     /**
-     * @param mixed $fd
-     * @param mixed|null $reactor_id
-     * @return mixed
+     * @param int $fd [required]
+     * @param int $reactorId [optional] = -1
+     * @param bool $noCheckConn [optional] = false
      */
-    public function getClientInfo($fd, $reactor_id = null)
+    public function connection_info(int $fd, int $reactorId = -1, bool $noCheckConn = false)
     {
     }
 
     /**
-     * @param mixed $start_fd
-     * @param mixed|null $find_count
-     * @return mixed
+     * @param int $startFd [optional] = 0
+     * @param int $pageSize [optional] = 10
      */
-    public function getClientList($start_fd, $find_count = null)
+    public function connection_list(int $startFd = 0, int $pageSize = 10)
     {
     }
 
     /**
-     * Get the ID of current worker (either an event worker or a task worker).
-     *
-     * @return int|false Returns the ID of current worker. Returns false if not called within a worker process (either
-     *                   an event worker process or a task worker process).
+     * @param mixed $message [required]
+     * @param int $workerId [required]
      */
-    public function getWorkerId()
+    public function sendMessage($message, int $workerId): bool
     {
     }
 
     /**
-     * Get the process ID of a given worker process (specified by a worker ID).
-     *
-     * @return int|false Returns the process ID of a given worker process (specified by a worker ID). If the worker ID
-     *                   is a negative integer or not passed in, returns the process ID of current worker process.
-     *                   Returns false if something wrong happens (e.g., the worker process doesn't exist, or an invalid
-     *                   worker ID specified.).
+     * @param \Swoole\Process $process [required]
      */
-    public function getWorkerPid(int $worker_id = -1)
+    public function addProcess(Process $process)
     {
     }
 
-    /**
-     * @param mixed|null $worker_id
-     * @return mixed
-     */
-    public function getWorkerStatus($worker_id = null)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getManagerPid()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMasterPid()
-    {
-    }
-
-    /**
-     * @param mixed $fd
-     * @param mixed|null $reactor_id
-     * @return mixed
-     */
-    public function connection_info($fd, $reactor_id = null)
-    {
-    }
-
-    /**
-     * @param mixed $start_fd
-     * @param mixed|null $find_count
-     * @return mixed
-     */
-    public function connection_list($start_fd, $find_count = null)
-    {
-    }
-
-    /**
-     * @param mixed $message
-     * @param mixed $dst_worker_id
-     * @return mixed
-     */
-    public function sendMessage($message, $dst_worker_id)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function addProcess(\swoole_process $process)
-    {
-    }
-
-    /**
-     * @return mixed
-     */
     public function stats()
     {
     }
 
     /**
-     * @param mixed|null $port
-     * @return mixed
+     * @param int $fd [required]
+     * @param int $uid [required]
      */
-    public function getSocket($port = null)
-    {
-    }
-
-    /**
-     * @param mixed $fd
-     * @param mixed $uid
-     * @return mixed
-     */
-    public function bind($fd, $uid)
-    {
-    }
-
-    /**
-     * Alias of method \Swoole\Timer::after().
-     *
-     * @return int
-     * @see \Swoole\Timer::after()
-     */
-    public function after(int $ms, callable $callback, ...$params)
-    {
-    }
-
-    /**
-     * Alias of method \Swoole\Timer::tick().
-     *
-     * @return int
-     * @see \Swoole\Timer::tick()
-     */
-    public function tick(int $ms, callable $callback, ...$params)
-    {
-    }
-
-    /**
-     * Alias of method \Swoole\Timer::clear().
-     *
-     * @return bool
-     * @see \Swoole\Timer::clear()
-     */
-    public function clearTimer(int $timer_id)
-    {
-    }
-
-    /**
-     * Alias of method \Swoole\Event::defer().
-     *
-     * @return true
-     * @see \Swoole\Event::defer()
-     */
-    public function defer(callable $callback)
+    public function bind(int $fd, int $uid): bool
     {
     }
 }

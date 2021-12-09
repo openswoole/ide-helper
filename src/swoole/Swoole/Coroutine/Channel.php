@@ -1,68 +1,59 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Coroutine;
 
 class Channel
 {
-    public $capacity = 0;
+    public $capacity;
 
-    public $errCode = 0;
+    public $errCode;
 
-    public function __construct($size = null)
+    /**
+     * @param int $capacity [optional] = 1
+     */
+    public function __construct(int $capacity = 1)
     {
     }
 
     /**
-     * @param mixed $data
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param mixed $data [required]
+     * @param float $timeout [optional] = -1
      */
-    public function push($data, $timeout = null)
+    public function push($data, float $timeout = -1): bool
     {
     }
 
     /**
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param float $timeout [optional] = -1
      */
-    public function pop($timeout = null)
+    public function pop(float $timeout = -1): mixed
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function isEmpty()
+    public function isEmpty(): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function isFull()
+    public function isFull(): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function close()
+    public function close(): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function stats()
+    public function stats(): array
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function length()
+    public function length(): int
     {
     }
 }

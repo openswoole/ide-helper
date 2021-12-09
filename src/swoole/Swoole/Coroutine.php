@@ -1,318 +1,280 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole;
 
 class Coroutine
 {
     /**
-     * @return mixed
+     * @param callable $callback [required]
+     * @param mixed ...$params
      */
-    public static function create(callable $func, ...$params)
+    public static function create(callable $callback, ...$params)
     {
     }
 
     /**
-     * @param mixed $callback
-     * @return mixed
+     * @param callable $callback [required]
      */
-    public static function defer($callback)
+    public static function defer(callable $callback): void
     {
     }
 
     /**
-     * To set runtime configurations of coroutines.
-     *
-     * @return void
+     * @param array $options [required]
      */
-    public static function set(array $options)
+    public static function set(array $options): mixed
     {
     }
 
     /**
-     * To get runtime configurations of coroutines.
-     *
-     * @return array|null
+     * @return ?array
      */
-    public static function getOptions()
+    public static function getOptions(): ?array
     {
     }
 
     /**
-     * @param mixed $cid
-     * @return mixed
+     * @param int $cid [required]
      */
-    public static function exists($cid)
+    public static function exists(int $cid): bool
+    {
+    }
+
+    public static function yield(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param int $cid [required]
      */
-    public static function yield()
+    public static function cancel(int $cid): bool
+    {
+    }
+
+    public static function isCanceled(): bool
+    {
+    }
+
+    public static function suspend(): bool
     {
     }
 
     /**
-     * @param mixed $cid
-     * @return mixed
+     * @param int $cid [required]
      */
-    public static function cancel($cid)
+    public static function resume(int $cid): bool
+    {
+    }
+
+    public static function stats(): array
+    {
+    }
+
+    public static function getCid(): int
+    {
+    }
+
+    public static function getuid(): int
     {
     }
 
     /**
-     * @return mixed
+     * @param int $cid [optional] = 0
      */
-    public static function isCanceled()
+    public static function getPcid(int $cid = 0): int
     {
     }
 
     /**
-     * @return mixed
+     * @param int $cid [optional] = 0
+     * @return ?\Swoole\Coroutine\Context
      */
-    public static function suspend()
+    public static function getContext(int $cid = 0): ?Coroutine\Context
     {
     }
 
     /**
-     * @param mixed $cid
-     * @return mixed
+     * @param int $cid [optional] = 0
+     * @param int $options [optional] = \DEBUG_BACKTRACE_PROVIDE_OBJECT
+     * @param int $limit [optional] = 0
      */
-    public static function resume($cid)
+    public static function getBackTrace(int $cid = 0, int $options = \DEBUG_BACKTRACE_PROVIDE_OBJECT, int $limit = 0)
     {
     }
 
     /**
-     * @return mixed
+     * @param int $cid [optional] = 0
+     * @param int $options [optional] = \DEBUG_BACKTRACE_PROVIDE_OBJECT
+     * @param int $limit [optional] = 0
      */
-    public static function stats()
+    public static function printBackTrace(int $cid = 0, int $options = \DEBUG_BACKTRACE_PROVIDE_OBJECT, int $limit = 0): void
     {
     }
 
     /**
-     * @return mixed
+     * @param int $cid [optional] = 0
      */
-    public static function getCid()
+    public static function getElapsed(int $cid = 0): int
     {
     }
 
     /**
-     * @return mixed
+     * @param int $cid [optional] = 0
      */
-    public static function getuid()
+    public static function getStackUsage(int $cid = 0)
     {
     }
 
     /**
-     * @param mixed|null $cid
-     * @return mixed
+     * @return \Swoole\Coroutine\Iterator
      */
-    public static function getPcid($cid = null)
+    public static function list(): Coroutine\Iterator
     {
     }
 
     /**
-     * @param mixed|null $cid
-     * @return mixed
+     * @return \Swoole\Coroutine\Iterator
      */
-    public static function getContext($cid = null)
+    public static function listCoroutines(): Coroutine\Iterator
+    {
+    }
+
+    public static function enableScheduler(): bool
+    {
+    }
+
+    public static function disableScheduler(): bool
     {
     }
 
     /**
-     * @param mixed|null $cid
-     * @param mixed|null $options
-     * @param mixed|null $limit
-     * @return mixed
+     * @param string $domain [required]
+     * @param int $family [optional] = \AF_INET
+     * @param float $timeout [optional] = -1
      */
-    public static function getBackTrace($cid = null, $options = null, $limit = null)
+    public static function gethostbyname(string $domain, int $family = \AF_INET, float $timeout = -1)
     {
     }
 
     /**
-     * @param mixed|null $cid
-     * @param mixed|null $options
-     * @param mixed|null $limit
-     * @return mixed
+     * @param string $domain [required]
+     * @param float $timeout [optional] = 5
      */
-    public static function printBackTrace($cid = null, $options = null, $limit = null)
+    public static function dnsLookup(string $domain, float $timeout = 5)
     {
     }
 
     /**
-     * @param mixed|null $cid
-     * @return mixed
+     * @param string $command [required]
+     * @param bool $get_error_stream [optional] = false
      */
-    public static function getElapsed($cid = null)
+    public static function exec(string $command, bool $get_error_stream = false)
     {
     }
 
     /**
-     * @return mixed
+     * @param float $seconds [required]
      */
-    public static function list()
+    public static function sleep(float $seconds): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param string $domain [required]
+     * @param int $family [optional] = \AF_INET
+     * @param int $sockType [optional] = \SOCK_STREAM
+     * @param int $protocol [optional] = \STREAM_IPPROTO_TCP
+     * @param string $service [optional] = null
+     * @param float $timeout [optional] = -1
      */
-    public static function listCoroutines()
+    public static function getaddrinfo(string $domain, int $family = \AF_INET, int $sockType = \SOCK_STREAM, int $protocol = \STREAM_IPPROTO_TCP, string $service = null, float $timeout = -1)
     {
     }
 
     /**
-     * @return mixed
+     * @param string $path [required]
      */
-    public static function enableScheduler()
+    public static function statvfs(string $path)
     {
     }
 
     /**
-     * @return mixed
+     * @param string $filename [required]
+     * @param int $flags [optional] = 0
      */
-    public static function disableScheduler()
+    public static function readFile(string $filename, int $flags = 0)
     {
     }
 
     /**
-     * @param mixed $domain_name
-     * @param mixed|null $family
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param string $filename [required]
+     * @param string $data [required]
+     * @param int $flags [optional] = 0
      */
-    public static function gethostbyname($domain_name, $family = null, $timeout = null)
+    public static function writeFile(string $filename, string $data, int $flags = 0)
     {
     }
 
     /**
-     * @param mixed $domain_name
-     * @param mixed|null $timeout
-     * @param mixed|null $type
-     * @return mixed
+     * @param float $timeout [optional] = -1
      */
-    public static function dnsLookup($domain_name, $timeout = null, $type = null)
+    public static function wait(float $timeout = -1)
     {
     }
 
     /**
-     * @param mixed $command
-     * @param mixed|null $get_error_stream
-     * @return mixed
+     * @param int $pid [required]
+     * @param float $timeout [optional] = -1
      */
-    public static function exec($command, $get_error_stream = null)
+    public static function waitPid(int $pid, float $timeout = -1)
     {
     }
 
     /**
-     * @param mixed $seconds
-     * @return mixed
+     * @param int $signalNum [required]
+     * @param float $timeout [optional] = -1
      */
-    public static function sleep($seconds)
+    public static function waitSignal(int $signalNum, float $timeout = -1): bool
     {
     }
 
     /**
-     * @param mixed $hostname
-     * @param mixed|null $family
-     * @param mixed|null $socktype
-     * @param mixed|null $protocol
-     * @param mixed|null $service
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param mixed $fd [required]
+     * @param int $events [required]
+     * @param float $timeout [optional] = -1
      */
-    public static function getaddrinfo($hostname, $family = null, $socktype = null, $protocol = null, $service = null, $timeout = null)
+    public static function waitEvent($fd, int $events, float $timeout = -1)
     {
     }
 
     /**
-     * @param mixed $path
-     * @return mixed
+     * @param mixed $handle [required]
+     * @param int $length [optional] = 0
      */
-    public static function statvfs($path)
+    public static function fread($handle, int $length = 0)
     {
     }
 
     /**
-     * @param mixed $filename
-     * @return mixed
+     * @param mixed $handle [required]
+     * @param string $data [required]
+     * @param int $length [optional] = 0
      */
-    public static function readFile($filename)
+    public static function fwrite($handle, string $data, int $length = 0)
     {
     }
 
     /**
-     * @param mixed $filename
-     * @param mixed $data
-     * @param mixed|null $flags
-     * @return mixed
+     * @param mixed $handle [required]
      */
-    public static function writeFile($filename, $data, $flags = null)
-    {
-    }
-
-    /**
-     * @param mixed|null $timeout
-     * @return mixed
-     */
-    public static function wait($timeout = null)
-    {
-    }
-
-    /**
-     * @param mixed $pid
-     * @param mixed|null $timeout
-     * @return mixed
-     */
-    public static function waitPid($pid, $timeout = null)
-    {
-    }
-
-    /**
-     * @param mixed $signo
-     * @param mixed|null $timeout
-     * @return mixed
-     */
-    public static function waitSignal($signo, $timeout = null)
-    {
-    }
-
-    /**
-     * @param mixed $fd
-     * @param mixed|null $events
-     * @param mixed|null $timeout
-     * @return mixed
-     */
-    public static function waitEvent($fd, $events = null, $timeout = null)
-    {
-    }
-
-    /**
-     * @param mixed $handle
-     * @param mixed|null $length
-     * @return mixed
-     */
-    public static function fread($handle, $length = null)
-    {
-    }
-
-    /**
-     * @param mixed $handle
-     * @return mixed
-     */
-    public static function fgets($handle)
-    {
-    }
-
-    /**
-     * @param mixed $handle
-     * @param mixed $string
-     * @param mixed|null $length
-     * @return mixed
-     */
-    public static function fwrite($handle, $string, $length = null)
+    public static function fgets($handle): string
     {
     }
 }

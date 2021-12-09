@@ -1,64 +1,49 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Coroutine;
 
-class Scheduler
+final class Scheduler
 {
     /**
-     * Add a task (implemented in a callback).
-     *
-     * @return false|void return false if the scheduler has already been started; otherwise nothing returns
-     * @see \Swoole\Coroutine\Scheduler::start()
+     * @param callable $callback [required]
+     * @param mixed ...$params
+     * @return ?bool
      */
-    public function add(callable $func, ...$params)
+    public function add(callable $callback, ...$params): ?bool
     {
     }
 
     /**
-     * Add a list of tasks (implemented in callbacks).
-     *
-     * @return false|void return false if the scheduler has already been started; otherwise nothing returns
-     * @see \Swoole\Coroutine\Scheduler::start()
+     * @param int $count [required]
+     * @param callable $callback [required]
+     * @param mixed ...$params
      */
-    public function parallel(int $n, callable $func = null, ...$params)
+    public function parallel(int $count, callable $callback, ...$params): void
     {
     }
 
     /**
-     * To set runtime configurations of coroutines.
-     *
-     * This method is an alias of method \Swoole\Coroutine::set().
-     *
-     * @return void
-     * @see \Swoole\Coroutine::set()
+     * @param array $settings [required]
      */
-    public function set(array $settings)
+    public function set(array $settings): void
     {
     }
 
     /**
-     * To get runtime configurations of coroutines.
-     *
-     * This method is an alias of method \Swoole\Coroutine::getOptions().
-     *
-     * @return array|null
-     * @see \Swoole\Coroutine::getOptions()
-     * @since Swoole 4.6.0
+     * @return ?array
      */
-    public function getOptions()
+    public function getOptions(): ?array
     {
     }
 
-    /**
-     * Start running the list of tasks (callbacks) added through method add() and parallel().
-     *
-     * @return bool
-     * @see \Swoole\Coroutine\Scheduler::add()
-     * @see \Swoole\Coroutine\Scheduler::parallel()
-     */
-    public function start()
+    public function start(): bool
     {
     }
 }

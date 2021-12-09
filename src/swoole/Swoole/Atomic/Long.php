@@ -1,44 +1,54 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Atomic;
 
 class Long
 {
+    /**
+     * @param int $value [optional] = 0
+     */
     public function __construct(int $value = 0)
     {
     }
 
     /**
-     * @return int
+     * @param int $value [optional] = 1
      */
-    public function add(int $add_value = 1)
+    public function add(int $value = 1): int
     {
     }
 
     /**
-     * @return int
+     * @param int $value [optional] = 1
      */
-    public function sub(int $sub_value = 1)
+    public function sub(int $value = 1): int
+    {
+    }
+
+    public function get(): int
     {
     }
 
     /**
-     * @return int
+     * @param int $value [required]
+     * @return ?bool
      */
-    public function get()
-    {
-    }
-
-    public function set(int $value)
+    public function set(int $value): ?bool
     {
     }
 
     /**
-     * @return bool
+     * @param int $cmpVal [optional] = 0
+     * @param int $newVal [optional] = 0
      */
-    public function cmpset(int $cmp_value, int $new_value)
+    public function cmpset(int $cmpVal = 0, int $newVal = 0): bool
     {
     }
 }

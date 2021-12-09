@@ -1,95 +1,87 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole;
 
 class Event
 {
     /**
-     * @param mixed $fd
-     * @param mixed|null $events
-     * @return mixed
+     * @param mixed $sock [required]
+     * @param callable|null $readCallback [optional] = null
+     * @param callable|null $writeCallback [optional] = null
+     * @param int $flags [optional] = \SWOOLE_EVENT_READ
      */
-    public static function add($fd, ?callable $read_callback, ?callable $write_callback = null, $events = null)
+    public static function add($sock, ?callable $readCallback = null, ?callable $writeCallback = null, int $flags = \SWOOLE_EVENT_READ)
     {
     }
 
     /**
-     * @param mixed $fd
-     * @return mixed
+     * @param mixed $sock [required]
      */
-    public static function del($fd)
+    public static function del($sock): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @param mixed|null $events
-     * @return mixed
+     * @param mixed $sock [required]
+     * @param callable|null $readCallback [optional] = null
+     * @param callable|null $writeCallback [optional] = null
+     * @param int $flags [optional] = \SWOOLE_EVENT_READ
      */
-    public static function set($fd, ?callable $read_callback = null, ?callable $write_callback = null, $events = null)
+    public static function set($sock, ?callable $readCallback = null, ?callable $writeCallback = null, int $flags = \SWOOLE_EVENT_READ): bool
     {
     }
 
     /**
-     * @param mixed $fd
-     * @param mixed|null $events
-     * @return mixed
+     * @param mixed $sock [required]
+     * @param int $flags [optional] = 1536
      */
-    public static function isset($fd, $events = null)
+    public static function isset($sock, int $flags = 1536): bool
+    {
+    }
+
+    public static function dispatch(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param callable $callback [required]
      */
-    public static function dispatch()
+    public static function defer(callable $callback): bool
     {
     }
 
     /**
-     * @return true
+     * @param callable $callback [required]
+     * @param bool $before [optional] = false
      */
-    public static function defer(callable $callback)
+    public static function cycle(callable $callback, bool $before = false): bool
     {
     }
 
     /**
-     * @param mixed|null $before
-     * @return mixed
+     * @param mixed $sock [required]
+     * @param string $data [required]
      */
-    public static function cycle(?callable $callback, $before = null)
+    public static function write($sock, string $data): bool
     {
     }
 
-    /**
-     * @param mixed $fd
-     * @param mixed $data
-     * @return mixed
-     */
-    public static function write($fd, $data)
+    public static function wait(): void
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public static function wait()
+    public static function rshutdown(): void
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public static function rshutdown()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public static function exit()
+    public static function exit(): void
     {
     }
 }

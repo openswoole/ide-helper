@@ -1,484 +1,386 @@
 <?php
 
 declare(strict_types=1);
-
 /**
- * Gets the current Swoole version. This information is also available in the predefined constant SWOOLE_VERSION.
- *
- * @return string returns a string containing the version of Swoole
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
  */
-function swoole_version()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_version()
+ {
+ }
 
-/**
- * Gets the number of CPU cores.
- *
- * @return int returns the number of CPU cores
- */
-function swoole_cpu_num()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_cpu_num()
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_last_error()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_last_error()
+ {
+ }
 
-/**
- * @param $domain_name[required]
- * @param $timeout[optional]
- * @param $type[optional]
- * @return mixed
- */
-function swoole_async_dns_lookup_coro($domain_name, $timeout = null, $type = null)
-{
-}
+ /**
+  * @param mixed $domain_name [required]
+  * @param mixed $timeout [optional]
+  * @param mixed $type [optional]
+  * @return mixed
+  */
+ function swoole_async_dns_lookup_coro($domain_name, $timeout, $type)
+ {
+ }
 
-/**
- * @param $settings[required]
- * @return mixed
- */
-function swoole_async_set($settings)
-{
-}
+ /**
+  * @param array $settings [required]
+  * @return mixed
+  */
+ function swoole_async_set(array $settings)
+ {
+ }
 
-/**
- * @return int|false
- */
-function swoole_coroutine_create(callable $func, ...$params)
-{
-}
+ /**
+  * @param callable $func [required]
+  * @param mixed ...$params
+  * @return mixed
+  */
+ function swoole_coroutine_create(callable $func, ...$params)
+ {
+ }
 
-/**
- * Defers the execution of a callback function until the surrounding function of a coroutine returns.
- *
- * @return void
- * @example
- * <pre>
- * swoole_coroutine_create(function () {  // The surrounding function of a coroutine.
- *   echo '1';
- *   swoole_coroutine_defer(function () { // The callback function to be deferred.
- *     echo '3';
- *   });
- *   echo '2';
- * });
- * <pre>
- */
-function swoole_coroutine_defer(callable $callback)
-{
-}
+ /**
+  * @param callable $callback [required]
+  * @return mixed
+  */
+ function swoole_coroutine_defer(callable $callback)
+ {
+ }
 
-/**
- * @param $domain[required]
- * @param $type[required]
- * @param $protocol[required]
- * @return mixed
- */
-function swoole_coroutine_socketpair($domain, $type, $protocol)
-{
-}
+ /**
+  * @param mixed $domain [required]
+  * @param mixed $type [required]
+  * @param mixed $protocol [required]
+  * @return mixed
+  */
+ function swoole_coroutine_socketpair($domain, $type, $protocol)
+ {
+ }
 
-/**
- * @param $count[optional]
- * @param $sleep_time[optional]
- * @return mixed
- */
-function swoole_test_kernel_coroutine($count = null, $sleep_time = null)
-{
-}
+ /**
+  * @param mixed $count [optional]
+  * @param mixed $sleep_time [optional]
+  * @return mixed
+  */
+ function swoole_test_kernel_coroutine($count, $sleep_time)
+ {
+ }
 
-/**
- * @param $read_array[required]
- * @param $write_array[required]
- * @param $error_array[required]
- * @param $timeout[optional]
- * @return mixed
- */
-function swoole_client_select(&$read_array, &$write_array, &$error_array, $timeout = null)
-{
-}
+ /**
+  * @param mixed $read_array [required]
+  * @param mixed $write_array [required]
+  * @param mixed $error_array [required]
+  * @param mixed $timeout [optional]
+  * @return mixed
+  */
+ function swoole_client_select(&$read_array, &$write_array, &$error_array, $timeout)
+ {
+ }
 
-/**
- * @param $read_array[required]
- * @param $write_array[required]
- * @param $error_array[required]
- * @param $timeout[optional]
- * @return mixed
- */
-function swoole_select(&$read_array, &$write_array, &$error_array, $timeout = null)
-{
-}
+ /**
+  * @param mixed $read_array [required]
+  * @param mixed $write_array [required]
+  * @param mixed $error_array [required]
+  * @param mixed $timeout [optional]
+  * @return mixed
+  */
+ function swoole_select(&$read_array, &$write_array, &$error_array, $timeout)
+ {
+ }
 
-/**
- * @param $process_name[required]
- * @return mixed
- */
-function swoole_set_process_name($process_name)
-{
-}
+ /**
+  * @param mixed $process_name [required]
+  * @return mixed
+  */
+ function swoole_set_process_name($process_name)
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_get_local_ip()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_get_local_ip()
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_get_local_mac()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_get_local_mac()
+ {
+ }
 
-/**
- * @param $errno[required]
- * @param $error_type[optional]
- * @return mixed
- */
-function swoole_strerror($errno, $error_type = null)
-{
-}
+ /**
+  * @param mixed $errno [required]
+  * @param mixed $error_type [optional]
+  * @return mixed
+  */
+ function swoole_strerror($errno, $error_type)
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_errno()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_errno()
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_clear_error()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_clear_error()
+ {
+ }
 
-/**
- * @param $level[required]
- * @param $msg[required]
- * @return mixed
- */
-function swoole_error_log($level, $msg)
-{
-}
+ /**
+  * @param mixed $level [required]
+  * @param mixed $msg [required]
+  * @return mixed
+  */
+ function swoole_error_log($level, $msg)
+ {
+ }
 
-/**
- * @param $data[required]
- * @param $type[optional]
- * @return mixed
- */
-function swoole_hashcode($data, $type = null)
-{
-}
+ /**
+  * @param mixed $data [required]
+  * @param mixed $type [optional]
+  * @return mixed
+  */
+ function swoole_hashcode($data, $type)
+ {
+ }
 
-/**
- * @param $suffix[required]
- * @param $mime_type[required]
- * @return mixed
- */
-function swoole_mime_type_add($suffix, $mime_type)
-{
-}
+ /**
+  * @param mixed $suffix [required]
+  * @param mixed $mime_type [required]
+  * @return mixed
+  */
+ function swoole_mime_type_add($suffix, $mime_type)
+ {
+ }
 
-/**
- * @param $suffix[required]
- * @param $mime_type[required]
- * @return mixed
- */
-function swoole_mime_type_set($suffix, $mime_type)
-{
-}
+ /**
+  * @param mixed $suffix [required]
+  * @param mixed $mime_type [required]
+  * @return mixed
+  */
+ function swoole_mime_type_set($suffix, $mime_type)
+ {
+ }
 
-/**
- * @param $suffix[required]
- * @return mixed
- */
-function swoole_mime_type_delete($suffix)
-{
-}
+ /**
+  * @param mixed $suffix [required]
+  * @return mixed
+  */
+ function swoole_mime_type_delete($suffix)
+ {
+ }
 
-/**
- * @param $filename[required]
- * @return mixed
- */
-function swoole_mime_type_get($filename)
-{
-}
+ /**
+  * @param mixed $filename [required]
+  * @return mixed
+  */
+ function swoole_mime_type_get($filename)
+ {
+ }
 
-/**
- * @param $filename[required]
- * @return mixed
- */
-function swoole_get_mime_type($filename)
-{
-}
+ /**
+  * @param mixed $filename [required]
+  * @return mixed
+  */
+ function swoole_get_mime_type($filename)
+ {
+ }
 
-/**
- * @param $filename[required]
- * @return mixed
- */
-function swoole_mime_type_exists($filename)
-{
-}
+ /**
+  * @param mixed $filename [required]
+  * @return mixed
+  */
+ function swoole_mime_type_exists($filename)
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_mime_type_list()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_mime_type_list()
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_clear_dns_cache()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_clear_dns_cache()
+ {
+ }
 
-/**
- * @param $str[required]
- * @param $offset[required]
- * @param $length[optional]
- * @param $options[optional]
- * @return mixed
- */
-function swoole_substr_unserialize($str, $offset, $length = null, $options = null)
-{
-}
+ /**
+  * @param mixed $str [required]
+  * @param mixed $offset [required]
+  * @param mixed $length [optional]
+  * @param mixed $options [optional]
+  * @return mixed
+  */
+ function swoole_substr_unserialize($str, $offset, $length, $options)
+ {
+ }
 
-/**
- * @param $json[required]
- * @param $offset[required]
- * @param $length[optional]
- * @param $associative[optional]
- * @param $depth[optional]
- * @param $flags[optional]
- * @return mixed
- */
-function swoole_substr_json_decode($json, $offset, $length = null, $associative = null, $depth = null, $flags = null)
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_internal_call_user_shutdown_begin()
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_internal_call_user_shutdown_begin()
-{
-}
+ /**
+  * @param callable $func [required]
+  * @return mixed
+  */
+ function go(callable $func)
+ {
+ }
 
-/**
- * This function is an alias of function swoole_coroutine_create(); it's available only when directive
- * "swoole.use_shortname" is not explicitly turned off.
- *
- * @return int|false
- * @see swoole_coroutine_create()
- */
-function go(callable $func, ...$params)
-{
-}
+ /**
+  * @param callable $callback [required]
+  * @return mixed
+  */
+ function defer(callable $callback)
+ {
+ }
 
-/**
- * Defers the execution of a callback function until the surrounding function of a coroutine returns.
- *
- * This function is an alias of function swoole_coroutine_defer(); it's available only when directive
- * "swoole.use_shortname" is not explicitly turned off.
- *
- * @return void
- * @see swoole_coroutine_defer()
- *
- * @example
- * <pre>
- * go(function () {      // The surrounding function of a coroutine.
- *   echo '1';
- *   defer(function () { // The callback function to be deferred.
- *     echo '3';
- *   });
- *   echo '2';
- * });
- * <pre>
- */
-function defer(callable $callback)
-{
-}
+ /**
+  * @param mixed $sock [required]
+  * @param callable|null $readCallback [optional] = null
+  * @param callable|null $writeCallback [optional] = null
+  * @param int $flags [optional] = \SWOOLE_EVENT_READ
+  */
+ function swoole_event_add($sock, ?callable $readCallback = null, ?callable $writeCallback = null, int $flags = \SWOOLE_EVENT_READ)
+ {
+ }
 
-/**
- * @param $fd[required]
- * @param $read_callback[required]
- * @param $write_callback[optional]
- * @param $events[optional]
- * @return mixed
- */
-function swoole_event_add($fd, $read_callback, $write_callback = null, $events = null)
-{
-}
+ /**
+  * @param mixed $sock [required]
+  */
+ function swoole_event_del($sock): bool
+ {
+ }
 
-/**
- * @param $fd[required]
- * @return mixed
- */
-function swoole_event_del($fd)
-{
-}
+ /**
+  * @param mixed $sock [required]
+  * @param callable|null $readCallback [optional] = null
+  * @param callable|null $writeCallback [optional] = null
+  * @param int $flags [optional] = \SWOOLE_EVENT_READ
+  */
+ function swoole_event_set($sock, ?callable $readCallback = null, ?callable $writeCallback = null, int $flags = \SWOOLE_EVENT_READ): bool
+ {
+ }
 
-/**
- * @param $fd[required]
- * @param $read_callback[optional]
- * @param $write_callback[optional]
- * @param $events[optional]
- * @return mixed
- */
-function swoole_event_set($fd, $read_callback = null, $write_callback = null, $events = null)
-{
-}
+ /**
+  * @param mixed $sock [required]
+  * @param int $flags [optional] = 1536
+  */
+ function swoole_event_isset($sock, int $flags = 1536): bool
+ {
+ }
 
-/**
- * @param $fd[required]
- * @param $events[optional]
- * @return mixed
- */
-function swoole_event_isset($fd, $events = null)
-{
-}
+ function swoole_event_dispatch(): bool
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_event_dispatch()
-{
-}
+ /**
+  * @param callable $callback [required]
+  */
+ function swoole_event_defer(callable $callback): bool
+ {
+ }
 
-/**
- * This function is an alias of method \Swoole\Event::defer().
- *
- * @return true
- * @see \Swoole\Event::defer()
- */
-function swoole_event_defer(callable $callback)
-{
-}
+ /**
+  * @param callable $callback [required]
+  * @param bool $before [optional] = false
+  */
+ function swoole_event_cycle(callable $callback, bool $before = false): bool
+ {
+ }
 
-/**
- * @param $callback[required]
- * @param $before[optional]
- * @return mixed
- */
-function swoole_event_cycle($callback, $before = null)
-{
-}
+ /**
+  * @param mixed $sock [required]
+  * @param string $data [required]
+  */
+ function swoole_event_write($sock, string $data): bool
+ {
+ }
 
-/**
- * @param $fd[required]
- * @param $data[required]
- * @return mixed
- */
-function swoole_event_write($fd, $data)
-{
-}
+ function swoole_event_wait(): void
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_event_wait()
-{
-}
+ function swoole_event_exit(): void
+ {
+ }
 
-/**
- * @return mixed
- */
-function swoole_event_exit()
-{
-}
+ /**
+  * @param array $settings [required]
+  */
+ function swoole_timer_set(array $settings): bool
+ {
+ }
 
-/**
- * This function is an alias of method \Swoole\Timer::set().
- *
- * @return void
- * @see \Swoole\Timer::set()
- */
-function swoole_timer_set(array $settings)
-{
-}
+ /**
+  * @param int $ms [required]
+  * @param callable $callback [required]
+  */
+ function swoole_timer_after(int $ms, callable $callback)
+ {
+ }
 
-/**
- * This function is an alias of method \Swoole\Timer::after().
- *
- * @return int
- * @see \Swoole\Timer::after()
- */
-function swoole_timer_after(int $ms, callable $callback, ...$params)
-{
-}
+ /**
+  * @param int $ms [required]
+  * @param callable $callback [required]
+  */
+ function swoole_timer_tick(int $ms, callable $callback)
+ {
+ }
 
-/**
- * This function is an alias of method \Swoole\Timer::tick().
- *
- * @return int
- * @see \Swoole\Timer::tick()
- */
-function swoole_timer_tick(int $ms, callable $callback, ...$params)
-{
-}
+ function swoole_timer_exists(): bool
+ {
+ }
 
-/**
- * This function is an alias of method \Swoole\Timer::exists().
- *
- * @return bool
- * @see \Swoole\Timer::exists()
- */
-function swoole_timer_exists(int $timer_id)
-{
-}
+ function swoole_timer_info()
+ {
+ }
 
-/**
- * This function is an alias of method \Swoole\Timer::info().
- *
- * @return array
- * @see \Swoole\Timer::info()
- */
-function swoole_timer_info(int $timer_id)
-{
-}
+ function swoole_timer_stats(): array
+ {
+ }
 
-/**
- * This function is an alias of method \Swoole\Timer::stats().
- *
- * @return array
- * @see \Swoole\Timer::stats()
- */
-function swoole_timer_stats()
-{
-}
+ /**
+  * @return mixed
+  */
+ function swoole_timer_list()
+ {
+ }
 
-/**
- * This function is an alias of method \Swoole\Timer::list().
- *
- * @return \Swoole\timer\Iterator
- * @see \Swoole\Timer::list()
- */
-function swoole_timer_list()
-{
-}
+ function swoole_timer_clear(): bool
+ {
+ }
 
-/**
- * This function is an alias of method \Swoole\Timer::clear().
- *
- * @return bool
- * @see \Swoole\Timer::clear()
- */
-function swoole_timer_clear(int $timer_id)
-{
-}
-
-/**
- * This function is an alias of method \Swoole\Timer::clearAll().
- *
- * @return bool
- * @see \Swoole\Timer::clearAll()
- */
-function swoole_timer_clear_all()
-{
-}
+ function swoole_timer_clear_all(): bool
+ {
+ }

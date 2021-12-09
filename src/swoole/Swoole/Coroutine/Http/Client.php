@@ -1,22 +1,27 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Coroutine\Http;
 
 class Client
 {
-    public $errCode = 0;
+    public $errCode;
 
-    public $errMsg = '';
+    public $errMsg;
 
-    public $connected = false;
+    public $connected;
 
-    public $host = '';
+    public $host;
 
-    public $port = 0;
+    public $port;
 
-    public $ssl = false;
+    public $ssl;
 
     public $setting;
 
@@ -30,9 +35,9 @@ class Client
 
     public $downloadFile;
 
-    public $downloadOffset = 0;
+    public $downloadOffset;
 
-    public $statusCode = 0;
+    public $statusCode;
 
     public $headers;
 
@@ -40,9 +45,14 @@ class Client
 
     public $cookies;
 
-    public $body = '';
+    public $body;
 
-    public function __construct($host, $port = null, $ssl = null)
+    /**
+     * @param mixed $host [required]
+     * @param mixed $port [optional]
+     * @param mixed $ssl [optional]
+     */
+    public function __construct($host, $port, $ssl)
     {
     }
 
@@ -51,6 +61,7 @@ class Client
     }
 
     /**
+     * @param array $settings [required]
      * @return mixed
      */
     public function set(array $settings)
@@ -65,15 +76,15 @@ class Client
     }
 
     /**
-     * @param mixed|null $defer
+     * @param mixed $defer [optional]
      * @return mixed
      */
-    public function setDefer($defer = null)
+    public function setDefer($defer)
     {
     }
 
     /**
-     * @param mixed $method
+     * @param mixed $method [required]
      * @return mixed
      */
     public function setMethod($method)
@@ -81,6 +92,7 @@ class Client
     }
 
     /**
+     * @param array $headers [required]
      * @return mixed
      */
     public function setHeaders(array $headers)
@@ -88,8 +100,8 @@ class Client
     }
 
     /**
-     * @param mixed $username
-     * @param mixed $password
+     * @param mixed $username [required]
+     * @param mixed $password [required]
      * @return mixed
      */
     public function setBasicAuth($username, $password)
@@ -97,6 +109,7 @@ class Client
     }
 
     /**
+     * @param array $cookies [required]
      * @return mixed
      */
     public function setCookies(array $cookies)
@@ -104,7 +117,7 @@ class Client
     }
 
     /**
-     * @param mixed $data
+     * @param mixed $data [required]
      * @return mixed
      */
     public function setData($data)
@@ -112,31 +125,31 @@ class Client
     }
 
     /**
-     * @param mixed $path
-     * @param mixed $name
-     * @param mixed|null $type
-     * @param mixed|null $filename
-     * @param mixed|null $offset
-     * @param mixed|null $length
+     * @param mixed $path [required]
+     * @param mixed $name [required]
+     * @param mixed $type [optional]
+     * @param mixed $filename [optional]
+     * @param mixed $offset [optional]
+     * @param mixed $length [optional]
      * @return mixed
      */
-    public function addFile($path, $name, $type = null, $filename = null, $offset = null, $length = null)
+    public function addFile($path, $name, $type, $filename, $offset, $length)
     {
     }
 
     /**
-     * @param mixed $path
-     * @param mixed $name
-     * @param mixed|null $type
-     * @param mixed|null $filename
+     * @param mixed $path [required]
+     * @param mixed $name [required]
+     * @param mixed $type [optional]
+     * @param mixed $filename [optional]
      * @return mixed
      */
-    public function addData($path, $name, $type = null, $filename = null)
+    public function addData($path, $name, $type, $filename)
     {
     }
 
     /**
-     * @param mixed $path
+     * @param mixed $path [required]
      * @return mixed
      */
     public function execute($path)
@@ -158,7 +171,7 @@ class Client
     }
 
     /**
-     * @param mixed $path
+     * @param mixed $path [required]
      * @return mixed
      */
     public function get($path)
@@ -166,8 +179,8 @@ class Client
     }
 
     /**
-     * @param mixed $path
-     * @param mixed $data
+     * @param mixed $path [required]
+     * @param mixed $data [required]
      * @return mixed
      */
     public function post($path, $data)
@@ -175,12 +188,12 @@ class Client
     }
 
     /**
-     * @param mixed $path
-     * @param mixed $file
-     * @param mixed|null $offset
+     * @param mixed $path [required]
+     * @param mixed $file [required]
+     * @param mixed $offset [optional]
      * @return mixed
      */
-    public function download($path, $file, $offset = null)
+    public function download($path, $file, $offset)
     {
     }
 
@@ -227,7 +240,7 @@ class Client
     }
 
     /**
-     * @param mixed $path
+     * @param mixed $path [required]
      * @return mixed
      */
     public function upgrade($path)
@@ -235,20 +248,20 @@ class Client
     }
 
     /**
-     * @param mixed $data
-     * @param mixed|null $opcode
-     * @param mixed|null $flags
+     * @param mixed $data [required]
+     * @param mixed $opcode [optional]
+     * @param mixed $flags [optional]
      * @return mixed
      */
-    public function push($data, $opcode = null, $flags = null)
+    public function push($data, $opcode, $flags)
     {
     }
 
     /**
-     * @param mixed|null $timeout
+     * @param mixed $timeout [optional]
      * @return mixed
      */
-    public function recv($timeout = null)
+    public function recv($timeout)
     {
     }
 

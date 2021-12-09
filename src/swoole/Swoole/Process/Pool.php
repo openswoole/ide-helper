@@ -1,16 +1,27 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Process;
 
 class Pool
 {
-    public $master_pid = -1;
+    public $master_pid;
 
     public $workers;
 
-    public function __construct($worker_num, $ipc_type = null, $msgqueue_key = null, $enable_coroutine = null)
+    /**
+     * @param int $workerNum [required]
+     * @param int $ipcType [optional] = \SWOOLE_IPC_NONE
+     * @param int $msgqueue_key [optional] = 0
+     * @param bool $enableCoroutine [optional] = false
+     */
+    public function __construct(int $workerNum, int $ipcType = \SWOOLE_IPC_NONE, int $msgqueue_key = 0, bool $enableCoroutine = false)
     {
     }
 
@@ -19,71 +30,60 @@ class Pool
     }
 
     /**
-     * @return mixed
+     * @param array $settings [required]
+     * @return ?bool
      */
-    public function set(array $settings)
+    public function set(array $settings): ?bool
     {
     }
 
     /**
-     * @param mixed $event_name
-     * @return mixed
+     * @param string $event [required]
+     * @param callable $callback [required]
      */
-    public function on($event_name, callable $callback)
+    public function on(string $event, callable $callback): bool
     {
     }
 
     /**
-     * @param mixed|null $worker_id
-     * @return mixed
+     * @param int $workerId [optional] = -1
      */
-    public function getProcess($worker_id = null)
+    public function getProcess(int $workerId = -1)
     {
     }
 
     /**
-     * @param mixed $host
-     * @param mixed|null $port
-     * @param mixed|null $backlog
-     * @return mixed
+     * @param string $host [required]
+     * @param int $port [optional] = 0
+     * @param int $backlog [optional] = 2048
      */
-    public function listen($host, $port = null, $backlog = null)
+    public function listen(string $host, int $port = 0, int $backlog = 2048): bool
     {
     }
 
     /**
-     * @param mixed $data
-     * @return mixed
+     * @param string $data [required]
      */
-    public function write($data)
+    public function write(string $data): bool
+    {
+    }
+
+    public function detach(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @return ?bool
      */
-    public function detach()
+    public function start(): ?bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function start()
+    public function stop(): void
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function stop()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function shutdown()
+    public function shutdown(): bool
     {
     }
 }

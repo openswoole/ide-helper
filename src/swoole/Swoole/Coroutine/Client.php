@@ -1,7 +1,12 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Coroutine;
 
 class Client
@@ -10,25 +15,28 @@ class Client
 
     public const MSG_PEEK = 2;
 
-    public const MSG_DONTWAIT = 64;
+    public const MSG_DONTWAIT = 128;
 
-    public const MSG_WAITALL = 256;
+    public const MSG_WAITALL = 64;
 
-    public $errCode = 0;
+    public $errCode;
 
-    public $errMsg = '';
+    public $errMsg;
 
-    public $fd = -1;
+    public $fd;
 
-    public $type = 1;
+    public $type;
 
     public $setting;
 
-    public $connected = false;
+    public $connected;
 
     private $socket;
 
-    public function __construct($type)
+    /**
+     * @param int $type [required]
+     */
+    public function __construct(int $type)
     {
     }
 
@@ -37,129 +45,102 @@ class Client
     }
 
     /**
-     * @return mixed
+     * @param array $settings [required]
      */
-    public function set(array $settings)
+    public function set(array $settings): bool
     {
     }
 
     /**
-     * @param mixed $host
-     * @param mixed|null $port
-     * @param mixed|null $timeout
-     * @param mixed|null $sock_flag
-     * @return mixed
+     * @param string $host [required]
+     * @param int $port [optional] = 0
+     * @param float $timeout [optional] = 0.5
+     * @param int $sockFlag [optional] = 0
      */
-    public function connect($host, $port = null, $timeout = null, $sock_flag = null)
+    public function connect(string $host, int $port = 0, float $timeout = 0.5, int $sockFlag = 0): bool
     {
     }
 
     /**
-     * @param mixed|null $timeout
-     * @return mixed
+     * @param float $timeout [optional] = 1
      */
-    public function recv($timeout = null)
+    public function recv(float $timeout = 1): string
     {
     }
 
     /**
-     * @param mixed|null $length
-     * @return mixed
+     * @param int $length [optional] = 65535
      */
-    public function peek($length = null)
+    public function peek(int $length = 65535): string
     {
     }
 
     /**
-     * @param mixed $data
-     * @return mixed
+     * @param string $data [required]
+     * @param float $timeout [optional] = 1
      */
-    public function send($data)
+    public function send(string $data, float $timeout = 1)
     {
     }
 
     /**
-     * @param mixed $filename
-     * @param mixed|null $offset
-     * @param mixed|null $length
-     * @return mixed
+     * @param string $fileName [required]
+     * @param int $offset [optional] = 0
+     * @param int $length [optional] = 0
      */
-    public function sendfile($filename, $offset = null, $length = null)
+    public function sendfile(string $fileName, int $offset = 0, int $length = 0): bool
     {
     }
 
     /**
-     * @param mixed $address
-     * @param mixed $port
-     * @param mixed $data
-     * @return mixed
+     * @param string $host [required]
+     * @param int $port [required]
+     * @param string $data [required]
      */
-    public function sendto($address, $port, $data)
+    public function sendto(string $host, int $port, string $data): bool
     {
     }
 
     /**
-     * @param mixed $length
-     * @param mixed $address
-     * @param mixed|null $port
-     * @return mixed
+     * @param int $length [required]
+     * @param mixed $host [required]
+     * @param mixed $port [optional] = 0
      */
-    public function recvfrom($length, &$address, &$port = null)
+    public function recvfrom(int $length, &$host, &$port = 0): string
+    {
+    }
+
+    public function enableSSL(): bool
+    {
+    }
+
+    public function getPeerCert(): string
     {
     }
 
     /**
-     * @return mixed
+     * @param bool $allowSelfSigned [optional] = false
      */
-    public function enableSSL()
+    public function verifyPeerCert(bool $allowSelfSigned = false): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPeerCert()
+    public function isConnected(): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function verifyPeerCert()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
-    public function isConnected()
-    {
-    }
-
-    /**
-     * @return mixed
-     */
     public function getsockname()
     {
     }
 
-    /**
-     * @return mixed
-     */
     public function getpeername()
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function close()
+    public function close(): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
     public function exportSocket()
     {
     }
