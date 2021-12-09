@@ -31,29 +31,29 @@ class Request
     {
     }
 
-    public function rawContent(): string|bool
+    public function rawContent(): string
     {
     }
 
-    public function getContent(): string|bool
+    public function getContent(): string
     {
     }
 
-    public function getData(): string|bool
+    public function getData(): string
     {
     }
 
     /**
      * @param array|null $options [required]
      */
-    public static function create(?array $options): Swoole\Http\Request|bool
+    public static function create(?array $options)
     {
     }
 
     /**
      * @param string $data [required]
      */
-    public function parse(string $data): int|false
+    public function parse(string $data)
     {
     }
 
@@ -61,7 +61,7 @@ class Request
     {
     }
 
-    public function getMethod(): string|bool
+    public function getMethod(): string
     {
     }
 }

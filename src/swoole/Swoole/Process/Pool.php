@@ -48,7 +48,7 @@ class Pool
     /**
      * @param int $workerId [optional] = -1
      */
-    public function getProcess(int $workerId = -1): Swoole\Process|false
+    public function getProcess(int $workerId = -1)
     {
     }
 

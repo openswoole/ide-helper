@@ -21,14 +21,14 @@ class Atomic
     /**
      * @param int $value [optional] = 1
      */
-    public function add(int $value = 1): int|bool
+    public function add(int $value = 1): int
     {
     }
 
     /**
      * @param int $value [optional] = 1
      */
-    public function sub(int $value = 1): int|bool
+    public function sub(int $value = 1): int
     {
     }
 

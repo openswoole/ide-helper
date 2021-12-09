@@ -49,7 +49,7 @@ class Server extends \Swoole\Http\Server
     /**
      * @param string $data [required]
      */
-    public static function unpack(string $data): Swoole\WebSocket\Frame|false
+    public static function unpack(string $data)
     {
     }
 }

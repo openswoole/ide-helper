@@ -82,7 +82,7 @@ class Server
      * @param int $port [required]
      * @param int $sockType [required]
      */
-    public function listen(string $host, int $port, int $sockType): Swoole\Server\Port|false
+    public function listen(string $host, int $port, int $sockType)
     {
     }
 
@@ -91,7 +91,7 @@ class Server
      * @param int $port [required]
      * @param int $sockType [required]
      */
-    public function addlistener(string $host, int $port, int $sockType): Swoole\Server\Port|false
+    public function addlistener(string $host, int $port, int $sockType)
     {
     }
 
@@ -214,7 +214,7 @@ class Server
      * @param int $workerId [optional] = -1
      * @param callable|null $finishCallback [optional] = null
      */
-    public function task($data, int $workerId = -1, ?callable $finishCallback = null): int|bool
+    public function task($data, int $workerId = -1, ?callable $finishCallback = null)
     {
     }
 
@@ -223,7 +223,7 @@ class Server
      * @param float $timeout [optional] = 0.5
      * @param int $workerId [optional] = -1
      */
-    public function taskwait($data, float $timeout = 0.5, int $workerId = -1): string|bool
+    public function taskwait($data, float $timeout = 0.5, int $workerId = -1): string
     {
     }
 
@@ -231,7 +231,7 @@ class Server
      * @param array $tasks [required]
      * @param float $timeout [optional] = 0.5
      */
-    public function taskWaitMulti(array $tasks, float $timeout = 0.5): array|bool
+    public function taskWaitMulti(array $tasks, float $timeout = 0.5)
     {
     }
 
@@ -239,7 +239,7 @@ class Server
      * @param array $tasks [required]
      * @param float $timeout [optional] = 0.5
      */
-    public function taskCo(array $tasks, float $timeout = 0.5): array|bool
+    public function taskCo(array $tasks, float $timeout = 0.5)
     {
     }
 
@@ -273,7 +273,7 @@ class Server
     /**
      * @param bool $closeConn [optional] = false
      */
-    public function heartbeat(bool $closeConn = false): array|false
+    public function heartbeat(bool $closeConn = false)
     {
     }
 
@@ -282,7 +282,7 @@ class Server
      * @param int $reactorId [optional] = -1
      * @param bool $noCheckConn [optional] = false
      */
-    public function getClientInfo(int $fd, int $reactorId = -1, bool $noCheckConn = false): array|bool
+    public function getClientInfo(int $fd, int $reactorId = -1, bool $noCheckConn = false)
     {
     }
 
@@ -290,7 +290,7 @@ class Server
      * @param int $startFd [optional] = 0
      * @param int $pageSize [optional] = 10
      */
-    public function getClientList(int $startFd = 0, int $pageSize = 10): array|bool
+    public function getClientList(int $startFd = 0, int $pageSize = 10)
     {
     }
 
@@ -301,14 +301,14 @@ class Server
     /**
      * @param int $workerId [optional] = -1
      */
-    public function getWorkerPid(int $workerId = -1): int|false
+    public function getWorkerPid(int $workerId = -1)
     {
     }
 
     /**
      * @param int $workerId [optional] = -1
      */
-    public function getWorkerStatus(int $workerId = -1): int|bool
+    public function getWorkerStatus(int $workerId = -1)
     {
     }
 
@@ -325,7 +325,7 @@ class Server
      * @param int $reactorId [optional] = -1
      * @param bool $noCheckConn [optional] = false
      */
-    public function connection_info(int $fd, int $reactorId = -1, bool $noCheckConn = false): array|bool
+    public function connection_info(int $fd, int $reactorId = -1, bool $noCheckConn = false)
     {
     }
 
@@ -333,7 +333,7 @@ class Server
      * @param int $startFd [optional] = 0
      * @param int $pageSize [optional] = 10
      */
-    public function connection_list(int $startFd = 0, int $pageSize = 10): array|bool
+    public function connection_list(int $startFd = 0, int $pageSize = 10)
     {
     }
 
@@ -348,11 +348,11 @@ class Server
     /**
      * @param \Swoole\Process $process [required]
      */
-    public function addProcess(Process $process): int|bool
+    public function addProcess(Process $process)
     {
     }
 
-    public function stats(): array|false
+    public function stats()
     {
     }
 

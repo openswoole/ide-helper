@@ -152,7 +152,7 @@ class Response
      * @param mixed $server [optional] = -1
      * @param int $fd [optional] = -1
      */
-    public static function create($server = -1, int $fd = -1): Swoole\Http\Response|bool
+    public static function create($server = -1, int $fd = -1)
     {
     }
 
@@ -172,7 +172,7 @@ class Response
     /**
      * @param float $timeout [optional] = 0
      */
-    public function recv(float $timeout = 0): Swoole\WebSocket\Frame|string|bool
+    public function recv(float $timeout = 0)
     {
     }
 

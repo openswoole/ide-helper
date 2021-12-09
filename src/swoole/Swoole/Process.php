@@ -50,7 +50,7 @@ class Process
     /**
      * @param bool $blocking [optional] = true
      */
-    public static function wait(bool $blocking = true): array|bool
+    public static function wait(bool $blocking = true)
     {
     }
 
@@ -132,7 +132,7 @@ class Process
     {
     }
 
-    public function statQueue(): array|bool
+    public function statQueue()
     {
     }
 
@@ -140,14 +140,14 @@ class Process
     {
     }
 
-    public function start(): int|bool
+    public function start()
     {
     }
 
     /**
      * @param string $data [required]
      */
-    public function write(string $data): int|bool
+    public function write(string $data)
     {
     }
 
@@ -161,7 +161,7 @@ class Process
     /**
      * @param int $bufferSize [optional] = 8192
      */
-    public function read(int $bufferSize = 8192): string|bool
+    public function read(int $bufferSize = 8192): string
     {
     }
 
@@ -175,7 +175,7 @@ class Process
     /**
      * @param int $maxSize [optional] = 8192
      */
-    public function pop(int $maxSize = 8192): string|bool
+    public function pop(int $maxSize = 8192): string
     {
     }
 
@@ -194,7 +194,7 @@ class Process
     {
     }
 
-    public function exportSocket(): Swoole\Coroutine\Socket|false
+    public function exportSocket()
     {
     }
 

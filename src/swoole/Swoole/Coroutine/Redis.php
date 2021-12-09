@@ -51,7 +51,7 @@ class Redis
     {
     }
 
-    public function getDBNum(): int|bool
+    public function getDBNum()
     {
     }
 
@@ -97,7 +97,7 @@ class Redis
      * @param mixed $value [required]
      * @param mixed $opt [optional] = null
      */
-    public function set(string $key, $value, $opt = null): Swoole\Coroutine\Redis|bool
+    public function set(string $key, $value, $opt = null)
     {
     }
 
@@ -106,7 +106,7 @@ class Redis
      * @param int $idx [required]
      * @param bool $value [required]
      */
-    public function setBit(string $key, int $idx, bool $value): Swoole\Coroutine\Redis|int
+    public function setBit(string $key, int $idx, bool $value)
     {
     }
 
@@ -115,7 +115,7 @@ class Redis
      * @param int $expire [required]
      * @param mixed $value [required]
      */
-    public function setEx(string $key, int $expire, $value): Swoole\Coroutine\Redis|bool
+    public function setEx(string $key, int $expire, $value)
     {
     }
 
@@ -124,7 +124,7 @@ class Redis
      * @param int $expire [required]
      * @param mixed $value [required]
      */
-    public function psetEx(string $key, int $expire, $value): Swoole\Coroutine\Redis|bool
+    public function psetEx(string $key, int $expire, $value)
     {
     }
 
@@ -140,14 +140,14 @@ class Redis
     /**
      * @param string $key [required]
      */
-    public function get(string $key): Swoole\Coroutine\Redis|string
+    public function get(string $key)
     {
     }
 
     /**
      * @param array $keys [required]
      */
-    public function mGet(array $keys): Swoole\Coroutine\Redis|array
+    public function mGet(array $keys)
     {
     }
 
@@ -155,7 +155,7 @@ class Redis
      * @param array|string $key [required]
      * @param string ...$other_keys
      */
-    public function del($key, string ...$other_keys): Swoole\Coroutine\Redis|int
+    public function del($key, string ...$other_keys)
     {
     }
 
@@ -198,7 +198,7 @@ class Redis
      * @param array|string $key [required]
      * @param string ...$other_keys
      */
-    public function delete($key, string ...$other_keys): Swoole\Coroutine\Redis|int
+    public function delete($key, string ...$other_keys)
     {
     }
 
@@ -219,42 +219,42 @@ class Redis
     /**
      * @param string $pattern [required]
      */
-    public function getKeys(string $pattern): Swoole\Coroutine\Redis|array
+    public function getKeys(string $pattern)
     {
     }
 
     /**
      * @param string $pattern [required]
      */
-    public function keys(string $pattern): Swoole\Coroutine\Redis|array
+    public function keys(string $pattern)
     {
     }
 
     /**
      * @param string $key [required]
      */
-    public function exists(string $key): Swoole\Coroutine\Redis|bool
+    public function exists(string $key)
     {
     }
 
     /**
      * @param string $key [required]
      */
-    public function type(string $key): Swoole\Coroutine\Redis|int
+    public function type(string $key)
     {
     }
 
     /**
      * @param string $key [required]
      */
-    public function strLen(string $key): Swoole\Coroutine\Redis|int
+    public function strLen(string $key)
     {
     }
 
     /**
      * @param string $key [required]
      */
-    public function lPop(string $key): Swoole\Coroutine\Redis|string
+    public function lPop(string $key)
     {
     }
 
@@ -270,7 +270,7 @@ class Redis
     /**
      * @param string $key [required]
      */
-    public function rPop(string $key): Swoole\Coroutine\Redis|string
+    public function rPop(string $key)
     {
     }
 
@@ -324,7 +324,7 @@ class Redis
      * @param string $key [required]
      * @param int $count [optional] = 0
      */
-    public function sPop(string $key, int $count = 0): array|string
+    public function sPop(string $key, int $count = 0)
     {
     }
 
@@ -346,7 +346,7 @@ class Redis
      * @param string $key [required]
      * @param int $count [optional] = 0
      */
-    public function sRandMember(string $key, int $count = 0): array|string
+    public function sRandMember(string $key, int $count = 0)
     {
     }
 
@@ -440,7 +440,7 @@ class Redis
      * @param string $key_src [required]
      * @param string $key_dst [required]
      */
-    public function renameKey(string $key_src, string $key_dst): Swoole\Coroutine\Redis|bool
+    public function renameKey(string $key_src, string $key_dst)
     {
     }
 
@@ -448,7 +448,7 @@ class Redis
      * @param string $key_src [required]
      * @param string $key_dst [required]
      */
-    public function rename(string $key_src, string $key_dst): Swoole\Coroutine\Redis|bool
+    public function rename(string $key_src, string $key_dst)
     {
     }
 
@@ -456,7 +456,7 @@ class Redis
      * @param string $key_src [required]
      * @param string $key_dst [required]
      */
-    public function renameNx(string $key_src, string $key_dst): Swoole\Coroutine\Redis|bool
+    public function renameNx(string $key_src, string $key_dst)
     {
     }
 
@@ -468,7 +468,7 @@ class Redis
     {
     }
 
-    public function randomKey(): Swoole\Coroutine\Redis|string
+    public function randomKey()
     {
     }
 
@@ -498,7 +498,7 @@ class Redis
     /**
      * @param string|null $key [optional] = null
      */
-    public function ping(?string $key = null): Swoole\Coroutine\Redis|string
+    public function ping(?string $key = null)
     {
     }
 
@@ -509,7 +509,7 @@ class Redis
     {
     }
 
-    public function unwatch(): Swoole\Coroutine\Redis|bool
+    public function unwatch()
     {
     }
 
@@ -517,7 +517,7 @@ class Redis
      * @param array|string $key [required]
      * @param string ...$other_keys
      */
-    public function watch($key, string ...$other_keys): Swoole\Coroutine\Redis|bool
+    public function watch($key, string ...$other_keys)
     {
     }
 
@@ -568,7 +568,7 @@ class Redis
      * @param int $start [required]
      * @param string $value [required]
      */
-    public function setRange(string $key, int $start, string $value): Swoole\Coroutine\Redis|int
+    public function setRange(string $key, int $start, string $value)
     {
     }
 
@@ -576,7 +576,7 @@ class Redis
      * @param string $key [required]
      * @param mixed $value [required]
      */
-    public function setNx(string $key, $value): Swoole\Coroutine\Redis|array|bool
+    public function setNx(string $key, $value)
     {
     }
 
@@ -584,7 +584,7 @@ class Redis
      * @param string $key [required]
      * @param mixed $value [required]
      */
-    public function getSet(string $key, $value): Swoole\Coroutine\Redis|string
+    public function getSet(string $key, $value)
     {
     }
 
@@ -592,7 +592,7 @@ class Redis
      * @param string $key [required]
      * @param mixed $value [required]
      */
-    public function append(string $key, $value): Swoole\Coroutine\Redis|int
+    public function append(string $key, $value)
     {
     }
 
@@ -600,7 +600,7 @@ class Redis
      * @param string $key [required]
      * @param mixed $value [required]
      */
-    public function lPushx(string $key, $value): Swoole\Coroutine\Redis|int
+    public function lPushx(string $key, $value)
     {
     }
 
@@ -608,7 +608,7 @@ class Redis
      * @param string $key [required]
      * @param mixed $value [required]
      */
-    public function lPush(string $key, $value): Swoole\Coroutine\Redis|int
+    public function lPush(string $key, $value)
     {
     }
 
@@ -616,7 +616,7 @@ class Redis
      * @param string $key [required]
      * @param mixed $value [required]
      */
-    public function rPush(string $key, $value): Swoole\Coroutine\Redis|int
+    public function rPush(string $key, $value)
     {
     }
 
@@ -624,7 +624,7 @@ class Redis
      * @param string $key [required]
      * @param mixed $value [required]
      */
-    public function rPushx(string $key, $value): Swoole\Coroutine\Redis|int
+    public function rPushx(string $key, $value)
     {
     }
 
@@ -883,7 +883,7 @@ class Redis
      * @param string $key [required]
      * @param int $value [required]
      */
-    public function incrBy(string $key, int $value): Swoole\Coroutine\Redis|int
+    public function incrBy(string $key, int $value)
     {
     }
 
@@ -899,7 +899,7 @@ class Redis
     /**
      * @param string $key [required]
      */
-    public function incr(string $key): Swoole\Coroutine\Redis|int
+    public function incr(string $key)
     {
     }
 
@@ -907,14 +907,14 @@ class Redis
      * @param string $key [required]
      * @param int $value [required]
      */
-    public function decrBy(string $key, int $value): Swoole\Coroutine\Redis|int
+    public function decrBy(string $key, int $value)
     {
     }
 
     /**
      * @param string $key [required]
      */
-    public function decr(string $key): Swoole\Coroutine\Redis|int
+    public function decr(string $key)
     {
     }
 
@@ -922,7 +922,7 @@ class Redis
      * @param string $key [required]
      * @param int $idx [required]
      */
-    public function getBit(string $key, int $idx): Swoole\Coroutine\Redis|int
+    public function getBit(string $key, int $idx)
     {
     }
 
@@ -932,7 +932,7 @@ class Redis
      * @param mixed $pivot [required]
      * @param mixed $value [required]
      */
-    public function lInsert(string $key, int $pos, $pivot, $value): Swoole\Coroutine\Redis|int
+    public function lInsert(string $key, int $pos, $pivot, $value)
     {
     }
 
@@ -1012,7 +1012,7 @@ class Redis
      * @param int $start [required]
      * @param int $end [required]
      */
-    public function getRange(string $key, int $start, int $end): Swoole\Coroutine\Redis|string
+    public function getRange(string $key, int $start, int $end)
     {
     }
 
@@ -1092,7 +1092,7 @@ class Redis
      * @param string $key [required]
      * @param float $value [required]
      */
-    public function incrByFloat(string $key, float $value): Swoole\Coroutine\Redis|int
+    public function incrByFloat(string $key, float $value)
     {
     }
 
@@ -1110,7 +1110,7 @@ class Redis
      * @param int $start [optional] = 0
      * @param int $end [optional] = -1
      */
-    public function bitCount(string $key, int $start = 0, int $end = -1): Swoole\Coroutine\Redis|int
+    public function bitCount(string $key, int $start = 0, int $end = -1)
     {
     }
 
@@ -1271,7 +1271,7 @@ class Redis
     /**
      * @param int $value [optional]
      */
-    public function multi(int $value): Swoole\Coroutine\Redis|bool
+    public function multi(int $value)
     {
     }
 

@@ -50,7 +50,7 @@ class Socket
     /**
      * @param float $timeout [optional] = 0
      */
-    public function accept(float $timeout = 0): Swoole\Coroutine\Socket|false
+    public function accept(float $timeout = 0)
     {
     }
 
@@ -70,7 +70,7 @@ class Socket
     /**
      * @param int $length [optional] = 65536
      */
-    public function peek(int $length = 65536): string|bool
+    public function peek(int $length = 65536): string
     {
     }
 
@@ -78,7 +78,7 @@ class Socket
      * @param int $length [optional] = 65536
      * @param float $timeout [optional] = 0
      */
-    public function recv(int $length = 65536, float $timeout = 0): string|bool
+    public function recv(int $length = 65536, float $timeout = 0): string
     {
     }
 
@@ -86,7 +86,7 @@ class Socket
      * @param int $length [optional] = 65536
      * @param float $timeout [optional] = 0
      */
-    public function recvAll(int $length = 65536, float $timeout = 0): string|bool
+    public function recvAll(int $length = 65536, float $timeout = 0): string
     {
     }
 
@@ -94,7 +94,7 @@ class Socket
      * @param int $length [optional] = 65536
      * @param float $timeout [optional] = 0
      */
-    public function recvLine(int $length = 65536, float $timeout = 0): string|bool
+    public function recvLine(int $length = 65536, float $timeout = 0): string
     {
     }
 
@@ -102,14 +102,14 @@ class Socket
      * @param int $length [optional] = 65536
      * @param float $timeout [optional] = 0
      */
-    public function recvWithBuffer(int $length = 65536, float $timeout = 0): string|bool
+    public function recvWithBuffer(int $length = 65536, float $timeout = 0): string
     {
     }
 
     /**
      * @param float $timeout [optional] = 0
      */
-    public function recvPacket(float $timeout = 0): string|bool
+    public function recvPacket(float $timeout = 0): string
     {
     }
 
@@ -117,7 +117,7 @@ class Socket
      * @param string $data [required]
      * @param float $timeout [optional] = 0
      */
-    public function send(string $data, float $timeout = 0): int|bool
+    public function send(string $data, float $timeout = 0)
     {
     }
 
@@ -125,7 +125,7 @@ class Socket
      * @param array $ioVector [required]
      * @param float $timeout [optional] = 0
      */
-    public function readVector(array $ioVector, float $timeout = 0): array|bool
+    public function readVector(array $ioVector, float $timeout = 0)
     {
     }
 
@@ -133,7 +133,7 @@ class Socket
      * @param array $ioVector [required]
      * @param float $timeout [optional] = 0
      */
-    public function readVectorAll(array $ioVector, float $timeout = 0): array|bool
+    public function readVectorAll(array $ioVector, float $timeout = 0)
     {
     }
 
@@ -141,7 +141,7 @@ class Socket
      * @param array $ioVector [required]
      * @param float $timeout [optional] = 0
      */
-    public function writeVector(array $ioVector, float $timeout = 0): int|bool
+    public function writeVector(array $ioVector, float $timeout = 0)
     {
     }
 
@@ -149,7 +149,7 @@ class Socket
      * @param array $ioVector [required]
      * @param float $timeout [optional] = 0
      */
-    public function writeVectorAll(array $ioVector, float $timeout = 0): int|bool
+    public function writeVectorAll(array $ioVector, float $timeout = 0)
     {
     }
 
@@ -166,7 +166,7 @@ class Socket
      * @param string $data [required]
      * @param float $timeout [optional] = 0
      */
-    public function sendAll(string $data, float $timeout = 0): int|bool
+    public function sendAll(string $data, float $timeout = 0)
     {
     }
 
@@ -174,7 +174,7 @@ class Socket
      * @param mixed $peerName [required]
      * @param float $timeout [optional] = 0
      */
-    public function recvfrom(&$peerName, float $timeout = 0): string|bool
+    public function recvfrom(&$peerName, float $timeout = 0): string
     {
     }
 
@@ -183,7 +183,7 @@ class Socket
      * @param int $port [required]
      * @param string $data [required]
      */
-    public function sendto(string $addr, int $port, string $data): int|bool
+    public function sendto(string $addr, int $port, string $data)
     {
     }
 
@@ -233,11 +233,11 @@ class Socket
     {
     }
 
-    public function getpeername(): array|bool
+    public function getpeername()
     {
     }
 
-    public function getsockname(): array|bool
+    public function getsockname()
     {
     }
 }

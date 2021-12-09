@@ -64,14 +64,14 @@ class Client
     /**
      * @param float $timeout [optional] = 1
      */
-    public function recv(float $timeout = 1): string|bool
+    public function recv(float $timeout = 1): string
     {
     }
 
     /**
      * @param int $length [optional] = 65535
      */
-    public function peek(int $length = 65535): string|bool
+    public function peek(int $length = 65535): string
     {
     }
 
@@ -79,7 +79,7 @@ class Client
      * @param string $data [required]
      * @param float $timeout [optional] = 1
      */
-    public function send(string $data, float $timeout = 1): int|bool
+    public function send(string $data, float $timeout = 1)
     {
     }
 
@@ -106,7 +106,7 @@ class Client
      * @param mixed $host [required]
      * @param mixed $port [optional] = 0
      */
-    public function recvfrom(int $length, &$host, &$port = 0): string|bool
+    public function recvfrom(int $length, &$host, &$port = 0): string
     {
     }
 
@@ -114,7 +114,7 @@ class Client
     {
     }
 
-    public function getPeerCert(): string|bool
+    public function getPeerCert(): string
     {
     }
 
@@ -129,11 +129,11 @@ class Client
     {
     }
 
-    public function getsockname(): array|bool
+    public function getsockname()
     {
     }
 
-    public function getpeername(): array|bool
+    public function getpeername()
     {
     }
 
@@ -141,7 +141,7 @@ class Client
     {
     }
 
-    public function exportSocket(): Swoole\Coroutine\Socket|bool
+    public function exportSocket()
     {
     }
 }

@@ -15,7 +15,7 @@ class Coroutine
      * @param callable $callback [required]
      * @param mixed ...$params
      */
-    public static function create(callable $callback, ...$params): int|false
+    public static function create(callable $callback, ...$params)
     {
     }
 
@@ -105,7 +105,7 @@ class Coroutine
      * @param int $options [optional] = \DEBUG_BACKTRACE_PROVIDE_OBJECT
      * @param int $limit [optional] = 0
      */
-    public static function getBackTrace(int $cid = 0, int $options = \DEBUG_BACKTRACE_PROVIDE_OBJECT, int $limit = 0): array|false
+    public static function getBackTrace(int $cid = 0, int $options = \DEBUG_BACKTRACE_PROVIDE_OBJECT, int $limit = 0)
     {
     }
 
@@ -128,7 +128,7 @@ class Coroutine
     /**
      * @param int $cid [optional] = 0
      */
-    public static function getStackUsage(int $cid = 0): int|false
+    public static function getStackUsage(int $cid = 0)
     {
     }
 
@@ -159,7 +159,7 @@ class Coroutine
      * @param int $family [optional] = \AF_INET
      * @param float $timeout [optional] = -1
      */
-    public static function gethostbyname(string $domain, int $family = \AF_INET, float $timeout = -1): string|false
+    public static function gethostbyname(string $domain, int $family = \AF_INET, float $timeout = -1)
     {
     }
 
@@ -167,7 +167,7 @@ class Coroutine
      * @param string $domain [required]
      * @param float $timeout [optional] = 5
      */
-    public static function dnsLookup(string $domain, float $timeout = 5): string|false
+    public static function dnsLookup(string $domain, float $timeout = 5)
     {
     }
 
@@ -175,7 +175,7 @@ class Coroutine
      * @param string $command [required]
      * @param bool $get_error_stream [optional] = false
      */
-    public static function exec(string $command, bool $get_error_stream = false): array|false
+    public static function exec(string $command, bool $get_error_stream = false)
     {
     }
 
@@ -194,14 +194,14 @@ class Coroutine
      * @param string $service [optional] = null
      * @param float $timeout [optional] = -1
      */
-    public static function getaddrinfo(string $domain, int $family = \AF_INET, int $sockType = \SOCK_STREAM, int $protocol = \STREAM_IPPROTO_TCP, string $service = null, float $timeout = -1): array|false
+    public static function getaddrinfo(string $domain, int $family = \AF_INET, int $sockType = \SOCK_STREAM, int $protocol = \STREAM_IPPROTO_TCP, string $service = null, float $timeout = -1)
     {
     }
 
     /**
      * @param string $path [required]
      */
-    public static function statvfs(string $path): array|bool
+    public static function statvfs(string $path)
     {
     }
 
@@ -209,7 +209,7 @@ class Coroutine
      * @param string $filename [required]
      * @param int $flags [optional] = 0
      */
-    public static function readFile(string $filename, int $flags = 0): string|false
+    public static function readFile(string $filename, int $flags = 0)
     {
     }
 
@@ -218,14 +218,14 @@ class Coroutine
      * @param string $data [required]
      * @param int $flags [optional] = 0
      */
-    public static function writeFile(string $filename, string $data, int $flags = 0): int|bool
+    public static function writeFile(string $filename, string $data, int $flags = 0)
     {
     }
 
     /**
      * @param float $timeout [optional] = -1
      */
-    public static function wait(float $timeout = -1): array|bool
+    public static function wait(float $timeout = -1)
     {
     }
 
@@ -233,7 +233,7 @@ class Coroutine
      * @param int $pid [required]
      * @param float $timeout [optional] = -1
      */
-    public static function waitPid(int $pid, float $timeout = -1): array|bool
+    public static function waitPid(int $pid, float $timeout = -1)
     {
     }
 
@@ -250,7 +250,7 @@ class Coroutine
      * @param int $events [required]
      * @param float $timeout [optional] = -1
      */
-    public static function waitEvent($fd, int $events, float $timeout = -1): int|bool
+    public static function waitEvent($fd, int $events, float $timeout = -1)
     {
     }
 
@@ -258,7 +258,7 @@ class Coroutine
      * @param mixed $handle [required]
      * @param int $length [optional] = 0
      */
-    public static function fread($handle, int $length = 0): string|false
+    public static function fread($handle, int $length = 0)
     {
     }
 
@@ -267,14 +267,14 @@ class Coroutine
      * @param string $data [required]
      * @param int $length [optional] = 0
      */
-    public static function fwrite($handle, string $data, int $length = 0): int|false
+    public static function fwrite($handle, string $data, int $length = 0)
     {
     }
 
     /**
      * @param mixed $handle [required]
      */
-    public static function fgets($handle): string|bool
+    public static function fgets($handle): string
     {
     }
 }

@@ -36,7 +36,7 @@ class Server extends \Swoole\Server
     /**
      * @param string $command [required]
      */
-    public function getHandler(string $command): callable|false
+    public function getHandler(string $command)
     {
     }
 
@@ -44,7 +44,7 @@ class Server extends \Swoole\Server
      * @param int $type [required]
      * @param mixed $value [optional] = null
      */
-    public static function format(int $type, $value = null): string|false
+    public static function format(int $type, $value = null)
     {
     }
 }

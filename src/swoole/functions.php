@@ -271,7 +271,7 @@ declare(strict_types=1);
   * @param callable|null $writeCallback [optional] = null
   * @param int $flags [optional] = \SWOOLE_EVENT_READ
   */
- function swoole_event_add($sock, ?callable $readCallback = null, ?callable $writeCallback = null, int $flags = \SWOOLE_EVENT_READ): int|bool
+ function swoole_event_add($sock, ?callable $readCallback = null, ?callable $writeCallback = null, int $flags = \SWOOLE_EVENT_READ)
  {
  }
 
@@ -346,7 +346,7 @@ declare(strict_types=1);
   * @param int $ms [required]
   * @param callable $callback [required]
   */
- function swoole_timer_after(int $ms, callable $callback): int|bool
+ function swoole_timer_after(int $ms, callable $callback)
  {
  }
 
@@ -354,7 +354,7 @@ declare(strict_types=1);
   * @param int $ms [required]
   * @param callable $callback [required]
   */
- function swoole_timer_tick(int $ms, callable $callback): int|bool
+ function swoole_timer_tick(int $ms, callable $callback)
  {
  }
 
@@ -362,7 +362,7 @@ declare(strict_types=1);
  {
  }
 
- function swoole_timer_info(): array|bool
+ function swoole_timer_info()
  {
  }
 

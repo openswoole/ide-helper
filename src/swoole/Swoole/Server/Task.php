@@ -31,7 +31,7 @@ final class Task
     /**
      * @param mixed $data [required]
      */
-    public static function pack($data): string|bool
+    public static function pack($data): string
     {
     }
 }

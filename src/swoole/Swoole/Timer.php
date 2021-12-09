@@ -23,7 +23,7 @@ class Timer
      * @param callable $callback [required]
      * @param mixed ...$params
      */
-    public static function after(int $ms, callable $callback, ...$params): int|bool
+    public static function after(int $ms, callable $callback, ...$params)
     {
     }
 
@@ -32,7 +32,7 @@ class Timer
      * @param callable $callback [required]
      * @param mixed ...$params
      */
-    public static function tick(int $ms, callable $callback, ...$params): int|bool
+    public static function tick(int $ms, callable $callback, ...$params)
     {
     }
 
@@ -40,7 +40,7 @@ class Timer
     {
     }
 
-    public static function info(): array|bool
+    public static function info()
     {
     }
 

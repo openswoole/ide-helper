@@ -73,7 +73,7 @@ class Client
      * @param int $length [optional] = 65535
      * @param int $flags [optional] = 0
      */
-    public function recv(int $length = 65535, int $flags = 0): string|bool
+    public function recv(int $length = 65535, int $flags = 0): string
     {
     }
 
@@ -81,7 +81,7 @@ class Client
      * @param string $data [required]
      * @param int $flags [optional] = 0
      */
-    public function send(string $data, int $flags = 0): int|bool
+    public function send(string $data, int $flags = 0)
     {
     }
 
@@ -114,7 +114,7 @@ class Client
     {
     }
 
-    public function getPeerCert(): string|bool
+    public function getPeerCert(): string
     {
     }
 
@@ -126,11 +126,11 @@ class Client
     {
     }
 
-    public function getsockname(): array|bool
+    public function getsockname()
     {
     }
 
-    public function getpeername(): array|bool
+    public function getpeername()
     {
     }
 
