@@ -48,9 +48,9 @@ class Process
     }
 
     /**
-     * @param bool $blocking [optional] = 1
+     * @param bool $blocking [optional] = true
      */
-    public static function wait(bool $blocking = 1): array|bool
+    public static function wait(bool $blocking = true): array|bool
     {
     }
 
