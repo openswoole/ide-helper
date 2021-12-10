@@ -5,7 +5,10 @@
 [![GitHub stars](https://img.shields.io/github/stars/openswoole/swoole-src)](https://github.com/openswoole/swoole-src/stargazers)
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/openswoole.svg?style=social&label=Follow%20%40OpenSwoole)](https://twitter.com/openswoole)
 
-This package contains IDE help files for [OpenSwoole](https://github.com/openswoole/swoole-src). You may use it in your IDE to provide accurate autocompletion. 
+
+This package contains IDE help files for [Open Swoole](https://github.com/openswoole/swoole-src). You may use it in your IDE to provide accurate autocompletion.
+
+<img width="800" alt="openswoole-ide-helper" src="https://user-images.githubusercontent.com/313478/145558998-eecf96c7-08a1-4119-a1eb-2141436d4521.png">
 
 ## Install
 
