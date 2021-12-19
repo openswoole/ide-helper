@@ -352,7 +352,10 @@ class Server
     {
     }
 
-    public function stats()
+    /**
+     * @param int $mode [optional] = OPENSWOOLE_STATS_DEFAULT
+     */
+    public function stats(int $mode = \OPENSWOOLE_STATS_DEFAULT)
     {
     }
 
