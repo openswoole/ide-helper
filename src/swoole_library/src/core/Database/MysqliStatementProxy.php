@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Database;
 
 use mysqli;
@@ -21,16 +19,16 @@ class MysqliStatementProxy extends ObjectProxy
     /** @var mysqli_stmt */
     protected $__object;
 
-    /** @var null|string */
+    /** @var string|null */
     protected $queryString;
 
-    /** @var null|array */
+    /** @var array|null */
     protected $attrSetContext;
 
-    /** @var null|array */
+    /** @var array|null */
     protected $bindParamContext;
 
-    /** @var null|array */
+    /** @var array|null */
     protected $bindResultContext;
 
     /** @var Mysqli|MysqliProxy */
@@ -43,7 +41,7 @@ class MysqliStatementProxy extends ObjectProxy
     {
         parent::__construct($object);
         $this->queryString = $queryString;
-        $this->parent = $parent;
+        $this->parent      = $parent;
         $this->parentRound = $parent->getRound();
     }
 
@@ -64,7 +62,7 @@ class MysqliStatementProxy extends ObjectProxy
                     /* if not equal, parent has reconnected */
                     $this->parent->reconnect();
                 }
-                $parent = $this->parent->__getObject();
+                $parent         = $this->parent->__getObject();
                 $this->__object = $this->queryString ? @$parent->prepare($this->queryString) : @$parent->stmt_init();
                 if ($this->__object === false) {
                     throw new MysqliException($parent->error, $parent->errno);

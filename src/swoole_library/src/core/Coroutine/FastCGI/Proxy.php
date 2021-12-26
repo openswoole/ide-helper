@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Coroutine\FastCGI;
 
 use InvalidArgumentException;
@@ -45,8 +43,8 @@ class Proxy
     public function __construct(string $url, string $documentRoot = '/')
     {
         [$this->host, $this->port] = Client::parseUrl($url);
-        $this->documentRoot = $documentRoot;
-        $this->staticFileFilter = [$this, 'staticFileFiltrate'];
+        $this->documentRoot        = $documentRoot;
+        $this->staticFileFilter    = [$this, 'staticFileFiltrate'];
     }
 
     public function withTimeout(float $timeout): self
@@ -111,8 +109,8 @@ class Proxy
     {
         $request = new HttpRequest();
         if ($userRequest instanceof \Swoole\Http\Request) {
-            $server = $userRequest->server;
-            $headers = $userRequest->header;
+            $server   = $userRequest->server;
+            $headers  = $userRequest->header;
             $pathInfo = $userRequest->server['path_info'];
             $pathInfo = '/' . (ltrim($pathInfo, '/'));
             if (strlen($this->index) !== 0) {
@@ -121,7 +119,7 @@ class Proxy
                     $pathInfo = rtrim($pathInfo, '/') . '/' . $this->index;
                 }
             }
-            $requestUri = $scriptName = $documentUri = $server['request_uri'];
+            $requestUri  = $scriptName  = $documentUri  = $server['request_uri'];
             $queryString = $server['query_string'] ?? '';
             if (strlen($queryString) !== 0) {
                 $requestUri .= "?{$server['query_string']}";
@@ -143,7 +141,8 @@ class Proxy
                 ->withContentLength((int) ($headers['content-length'] ?? 0))
                 ->withHeaders($headers)
                 ->withBody($userRequest->rawContent())
-                ->withAddedParams($this->params);
+                ->withAddedParams($this->params)
+            ;
             if ($this->https) {
                 $request->withParam('HTTPS', '1');
             }
@@ -179,7 +178,7 @@ class Proxy
                 return;
             }
         }
-        $client = new Client($this->host, $this->port);
+        $client   = new Client($this->host, $this->port);
         $response = $client->execute($request, $this->timeout);
         $this->translateResponse($response, $userResponse);
     }

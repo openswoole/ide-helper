@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Coroutine\FastCGI;
 
 use InvalidArgumentException;
@@ -42,8 +40,8 @@ class Client
     {
         if (stripos($host, 'unix:/') === 0) {
             $this->af = AF_UNIX;
-            $host = '/' . ltrim(substr($host, strlen('unix:/')), '/');
-            $port = 0;
+            $host     = '/' . ltrim(substr($host, strlen('unix:/')), '/');
+            $port     = 0;
         } elseif (strpos($host, ':') !== false) {
             $this->af = AF_INET6;
         } else {
@@ -51,7 +49,7 @@ class Client
         }
         $this->host = $host;
         $this->port = $port;
-        $this->ssl = $ssl;
+        $this->ssl  = $ssl;
     }
 
     /**
@@ -63,7 +61,7 @@ class Client
         if (!$this->socket) {
             $this->socket = $socket = new Socket($this->af, SOCK_STREAM, IPPROTO_IP);
             $socket->setProtocol([
-                'open_ssl' => $this->ssl,
+                'open_ssl'              => $this->ssl,
                 'open_fastcgi_protocol' => true,
             ]);
             if (!$socket->connect($this->host, $this->port, $timeout)) {
@@ -127,7 +125,7 @@ class Client
 
     public static function parseUrl(string $url): array
     {
-        $url = parse_url($url);
+        $url  = parse_url($url);
         $host = $url['host'] ?? '';
         $port = $url['port'] ?? 0;
         if (empty($host)) {
@@ -142,15 +140,15 @@ class Client
 
     public static function call(string $url, string $path, $data = '', float $timeout = -1): string
     {
-        $client = new Client(...static::parseUrl($url));
-        $pathInfo = parse_url($path);
-        $path = $pathInfo['path'] ?? '';
-        $root = dirname($path);
-        $scriptName = '/' . basename($path);
+        $client      = new Client(...static::parseUrl($url));
+        $pathInfo    = parse_url($path);
+        $path        = $pathInfo['path'] ?? '';
+        $root        = dirname($path);
+        $scriptName  = '/' . basename($path);
         $documentUri = $scriptName;
-        $query = $pathInfo['query'] ?? '';
-        $requestUri = $query ? "{$documentUri}?{$query}" : $documentUri;
-        $request = new HttpRequest();
+        $query       = $pathInfo['query'] ?? '';
+        $requestUri  = $query ? "{$documentUri}?{$query}" : $documentUri;
+        $request     = new HttpRequest();
         $request->withDocumentRoot($root)
             ->withScriptFilename($path)
             ->withScriptName($documentUri)
@@ -158,7 +156,8 @@ class Client
             ->withRequestUri($requestUri)
             ->withQueryString($query)
             ->withBody($data)
-            ->withMethod($request->getContentLength() === 0 ? 'GET' : 'POST');
+            ->withMethod($request->getContentLength() === 0 ? 'GET' : 'POST')
+        ;
         $response = $client->execute($request, $timeout);
         return $response->getBody();
     }
@@ -168,7 +167,7 @@ class Client
         $socket = $this->socket;
         if ($errno !== null) {
             $socket->errCode = $errno;
-            $socket->errMsg = swoole_strerror($errno);
+            $socket->errMsg  = swoole_strerror($errno);
         }
         $socket->close();
         $this->socket = null;

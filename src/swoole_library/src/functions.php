@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 if (PHP_VERSION_ID < 70200) {
     throw new RuntimeException('require PHP version 7.2 or later');
 }
@@ -52,7 +50,7 @@ function swoole_table(int $size, string $fields): Swoole\Table
     $table = new Swoole\Table($size, 0.25);
 
     foreach ($_fields as $f) {
-        $_f = swoole_string($f)->trim()->split(':');
+        $_f   = swoole_string($f)->trim()->split(':');
         $name = $_f->get(0)->trim()->toString();
         $type = $_f->get(1)->trim();
 

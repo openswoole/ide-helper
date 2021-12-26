@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\FastCGI\Record;
 
 use Swoole\FastCGI;
@@ -31,7 +29,7 @@ class Params extends Record
      */
     public function __construct(array $values = [])
     {
-        $this->type = FastCGI::PARAMS;
+        $this->type   = FastCGI::PARAMS;
         $this->values = $values;
         $this->setContentData($this->packPayload());
     }
@@ -53,23 +51,23 @@ class Params extends Record
         $currentOffset = 0;
         do {
             [$nameLengthHigh] = array_values(unpack('CnameLengthHigh', $data));
-            $isLongName = ($nameLengthHigh >> 7 == 1);
-            $valueOffset = $isLongName ? 4 : 1;
+            $isLongName       = ($nameLengthHigh >> 7 == 1);
+            $valueOffset      = $isLongName ? 4 : 1;
 
             [$valueLengthHigh] = array_values(unpack('CvalueLengthHigh', substr($data, $valueOffset)));
-            $isLongValue = ($valueLengthHigh >> 7 == 1);
-            $dataOffset = $valueOffset + ($isLongValue ? 4 : 1);
+            $isLongValue       = ($valueLengthHigh >> 7 == 1);
+            $dataOffset        = $valueOffset + ($isLongValue ? 4 : 1);
 
             $formatParts = [
                 $isLongName ? 'NnameLength' : 'CnameLength',
                 $isLongValue ? 'NvalueLength' : 'CvalueLength',
             ];
-            $format = join('/', $formatParts);
+            $format                     = join('/', $formatParts);
             [$nameLength, $valueLength] = array_values(unpack($format, $data));
 
             // Clear top bit for long record
-            $nameLength &= ($isLongName ? 0x7fffffff : 0x7f);
-            $valueLength &= ($isLongValue ? 0x7fffffff : 0x7f);
+            $nameLength &= ($isLongName ? 0x7FFFFFFF : 0x7F);
+            $valueLength &= ($isLongValue ? 0x7FFFFFFF : 0x7F);
 
             [$nameData, $valueData] = array_values(
                 unpack(
@@ -81,7 +79,7 @@ class Params extends Record
             $self->values[$nameData] = $valueData;
 
             $keyValueLength = $dataOffset + $nameLength + $valueLength;
-            $data = substr($data, $keyValueLength);
+            $data           = substr($data, $keyValueLength);
             $currentOffset += $keyValueLength;
         } while ($currentOffset < $self->getContentLength());
     }
@@ -94,9 +92,9 @@ class Params extends Record
             if ($valueData === null) {
                 continue;
             }
-            $nameLength = strlen($nameData);
+            $nameLength  = strlen($nameData);
             $valueLength = strlen((string) $valueData);
-            $isLongName = $nameLength > 127;
+            $isLongName  = $nameLength > 127;
             $isLongValue = $valueLength > 127;
             $formatParts = [
                 $isLongName ? 'N' : 'C',
