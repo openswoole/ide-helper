@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole;
 
 use ArrayAccess;
@@ -128,7 +126,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     }
 
     /**
-     * @return null|int|string
+     * @return int|string|null
      */
     public function firstKey()
     {
@@ -136,7 +134,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     }
 
     /**
-     * @return null|int|string
+     * @return int|string|null
      */
     public function lastKey()
     {
@@ -204,7 +202,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
 
     /**
      * @param mixed $key
-     * @return null|mixed
+     * @return mixed|null
      */
     public function offsetGet($key)
     {

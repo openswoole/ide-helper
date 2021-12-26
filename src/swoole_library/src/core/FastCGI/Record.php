@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\FastCGI;
 
 use Swoole\FastCGI;
@@ -133,11 +131,11 @@ class Record
         $this->contentLength = strlen($data);
         if ($this->contentLength > FastCGI::MAX_CONTENT_LENGTH) {
             $this->contentLength = FastCGI::MAX_CONTENT_LENGTH;
-            $this->contentData = substr($data, 0, FastCGI::MAX_CONTENT_LENGTH);
+            $this->contentData   = substr($data, 0, FastCGI::MAX_CONTENT_LENGTH);
         } else {
             $this->contentData = $data;
         }
-        $extraLength = $this->contentLength % 8;
+        $extraLength         = $this->contentLength % 8;
         $this->paddingLength = $extraLength ? (8 - $extraLength) : 0;
         return $this;
     }

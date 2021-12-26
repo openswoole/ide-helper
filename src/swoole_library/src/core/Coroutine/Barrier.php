@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Coroutine;
 
 use Swoole\Coroutine;
@@ -52,7 +50,7 @@ class Barrier
         if ($barrier->cid !== -1) {
             throw new Exception('The barrier is waiting, cannot wait again.');
         }
-        $cid = Coroutine::getCid();
+        $cid          = Coroutine::getCid();
         $barrier->cid = $cid;
         if ($timeout > 0 && ($timeout_ms = (int) ($timeout * 1000)) > 0) {
             $barrier->timer = Timer::after($timeout_ms, function () use ($cid) {

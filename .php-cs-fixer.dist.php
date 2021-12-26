@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 $header = <<<'EOF'
 This file is part of OpenSwoole IDE Helper.
-@link     https://www.swoole.co.uk
-@contact  hello@swoole.co.uk
+@link     https://openswoole.com
+@contact  hello@openswoole.com
 @license  https://github.com/openswoole/library/blob/master/LICENSE
 EOF;
 
@@ -59,5 +59,5 @@ return (new PhpCsFixer\Config())
         'standardize_not_equals'                 => true,
         'yoda_style'                             => ['always_move_variable' => false, 'equal' => false, 'identical' => false],
     ])
-    ->setFinder(PhpCsFixer\Finder::create()->exclude(['swoole_library'])->in(__DIR__ . '/src'))
+    ->setFinder(PhpCsFixer\Finder::create()->in(__DIR__ . '/src'))
     ->setUsingCache(false);

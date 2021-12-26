@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\FastCGI;
 
 use InvalidArgumentException;
@@ -16,25 +14,25 @@ use InvalidArgumentException;
 class HttpRequest extends Request
 {
     protected $params = [
-        'REQUEST_SCHEME' => 'http',
-        'REQUEST_METHOD' => 'GET',
-        'DOCUMENT_ROOT' => '',
-        'SCRIPT_FILENAME' => '',
-        'SCRIPT_NAME' => '',
-        'DOCUMENT_URI' => '/',
-        'REQUEST_URI' => '/',
-        'QUERY_STRING' => '',
-        'CONTENT_TYPE' => 'text/plain',
-        'CONTENT_LENGTH' => '0',
+        'REQUEST_SCHEME'    => 'http',
+        'REQUEST_METHOD'    => 'GET',
+        'DOCUMENT_ROOT'     => '',
+        'SCRIPT_FILENAME'   => '',
+        'SCRIPT_NAME'       => '',
+        'DOCUMENT_URI'      => '/',
+        'REQUEST_URI'       => '/',
+        'QUERY_STRING'      => '',
+        'CONTENT_TYPE'      => 'text/plain',
+        'CONTENT_LENGTH'    => '0',
         'GATEWAY_INTERFACE' => 'CGI/1.1',
-        'SERVER_PROTOCOL' => 'HTTP/1.1',
-        'SERVER_SOFTWARE' => 'swoole/' . SWOOLE_VERSION,
-        'REMOTE_ADDR' => 'unknown',
-        'REMOTE_PORT' => '0',
-        'SERVER_ADDR' => 'unknown',
-        'SERVER_PORT' => '0',
-        'SERVER_NAME' => 'Swoole',
-        'REDIRECT_STATUS' => '200',
+        'SERVER_PROTOCOL'   => 'HTTP/1.1',
+        'SERVER_SOFTWARE'   => 'swoole/' . SWOOLE_VERSION,
+        'REMOTE_ADDR'       => 'unknown',
+        'REMOTE_PORT'       => '0',
+        'SERVER_ADDR'       => 'unknown',
+        'SERVER_PORT'       => '0',
+        'SERVER_NAME'       => 'Swoole',
+        'REDIRECT_STATUS'   => '200',
     ];
 
     public function getScheme(): ?string
@@ -122,7 +120,8 @@ class HttpRequest extends Request
         $info = parse_url($uri);
         return $this->withRequestUri($uri)
             ->withDocumentUri($info['path'] ?? '')
-            ->withQueryString($info['query'] ?? '');
+            ->withQueryString($info['query'] ?? '')
+        ;
     }
 
     public function getDocumentUri(): ?string

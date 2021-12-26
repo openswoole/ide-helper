@@ -3,15 +3,15 @@
 declare(strict_types=1);
 /**
  * This file is part of OpenSwoole IDE Helper.
- * @link     https://www.swoole.co.uk
- * @contact  hello@swoole.co.uk
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
  * @license  https://github.com/openswoole/library/blob/master/LICENSE
  */
-const SWOOLE_VERSION                                     = '4.9.0';
-const SWOOLE_VERSION_ID                                  = 40900;
+const SWOOLE_VERSION                                     = '4.9.1';
+const SWOOLE_VERSION_ID                                  = 40901;
 const SWOOLE_MAJOR_VERSION                               = 4;
 const SWOOLE_MINOR_VERSION                               = 9;
-const SWOOLE_RELEASE_VERSION                             = 0;
+const SWOOLE_RELEASE_VERSION                             = 1;
 const SWOOLE_EXTRA_VERSION                               = '';
 const SWOOLE_DEBUG                                       = false;
 const SWOOLE_HAVE_COMPRESSION                            = true;
@@ -228,7 +228,7 @@ const SWOOLE_RWLOCK                                      = 1;
 const SWOOLE_TIMER_MIN_MS                                = 1;
 const SWOOLE_TIMER_MIN_SEC                               = 0.001;
 const SWOOLE_TIMER_MAX_MS                                = 9223372036854775807;
-const SWOOLE_TIMER_MAX_SEC                               = 9.2233720368548E+15;
+const SWOOLE_TIMER_MAX_SEC                               = 9223372036854775807;
 const SWOOLE_DEFAULT_MAX_CORO_NUM                        = 100000;
 const SWOOLE_CORO_MAX_NUM_LIMIT                          = 9223372036854775807;
 const SWOOLE_CORO_INIT                                   = 0;

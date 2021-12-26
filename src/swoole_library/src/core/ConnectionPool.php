@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole;
 
 use RuntimeException;
@@ -31,15 +29,15 @@ class ConnectionPool
     /** @var int */
     protected $num;
 
-    /** @var null|string */
+    /** @var string|null */
     protected $proxy;
 
     public function __construct(callable $constructor, int $size = self::DEFAULT_SIZE, ?string $proxy = null)
     {
-        $this->pool = new Channel($this->size = $size);
+        $this->pool        = new Channel($this->size = $size);
         $this->constructor = $constructor;
-        $this->num = 0;
-        $this->proxy = $proxy;
+        $this->num         = 0;
+        $this->proxy       = $proxy;
     }
 
     public function fill(): void
@@ -78,7 +76,7 @@ class ConnectionPool
     {
         $this->pool->close();
         $this->pool = null;
-        $this->num = 0;
+        $this->num  = 0;
     }
 
     protected function make(): void
@@ -89,7 +87,7 @@ class ConnectionPool
                 $connection = new $this->proxy($this->constructor);
             } else {
                 $constructor = $this->constructor;
-                $connection = $constructor();
+                $connection  = $constructor();
             }
         } catch (Throwable $throwable) {
             $this->num--;

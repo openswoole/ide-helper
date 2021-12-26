@@ -1,14 +1,12 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\FastCGI;
 
 use Swoole\FastCGI;
@@ -22,10 +20,10 @@ class Request extends Message
 
     public function __toString(): string
     {
-        $body = $this->getBody();
+        $body              = $this->getBody();
         $beginRequestFrame = new BeginRequest(FastCGI::RESPONDER, ($this->keepConn ? FastCGI::KEEP_CONN : 0));
-        $paramsFrame = new Params($this->getParams());
-        $paramsEofFrame = new Params();
+        $paramsFrame       = new Params($this->getParams());
+        $paramsEofFrame    = new Params();
         if (empty($body)) {
             $message = "{$beginRequestFrame}{$paramsFrame}{$paramsEofFrame}}";
         } else {
@@ -39,8 +37,8 @@ class Request extends Message
                 $body = substr($body, $stdinLength);
             }
             $stdinList[] = new Stdin();
-            $stdin = implode($stdinList);
-            $message = "{$beginRequestFrame}{$paramsFrame}{$paramsEofFrame}{$stdin}}";
+            $stdin       = implode($stdinList);
+            $message     = "{$beginRequestFrame}{$paramsFrame}{$paramsEofFrame}{$stdin}}";
         }
         return $message;
     }

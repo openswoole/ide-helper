@@ -1,21 +1,19 @@
 <?php
-/**
- * This file is part of Swoole.
- *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
- */
 
 declare(strict_types=1);
-
+/**
+ * This file is part of OpenSwoole IDE Helper.
+ * @link     https://openswoole.com
+ * @contact  hello@openswoole.com
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
+ */
 namespace Swoole\Coroutine;
 
 use Swoole\Coroutine;
 
 function run(callable $fn, ...$args)
 {
-    $s = new Scheduler();
+    $s       = new Scheduler();
     $options = Coroutine::getOptions();
     if (!isset($options['hook_flags'])) {
         $s->set(['hook_flags' => SWOOLE_HOOK_ALL]);
@@ -51,7 +49,7 @@ function batch(array $tasks, float $timeout = -1): array
 function parallel(int $n, callable $fn): void
 {
     $count = $n;
-    $wg = new WaitGroup($n);
+    $wg    = new WaitGroup($n);
     while ($count--) {
         Coroutine::create(function () use ($fn, $wg) {
             $fn();
@@ -78,7 +76,7 @@ function map(array $list, callable $fn, float $timeout = -1): array
 function deadlock_check()
 {
     $all_coroutines = Coroutine::listCoroutines();
-    $count = Coroutine::stats()['coroutine_num'];
+    $count          = Coroutine::stats()['coroutine_num'];
     echo "\n===================================================================",
     "\n [FATAL ERROR]: all coroutines (count: {$count}) are asleep - deadlock!",
     "\n===================================================================\n";
