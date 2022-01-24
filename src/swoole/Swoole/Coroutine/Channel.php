@@ -56,4 +56,8 @@ class Channel
     public function length(): int
     {
     }
+
+    public function getId(): int
+    {
+    }
 }
