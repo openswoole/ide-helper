@@ -37,9 +37,16 @@ class System
     }
 
     /**
-     * @param int|float $seconds [required]
+     * @param int $seconds [required]
      */
-    public static function sleep($seconds): bool
+    public static function sleep(int $seconds): bool
+    {
+    }
+
+    /**
+     * @param int $milliseconds [required]
+     */
+    public static function usleep(int $milliseconds): bool
     {
     }
 

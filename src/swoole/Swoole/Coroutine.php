@@ -77,6 +77,10 @@ class Coroutine
     {
     }
 
+    public static function select(array $read = [], array $write = [], float $timeout = -1): mixed
+    {
+    }
+
     public static function getCid(): int
     {
     }
@@ -180,9 +184,16 @@ class Coroutine
     }
 
     /**
-     * @param float $seconds [required]
+     * @param int $seconds [required]
      */
-    public static function sleep(float $seconds): bool
+    public static function sleep(int $seconds): bool
+    {
+    }
+
+    /**
+     * @param int $milliseconds [required]
+     */
+    public static function usleep(int $milliseconds): bool
     {
     }
 

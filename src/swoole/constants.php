@@ -7,11 +7,11 @@ declare(strict_types=1);
  * @contact  hello@openswoole.com
  * @license  https://github.com/openswoole/library/blob/master/LICENSE
  */
-const SWOOLE_VERSION                                     = '4.9.1';
-const SWOOLE_VERSION_ID                                  = 40901;
+const SWOOLE_VERSION                                     = '4.10.0';
+const SWOOLE_VERSION_ID                                  = 41000;
 const SWOOLE_MAJOR_VERSION                               = 4;
-const SWOOLE_MINOR_VERSION                               = 9;
-const SWOOLE_RELEASE_VERSION                             = 1;
+const SWOOLE_MINOR_VERSION                               = 10;
+const SWOOLE_RELEASE_VERSION                             = 0;
 const SWOOLE_EXTRA_VERSION                               = '';
 const SWOOLE_DEBUG                                       = false;
 const SWOOLE_HAVE_COMPRESSION                            = true;
