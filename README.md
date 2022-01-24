@@ -17,7 +17,7 @@ You can add this package to your project using [Composer](https://getcomposer.or
 ```bash
 composer require openswoole/ide-helper:@dev
 # or you can install a specific version, like:
-composer require openswoole/ide-helper:~4.9.1
+composer require openswoole/ide-helper:~4.10.0
 ```
 
 It's better to install this package on only development systems by adding the `--dev` flag to your Composer commands:
@@ -25,7 +25,7 @@ It's better to install this package on only development systems by adding the `-
 ```bash
 composer require --dev openswoole/ide-helper:@dev
 # or you can install a specific version, like:
-composer require --dev openswoole/ide-helper:~4.9.1
+composer require --dev openswoole/ide-helper:~4.10.0
 ```
 
 ## Fix code style before commit
