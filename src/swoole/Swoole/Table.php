@@ -57,6 +57,7 @@ class Table implements \Iterator, \Traversable, \Countable
     /**
      * @param string $key [required]
      * @param string $column [optional] = ''
+     * @return float|int|string
      */
     public function get(string $key, string $column = '')
     {
