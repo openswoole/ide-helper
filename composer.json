@@ -9,7 +9,7 @@
             "email": "hello@swoole.co.uk"
         }
     ],
-    "require": {
+    "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.3"
     }
 }
