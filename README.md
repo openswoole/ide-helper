@@ -28,6 +28,16 @@ composer require --dev openswoole/ide-helper:@dev
 composer require --dev openswoole/ide-helper:~4.10.0
 ```
 
+## PHP Intelephense extension users
+
+Make sure you have included the openswoole ide-helper in the includePaths:
+
+```bash
+"intelephense.environment.includePaths": [
+  "vendor/openswoole/ide-helper"
+]
+```
+
 ## Fix code style before commit
 
 ```bash
