@@ -106,6 +106,14 @@ class Response
     /**
      * @param string $key [required]
      * @param string $value [required]
+     */
+    public function trailer(string $key, string $value): bool
+    {
+    }
+
+    /**
+     * @param string $key [required]
+     * @param string $value [required]
      * @param bool $format [optional] = true
      */
     public function setHeader(string $key, string $value, bool $format = true): bool
