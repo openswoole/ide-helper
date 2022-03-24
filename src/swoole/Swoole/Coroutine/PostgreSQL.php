@@ -168,4 +168,18 @@ class PostgreSQL
     public function fetchRow($result, $row, $result_type)
     {
     }
+
+    /**
+     * @return mixed
+     */
+    public function reset()
+    {
+    }
+
+    /**
+     * @return mixed
+     */
+    public function status()
+    {
+    }
 }
