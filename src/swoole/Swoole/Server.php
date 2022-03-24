@@ -267,8 +267,6 @@ class Server
     }
 
     /**
-     * @param int $milliseconds
-     * @param callable $callback
      * @return int|false
      */
     public function tick(int $milliseconds, callable $callback)
@@ -276,18 +274,12 @@ class Server
     }
 
     /**
-     * @param int $milliseconds
-     * @param callable $callback
      * @return int|false
      */
     public function after(int $milliseconds, callable $callback)
     {
     }
 
-    /**
-     * @param callable $callback
-     * @return void
-     */
     public function defer(callable $callback): void
     {
     }
