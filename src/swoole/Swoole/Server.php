@@ -266,6 +266,36 @@ class Server
     {
     }
 
+    /**
+     * @param int $milliseconds
+     * @param callable $callback
+     * @return int|false
+     */
+    public function tick(int $milliseconds, callable $callback)
+    {
+    }
+
+    /**
+     * @param int $milliseconds
+     * @param callable $callback
+     * @return int|false
+     */
+    public function after(int $milliseconds, callable $callback)
+    {
+    }
+
+    /**
+     * @param callable $callback
+     * @return void
+     */
+    public function defer(callable $callback): void
+    {
+    }
+
+    public function clearTimer(int $timerId): bool
+    {
+    }
+
     public function getLastError(): int
     {
     }
@@ -364,6 +394,13 @@ class Server
      * @param int $uid [required]
      */
     public function bind(int $fd, int $uid): bool
+    {
+    }
+
+    /**
+     * @return \Socket|resource
+     */
+    public function getSocket()
     {
     }
 }
