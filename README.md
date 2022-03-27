@@ -17,7 +17,7 @@ You can add this package to your project using [Composer](https://getcomposer.or
 ```bash
 composer require openswoole/ide-helper:@dev
 # or you can install a specific version, like:
-composer require openswoole/ide-helper:~4.10.0
+composer require openswoole/ide-helper:~4.11.0
 ```
 
 It's better to install this package on only development systems by adding the `--dev` flag to your Composer commands:
@@ -25,7 +25,17 @@ It's better to install this package on only development systems by adding the `-
 ```bash
 composer require --dev openswoole/ide-helper:@dev
 # or you can install a specific version, like:
-composer require --dev openswoole/ide-helper:~4.10.0
+composer require --dev openswoole/ide-helper:~4.11.0
+```
+
+## PHP Intelephense extension users
+
+Make sure you have included the openswoole ide-helper in the includePaths:
+
+```bash
+"intelephense.environment.includePaths": [
+  "vendor/openswoole/ide-helper"
+]
 ```
 
 ## Fix code style before commit
