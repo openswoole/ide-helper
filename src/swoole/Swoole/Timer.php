@@ -55,7 +55,7 @@ class Timer
     {
     }
 
-    public static function clear(): bool
+    public static function clear(int $timerId): bool
     {
     }
 
