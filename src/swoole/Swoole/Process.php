@@ -7,6 +7,7 @@ declare(strict_types=1);
  * @contact  hello@openswoole.com
  * @license  https://github.com/openswoole/library/blob/master/LICENSE
  */
+
 namespace Swoole;
 
 class Process
@@ -49,6 +50,7 @@ class Process
 
     /**
      * @param bool $blocking [optional] = true
+     * @return array|bool
      */
     public static function wait(bool $blocking = true)
     {
@@ -132,7 +134,7 @@ class Process
     {
     }
 
-    public function statQueue()
+    public function statQueue(): array
     {
     }
 
