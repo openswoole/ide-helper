@@ -14,6 +14,7 @@ class Coroutine
     /**
      * @param callable $callback [required]
      * @param mixed ...$params
+     * @return int|false
      */
     public static function create(callable $callback, ...$params)
     {
@@ -162,6 +163,7 @@ class Coroutine
      * @param string $domain [required]
      * @param int $family [optional] = \AF_INET
      * @param float $timeout [optional] = -1
+     * @return string|false
      */
     public static function gethostbyname(string $domain, int $family = \AF_INET, float $timeout = -1)
     {
@@ -170,6 +172,7 @@ class Coroutine
     /**
      * @param string $domain [required]
      * @param float $timeout [optional] = 5
+     * @return string|false
      */
     public static function dnsLookup(string $domain, float $timeout = 5)
     {
@@ -178,6 +181,7 @@ class Coroutine
     /**
      * @param string $command [required]
      * @param bool $get_error_stream [optional] = false
+     * @return array|false
      */
     public static function exec(string $command, bool $get_error_stream = false)
     {
@@ -204,6 +208,7 @@ class Coroutine
      * @param int $protocol [optional] = \STREAM_IPPROTO_TCP
      * @param string $service [optional] = null
      * @param float $timeout [optional] = -1
+     * @return array|false
      */
     public static function getaddrinfo(string $domain, int $family = \AF_INET, int $sockType = \SOCK_STREAM, int $protocol = \STREAM_IPPROTO_TCP, string $service = null, float $timeout = -1)
     {
@@ -219,6 +224,7 @@ class Coroutine
     /**
      * @param string $filename [required]
      * @param int $flags [optional] = 0
+     * @return string|false
      */
     public static function readFile(string $filename, int $flags = 0)
     {
@@ -229,7 +235,7 @@ class Coroutine
      * @param string $data [required]
      * @param int $flags [optional] = 0
      */
-    public static function writeFile(string $filename, string $data, int $flags = 0)
+    public static function writeFile(string $filename, string $data, int $flags = 0): bool
     {
     }
 
