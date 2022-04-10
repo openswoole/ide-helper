@@ -69,7 +69,7 @@ class Server
      * @param int $mode [optional] = \SWOOLE_PROCESS
      * @param int $sockType [optional] = \SWOOLE_SOCK_TCP
      */
-    public function __construct(string $host, int $port = 0, int $mode = \SWOOLE_PROCESS, int $sockType = \SWOOLE_SOCK_TCP)
+    public function __construct(string $host, int $port = 0, int $mode = \swoole_process, int $sockType = \SWOOLE_SOCK_TCP)
     {
     }
 
@@ -241,7 +241,6 @@ class Server
     /**
      * @param array $tasks [required]
      * @param float $timeout [optional] = 0.5
-     * @return array
      */
     public function taskCo(array $tasks, float $timeout = 0.5): array
     {
