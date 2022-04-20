@@ -49,6 +49,7 @@ class Process
 
     /**
      * @param bool $blocking [optional] = true
+     * @return array|bool
      */
     public static function wait(bool $blocking = true)
     {
@@ -132,7 +133,7 @@ class Process
     {
     }
 
-    public function statQueue()
+    public function statQueue(): array
     {
     }
 

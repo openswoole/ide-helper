@@ -41,13 +41,15 @@ class Server extends \Swoole\Http\Server
      * @param Swoole\WebSocket\Frame|string $data [required]
      * @param int $opcode [optional] = \SWOOLE_WEBSOCKET_OPCODE_TEXT
      * @param int $flags [optional] = \SWOOLE_WEBSOCKET_FLAG_FIN
+     * @return \Swoole\WebSocket\Frame
      */
-    public static function pack($data, int $opcode = \SWOOLE_WEBSOCKET_OPCODE_TEXT, int $flags = \SWOOLE_WEBSOCKET_FLAG_FIN): string
+    public static function pack($data, int $opcode = \SWOOLE_WEBSOCKET_OPCODE_TEXT, int $flags = \SWOOLE_WEBSOCKET_FLAG_FIN)
     {
     }
 
     /**
      * @param string $data [required]
+     * @return \Swoole\WebSocket\Frame|false
      */
     public static function unpack(string $data)
     {

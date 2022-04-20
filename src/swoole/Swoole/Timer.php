@@ -22,6 +22,7 @@ class Timer
      * @param int $ms [required]
      * @param callable $callback [required]
      * @param mixed ...$params
+     * @return int|false
      */
     public static function after(int $ms, callable $callback, ...$params)
     {
@@ -31,6 +32,7 @@ class Timer
      * @param int $ms [required]
      * @param callable $callback [required]
      * @param mixed ...$params
+     * @return int|false
      */
     public static function tick(int $ms, callable $callback, ...$params)
     {
@@ -40,6 +42,9 @@ class Timer
     {
     }
 
+    /**
+     * @return array|false
+     */
     public static function info()
     {
     }

@@ -159,6 +159,7 @@ class Response
     /**
      * @param mixed $server [optional] = -1
      * @param int $fd [optional] = -1
+     * @return Swoole\Http\Response
      */
     public static function create($server = -1, int $fd = -1)
     {

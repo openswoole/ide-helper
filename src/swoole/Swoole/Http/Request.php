@@ -52,6 +52,7 @@ class Request
 
     /**
      * @param string $data [required]
+     * @return int|false
      */
     public function parse(string $data)
     {
