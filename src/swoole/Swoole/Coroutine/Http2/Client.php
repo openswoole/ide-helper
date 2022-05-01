@@ -35,7 +35,7 @@ class Client
 
     public bool $ssl = false;
 
-    public function __construct($host, $port = null, $open_ssl = null)
+    public function __construct(string $host, int $port, bool $openSSL = false)
     {
     }
 
