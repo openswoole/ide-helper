@@ -9,50 +9,64 @@ declare(strict_types=1);
  */
 namespace Swoole\Coroutine\Http;
 
+use Swoole\WebSocket\Frame;
+
 class Client
 {
-    public $errCode;
+    public int $errCode;
 
-    public $errMsg;
+    public string $errMsg;
 
-    public $connected;
+    public bool $connected;
 
-    public $host;
+    public string $host;
 
-    public $port;
+    public int $port;
 
-    public $ssl;
+    public bool $ssl;
 
-    public $setting;
+    public ?array $setting;
 
-    public $requestMethod;
+    public ?string $requestMethod;
 
-    public $requestHeaders;
+    public ?array $requestHeaders;
 
+    /**
+     * @var string|array|null
+     */
     public $requestBody;
 
+    /**
+     * @var mixed
+     */
     public $uploadFiles;
 
+    /**
+     * @var mixed
+     */
     public $downloadFile;
 
-    public $downloadOffset;
+    public int $downloadOffset;
 
-    public $statusCode;
+    public int $statusCode;
 
     public $headers;
 
+    /**
+     * @var mixed
+     */
     public $set_cookie_headers;
 
     public $cookies;
 
-    public $body;
+    public ?string $body;
 
     /**
-     * @param mixed $host [required]
-     * @param mixed $port [optional]
-     * @param mixed $ssl [optional]
+     * @param string $host [required]
+     * @param int $port [optional]
+     * @param bool $ssl [optional]
      */
-    public function __construct($host, $port, $ssl)
+    public function __construct(string $host, int $port, bool $ssl = false)
     {
     }
 
@@ -62,213 +76,193 @@ class Client
 
     /**
      * @param array $settings [required]
-     * @return mixed
      */
-    public function set(array $settings)
+    public function set(array $settings): bool
+    {
+    }
+
+    public function getDefer(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @param bool $defer [optional]
      */
-    public function getDefer()
-    {
-    }
-
-    /**
-     * @param mixed $defer [optional]
-     * @return mixed
-     */
-    public function setDefer($defer)
+    public function setDefer(bool $defer): void
     {
     }
 
     /**
      * @param mixed $method [required]
-     * @return mixed
      */
-    public function setMethod($method)
+    public function setMethod(string $method): void
     {
     }
 
     /**
      * @param array $headers [required]
-     * @return mixed
      */
-    public function setHeaders(array $headers)
+    public function setHeaders(array $headers): void
     {
     }
 
     /**
      * @param mixed $username [required]
      * @param mixed $password [required]
-     * @return mixed
      */
-    public function setBasicAuth($username, $password)
+    public function setBasicAuth(string $username, string $password): void
     {
     }
 
     /**
      * @param array $cookies [required]
-     * @return mixed
      */
-    public function setCookies(array $cookies)
+    public function setCookies(array $cookies): void
     {
     }
 
     /**
-     * @param mixed $data [required]
-     * @return mixed
+     * @param string|array $data [required]
      */
-    public function setData($data)
+    public function setData($data): void
     {
     }
 
     /**
-     * @param mixed $path [required]
-     * @param mixed $name [required]
-     * @param mixed $type [optional]
-     * @param mixed $filename [optional]
-     * @param mixed $offset [optional]
-     * @param mixed $length [optional]
-     * @return mixed
+     * @param string $path [required]
+     * @param string $name [required]
+     * @param string|null $type [optional]
+     * @param string|null $filename [optional]
+     * @param int $offset [optional]
+     * @param int $length [optional]
      */
-    public function addFile($path, $name, $type, $filename, $offset, $length)
+    public function addFile(string $path, string $name, ?string $type = null, ?string $filename = null, int $offset = 0, int $length = 0): void
     {
     }
 
     /**
-     * @param mixed $path [required]
-     * @param mixed $name [required]
-     * @param mixed $type [optional]
-     * @param mixed $filename [optional]
-     * @return mixed
+     * @param string $path [required]
+     * @param string $name [required]
+     * @param string|null $type [optional]
+     * @param string|null $filename [optional]
      */
-    public function addData($path, $name, $type, $filename)
+    public function addData(string $path, string $name, ?string $type, ?string $filename): void
     {
     }
 
     /**
-     * @param mixed $path [required]
-     * @return mixed
+     * @param string $path [required]
+     * @return int|bool
      */
-    public function execute($path)
+    public function execute(string $path)
     {
     }
 
     /**
-     * @return mixed
+     * @return array|false
      */
     public function getpeername()
     {
     }
 
     /**
-     * @return mixed
+     * @return array|false
      */
     public function getsockname()
     {
     }
 
     /**
-     * @param mixed $path [required]
-     * @return mixed
+     * @param string $path [required]
      */
-    public function get($path)
+    public function get(string $path): void
     {
     }
 
     /**
      * @param mixed $path [required]
-     * @param mixed $data [required]
-     * @return mixed
+     * @param string|array $data [required]
      */
-    public function post($path, $data)
+    public function post(string $path, $data): void
     {
     }
 
     /**
-     * @param mixed $path [required]
-     * @param mixed $file [required]
-     * @param mixed $offset [optional]
-     * @return mixed
+     * @param string $path [required]
+     * @param string $file [required]
+     * @param int $offset [optional]
      */
-    public function download($path, $file, $offset)
+    public function download(string $path, string $file, int $offset = 0): bool
     {
     }
 
     /**
-     * @return mixed
+     * @return string|bool
      */
     public function getBody()
     {
     }
 
     /**
-     * @return mixed
+     * @return array|bool
      */
     public function getHeaders()
     {
     }
 
     /**
-     * @return mixed
+     * @return array|bool
      */
     public function getCookies()
     {
     }
 
     /**
-     * @return mixed
+     * @return int|bool
      */
     public function getStatusCode()
     {
     }
 
     /**
-     * @return mixed
+     * @return string|bool
      */
     public function getHeaderOut()
     {
     }
 
     /**
-     * @return mixed
+     * @return string|false
      */
     public function getPeerCert()
     {
     }
 
     /**
-     * @param mixed $path [required]
-     * @return mixed
+     * @param string $path [required]
      */
-    public function upgrade($path)
+    public function upgrade(string $path): bool
     {
     }
 
     /**
      * @param mixed $data [required]
-     * @param mixed $opcode [optional]
-     * @param mixed $flags [optional]
-     * @return mixed
+     * @param int $opcode [optional]
+     * @param int $flags [optional]
      */
-    public function push($data, $opcode, $flags)
+    public function push($data, int $opcode = WEBSOCKET_OPCODE_TEXT, int $flags = SWOOLE_WEBSOCKET_FLAG_FIN): bool
     {
     }
 
     /**
      * @param mixed $timeout [optional]
-     * @return mixed
+     * @return bool|Frame
      */
-    public function recv($timeout)
+    public function recv(float $timeout = 0)
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function close()
+    public function close(): bool
     {
     }
 }
