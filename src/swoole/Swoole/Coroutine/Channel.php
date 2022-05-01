@@ -11,9 +11,11 @@ namespace Swoole\Coroutine;
 
 class Channel
 {
-    public $capacity;
+    public int $id;
 
-    public $errCode;
+    public int $capacity;
+
+    public int $errCode;
 
     /**
      * @param int $capacity [optional] = 1
