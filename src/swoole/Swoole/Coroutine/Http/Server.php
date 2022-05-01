@@ -7,31 +7,32 @@ declare(strict_types=1);
  * @contact  hello@openswoole.com
  * @license  https://github.com/openswoole/library/blob/master/LICENSE
  */
+
 namespace Swoole\Coroutine\Http;
 
 final class Server
 {
-    public $fd;
+    public int $fd;
 
-    public $host;
+    public string $host;
 
-    public $port;
+    public int $port;
 
-    public $ssl;
+    public bool $ssl;
 
-    public $settings;
+    public ?array $settings;
 
-    public $errCode;
+    public int $errCode;
 
-    public $errMsg;
+    public string $errMsg;
 
     /**
-     * @param mixed $host [required]
-     * @param mixed $port [optional]
-     * @param mixed $ssl [optional]
-     * @param mixed $reuse_port [optional]
+     * @param string $host [required]
+     * @param int $port [optional]
+     * @param bool $ssl [optional]
+     * @param bool $reuse_port [optional]
      */
-    public function __construct($host, $port, $ssl, $reuse_port)
+    public function __construct(string $host, int $port = 0, bool $ssl = false, bool $reuse_port = false)
     {
     }
 
@@ -41,32 +42,24 @@ final class Server
 
     /**
      * @param array $settings [required]
-     * @return mixed
      */
-    public function set(array $settings)
+    public function set(array $settings): bool
     {
     }
 
     /**
-     * @param mixed $pattern [required]
+     * @param string $pattern [required]
      * @param callable $callback [required]
-     * @return mixed
      */
-    public function handle($pattern, callable $callback)
+    public function handle(string $pattern, callable $callback): void
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function start()
+    public function start(): void
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function shutdown()
+    public function shutdown(): void
     {
     }
 
