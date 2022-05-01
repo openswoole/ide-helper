@@ -9,9 +9,11 @@ declare(strict_types=1);
  */
 namespace Swoole\Process;
 
+use Swoole\Process;
+
 class Pool
 {
-    public $master_pid;
+    public ?int $master_pid;
 
     public $workers;
 
@@ -47,6 +49,7 @@ class Pool
 
     /**
      * @param int $workerId [optional] = -1
+     * @return Process|false
      */
     public function getProcess(int $workerId = -1)
     {
