@@ -82,7 +82,7 @@ class Server
      * @param int $port [required]
      * @param int $sockType [required]
      */
-    public function listen(string $host, int $port, int $sockType)
+    public function listen(string $host, int $port, int $sockType): bool
     {
     }
 
@@ -90,8 +90,9 @@ class Server
      * @param string $host [required]
      * @param int $port [required]
      * @param int $sockType [required]
+     * @return bool|\Swoole\Server\Port
      */
-    public function addlistener(string $host, int $port, int $sockType)
+    public function addListener(string $host, int $port, int $sockType)
     {
     }
 
@@ -122,11 +123,11 @@ class Server
     }
 
     /**
-     * @param string|int $fd [required]
-     * @param mixed $data [required]
+     * @param int $fd [required]
+     * @param string $data [required]
      * @param int $serverSocket [optional] = -1
      */
-    public function send($fd, $data, int $serverSocket = -1): bool
+    public function send(int $fd, string $data, int $serverSocket = -1): bool
     {
     }
 
@@ -214,7 +215,7 @@ class Server
      * @param int $workerId [optional] = -1
      * @param callable|null $finishCallback [optional] = null
      */
-    public function task($data, int $workerId = -1, ?callable $finishCallback = null)
+    public function task($data, int $workerId = -1, ?callable $finishCallback = null): int
     {
     }
 
@@ -222,14 +223,16 @@ class Server
      * @param mixed $data [required]
      * @param float $timeout [optional] = 0.5
      * @param int $workerId [optional] = -1
+     * @return string|bool
      */
-    public function taskwait($data, float $timeout = 0.5, int $workerId = -1): string
+    public function taskwait($data, float $timeout = 0.5, int $workerId = -1)
     {
     }
 
     /**
      * @param array $tasks [required]
      * @param float $timeout [optional] = 0.5
+     * @return bool|array
      */
     public function taskWaitMulti(array $tasks, float $timeout = 0.5)
     {
@@ -239,7 +242,7 @@ class Server
      * @param array $tasks [required]
      * @param float $timeout [optional] = 0.5
      */
-    public function taskCo(array $tasks, float $timeout = 0.5)
+    public function taskCo(array $tasks, float $timeout = 0.5): array
     {
     }
 
@@ -294,6 +297,7 @@ class Server
 
     /**
      * @param bool $closeConn [optional] = false
+     * @return bool|array
      */
     public function heartbeat(bool $closeConn = false)
     {
@@ -303,6 +307,7 @@ class Server
      * @param int $fd [required]
      * @param int $reactorId [optional] = -1
      * @param bool $noCheckConn [optional] = false
+     * @return bool|array
      */
     public function getClientInfo(int $fd, int $reactorId = -1, bool $noCheckConn = false)
     {
@@ -311,6 +316,7 @@ class Server
     /**
      * @param int $startFd [optional] = 0
      * @param int $pageSize [optional] = 10
+     * @return false|array
      */
     public function getClientList(int $startFd = 0, int $pageSize = 10)
     {
@@ -323,14 +329,14 @@ class Server
     /**
      * @param int $workerId [optional] = -1
      */
-    public function getWorkerPid(int $workerId = -1)
+    public function getWorkerPid(int $workerId = -1): int
     {
     }
 
     /**
      * @param int $workerId [optional] = -1
      */
-    public function getWorkerStatus(int $workerId = -1)
+    public function getWorkerStatus(int $workerId = -1): int
     {
     }
 
@@ -370,12 +376,13 @@ class Server
     /**
      * @param \Swoole\Process $process [required]
      */
-    public function addProcess(Process $process)
+    public function addProcess(Process $process): bool
     {
     }
 
     /**
      * @param int $mode [optional] = OPENSWOOLE_STATS_DEFAULT
+     * @return string|array|false
      */
     public function stats(int $mode = \OPENSWOOLE_STATS_DEFAULT)
     {
