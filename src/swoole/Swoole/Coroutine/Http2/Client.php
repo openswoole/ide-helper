@@ -9,27 +9,33 @@ declare(strict_types=1);
  */
 namespace Swoole\Coroutine\Http2;
 
+use Swoole\Http2\Request;
+use Swoole\Http2\Response;
+
 class Client
 {
-    public $errCode = 0;
+    public int $errCode = 0;
 
+    /**
+     * @var int|string
+     */
     public $errMsg = 0;
 
-    public $sock = -1;
+    public int $sock = -1;
 
-    public $type = 0;
+    public int $type = 0;
 
-    public $setting;
+    public ?array $setting;
 
-    public $connected = false;
+    public bool $connected = false;
 
-    public $host;
+    public string $host;
 
-    public $port = 0;
+    public int $port = 0;
 
-    public $ssl = false;
+    public bool $ssl = false;
 
-    public function __construct($host, $port = null, $open_ssl = null)
+    public function __construct(string $host, int $port, bool $openSSL = false)
     {
     }
 
@@ -37,90 +43,62 @@ class Client
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function set(array $settings)
+    public function set(array $settings): void
+    {
+    }
+
+    public function connect(): bool
     {
     }
 
     /**
-     * @return mixed
+     * @return array|bool
      */
-    public function connect()
+    public function stats(?string $key = null)
+    {
+    }
+
+    public function isStreamExist(int $stream_id): bool
     {
     }
 
     /**
-     * @param mixed|null $key
-     * @return mixed
+     * @return int|bool
      */
-    public function stats($key = null)
+    public function send(Request $request)
     {
     }
 
     /**
-     * @param mixed $stream_id
-     * @return mixed
-     */
-    public function isStreamExist($stream_id)
-    {
-    }
-
-    /**
-     * @param mixed $request
-     * @return mixed
-     */
-    public function send($request)
-    {
-    }
-
-    /**
-     * @param mixed $stream_id
      * @param mixed $data
-     * @param mixed|null $end_stream
-     * @return mixed
      */
-    public function write($stream_id, $data, $end_stream = null)
+    public function write(int $streamId, $data, bool $end = false): bool
     {
     }
 
     /**
-     * @param mixed|null $timeout
-     * @return mixed
+     * @return Response|false
      */
-    public function recv($timeout = null)
+    public function recv(?float $timeout = null)
     {
     }
 
     /**
-     * @param mixed|null $timeout
-     * @return mixed
+     * @return Response|false
      */
-    public function read($timeout = null)
+    public function read(?float $timeout = null)
     {
     }
 
-    /**
-     * @param mixed|null $error_code
-     * @param mixed|null $debug_data
-     * @return mixed
-     */
-    public function goaway($error_code = null, $debug_data = null)
+    public function goaway(int $errorCode = SWOOLE_HTTP2_ERROR_NO_ERROR, string $debugData): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function ping()
+    public function ping(): bool
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function close()
+    public function close(): bool
     {
     }
 }

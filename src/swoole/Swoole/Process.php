@@ -9,6 +9,8 @@ declare(strict_types=1);
  */
 namespace Swoole;
 
+use Closure;
+
 class Process
 {
     public const IPC_NOWAIT = 256;
@@ -21,17 +23,17 @@ class Process
 
     public const PIPE_WRITE = 4;
 
-    public $pipe;
+    public int $pipe;
 
     public $msgQueueId;
 
     public $msgQueueKey;
 
-    public $pid;
+    public ?int $pid;
 
     public $id;
 
-    private $callback;
+    private Closure $callback;
 
     /**
      * @param callable $callback [required]
@@ -141,14 +143,14 @@ class Process
     {
     }
 
-    public function start()
+    public function start(): int
     {
     }
 
     /**
      * @param string $data [required]
      */
-    public function write(string $data)
+    public function write(string $data): int
     {
     }
 
