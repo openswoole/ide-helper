@@ -11,14 +11,11 @@ namespace Swoole\FastCGI;
 
 class Message
 {
-    /** @var array */
-    protected $params = [];
+    protected array $params = [];
 
-    /** @var string */
-    protected $body = '';
+    protected string $body = '';
 
-    /** @var string */
-    protected $error = '';
+    protected string $error = '';
 
     public function getParam(string $name): ?string
     {

@@ -16,7 +16,7 @@ use Swoole\FastCGI\Record\Stdin;
 
 class Request extends Message
 {
-    protected $keepConn = false;
+    protected bool $keepConn = false;
 
     public function __toString(): string
     {

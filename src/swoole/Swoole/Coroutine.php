@@ -29,8 +29,9 @@ class Coroutine
 
     /**
      * @param array $options [required]
+     * @return mixed
      */
-    public static function set(array $options): mixed
+    public static function set(array $options)
     {
     }
 
@@ -78,7 +79,13 @@ class Coroutine
     {
     }
 
-    public static function select(array $read = [], array $write = [], float $timeout = -1): mixed
+    /**
+     * @param array $read
+     * @param array $write
+     * @param float $timeout
+     * @return mixed
+     */
+    public static function select(array $read = [], array $write = [], float $timeout = -1)
     {
     }
 

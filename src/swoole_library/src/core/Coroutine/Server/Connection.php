@@ -13,14 +13,14 @@ use Swoole\Coroutine\Socket;
 
 class Connection
 {
-    protected $socket;
+    protected Socket $socket;
 
     public function __construct(Socket $conn)
     {
         $this->socket = $conn;
     }
 
-    public function recv(float $timeout = 0)
+    public function recv(float $timeout = 0): string
     {
         return $this->socket->recvPacket($timeout);
     }

@@ -23,7 +23,7 @@ class FrameParser
      *
      * @var array
      */
-    protected static $classMapping = [
+    protected static array $classMapping = [
         FastCGI::BEGIN_REQUEST     => FastCGI\Record\BeginRequest::class,
         FastCGI::ABORT_REQUEST     => FastCGI\Record\AbortRequest::class,
         FastCGI::END_REQUEST       => FastCGI\Record\EndRequest::class,
