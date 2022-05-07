@@ -411,12 +411,12 @@ class HttpRequest extends Request
         return $this->withContentLength(strlen($body));
     }
 
-    protected static function convertHeaderNameToParamName(string $name)
+    protected static function convertHeaderNameToParamName(string $name): string
     {
         return 'HTTP_' . str_replace('-', '_', strtoupper($name));
     }
 
-    protected static function convertParamNameToHeaderName(string $name)
+    protected static function convertParamNameToHeaderName(string $name): string
     {
         return ucwords(str_replace('_', '-', substr($name, strlen('HTTP_'))), '-');
     }
