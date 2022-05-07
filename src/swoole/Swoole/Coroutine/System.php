@@ -7,7 +7,6 @@ declare(strict_types=1);
  * @contact  hello@openswoole.com
  * @license  https://github.com/openswoole/library/blob/master/LICENSE
  */
-
 namespace Swoole\Coroutine;
 
 class System

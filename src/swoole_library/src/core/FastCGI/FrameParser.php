@@ -20,8 +20,6 @@ class FrameParser
 {
     /**
      * Mapping of constants to the classes
-     *
-     * @var array
      */
     protected static array $classMapping = [
         FastCGI::BEGIN_REQUEST     => FastCGI\Record\BeginRequest::class,

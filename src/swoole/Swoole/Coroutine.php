@@ -80,9 +80,6 @@ class Coroutine
     }
 
     /**
-     * @param array $read
-     * @param array $write
-     * @param float $timeout
      * @return mixed
      */
     public static function select(array $read = [], array $write = [], float $timeout = -1)
