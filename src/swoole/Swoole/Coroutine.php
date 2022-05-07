@@ -106,7 +106,7 @@ class Coroutine
 
     /**
      * @param int $cid [optional] = 0
-     * @return ?\Swoole\Coroutine\Context
+     * @return \Swoole\Coroutine\Context|null
      */
     public static function getContext(int $cid = 0): ?Coroutine\Context
     {
@@ -116,6 +116,7 @@ class Coroutine
      * @param int $cid [optional] = 0
      * @param int $options [optional] = \DEBUG_BACKTRACE_PROVIDE_OBJECT
      * @param int $limit [optional] = 0
+     * @return array|false
      */
     public static function getBackTrace(int $cid = 0, int $options = \DEBUG_BACKTRACE_PROVIDE_OBJECT, int $limit = 0)
     {
@@ -223,6 +224,7 @@ class Coroutine
 
     /**
      * @param string $path [required]
+     * @return array|false
      */
     public static function statvfs(string $path)
     {
@@ -248,6 +250,7 @@ class Coroutine
 
     /**
      * @param float $timeout [optional] = -1
+     * @return array|false
      */
     public static function wait(float $timeout = -1)
     {
@@ -256,6 +259,7 @@ class Coroutine
     /**
      * @param int $pid [required]
      * @param float $timeout [optional] = -1
+     * @return array|false
      */
     public static function waitPid(int $pid, float $timeout = -1)
     {
@@ -273,6 +277,7 @@ class Coroutine
      * @param mixed $fd [required]
      * @param int $events [required]
      * @param float $timeout [optional] = -1
+     * @return int|false
      */
     public static function waitEvent($fd, int $events, float $timeout = -1)
     {
