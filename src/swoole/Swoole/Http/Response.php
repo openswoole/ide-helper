@@ -11,13 +11,13 @@ namespace Swoole\Http;
 
 class Response
 {
-    public $fd;
+    public int $fd;
 
     public $socket;
 
-    public $header;
+    public ?array $header;
 
-    public $cookie;
+    public ?array $cookie;
 
     public $trailer;
 

@@ -11,21 +11,21 @@ namespace Swoole\Http;
 
 class Request
 {
-    public $fd;
+    public int $fd;
 
-    public $header;
+    public array $header;
 
-    public $server;
+    public array $server;
 
-    public $cookie;
+    public array $cookie;
 
-    public $get;
+    public ?array $get;
 
-    public $files;
+    public ?array $files;
 
-    public $post;
+    public ?array $post;
 
-    public $tmpfiles;
+    public ?array $tmpfiles;
 
     public function __destruct()
     {
