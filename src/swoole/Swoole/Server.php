@@ -9,59 +9,66 @@ declare(strict_types=1);
  */
 namespace Swoole;
 
+use Closure;
+use Swoole\Connection\Iterator;
+use Swoole\Server\Port;
+use const OPENSWOOLE_STATS_DEFAULT;
+use const SWOOLE_PROCESS;
+use const SWOOLE_SOCK_TCP;
+
 class Server
 {
-    public $setting;
+    public array $setting;
 
-    public $connections;
+    public Iterator $connections;
 
-    public $host;
+    public string $host;
 
-    public $port;
+    public int $port;
 
-    public $type;
+    public int $type;
 
-    public $mode;
+    public int $mode;
 
-    public $ports;
+    public array $ports;
 
-    public $master_pid;
+    public int $master_pid;
 
-    public $manager_pid;
+    public int $manager_pid;
 
-    public $worker_id;
+    public int $worker_id;
 
     public $taskworker;
 
-    public $worker_pid;
+    public int $worker_pid;
 
     public $stats_timer;
 
-    private $onStart;
+    private ?Closure $onStart;
 
-    private $onShutdown;
+    private ?Closure $onShutdown;
 
-    private $onWorkerStart;
+    private ?Closure $onWorkerStart;
 
-    private $onWorkerStop;
+    private ?Closure $onWorkerStop;
 
-    private $onBeforeReload;
+    private ?Closure $onBeforeReload;
 
-    private $onAfterReload;
+    private ?Closure $onAfterReload;
 
-    private $onWorkerExit;
+    private ?Closure $onWorkerExit;
 
-    private $onWorkerError;
+    private ?Closure $onWorkerError;
 
-    private $onTask;
+    private ?Closure $onTask;
 
-    private $onFinish;
+    private ?Closure $onFinish;
 
-    private $onManagerStart;
+    private ?Closure $onManagerStart;
 
-    private $onManagerStop;
+    private ?Closure $onManagerStop;
 
-    private $onPipeMessage;
+    private ?Closure $onPipeMessage;
 
     /**
      * @param string $host [required]
@@ -69,7 +76,7 @@ class Server
      * @param int $mode [optional] = \SWOOLE_PROCESS
      * @param int $sockType [optional] = \SWOOLE_SOCK_TCP
      */
-    public function __construct(string $host, int $port = 0, int $mode = \swoole_process, int $sockType = \SWOOLE_SOCK_TCP)
+    public function __construct(string $host, int $port = 0, int $mode = SWOOLE_PROCESS, int $sockType = SWOOLE_SOCK_TCP)
     {
     }
 
@@ -90,7 +97,7 @@ class Server
      * @param string $host [required]
      * @param int $port [required]
      * @param int $sockType [required]
-     * @return bool|\Swoole\Server\Port
+     * @return bool|Port
      */
     public function addListener(string $host, int $port, int $sockType)
     {
@@ -374,7 +381,7 @@ class Server
     }
 
     /**
-     * @param \Swoole\Process $process [required]
+     * @param Process $process [required]
      */
     public function addProcess(Process $process): bool
     {
@@ -384,7 +391,7 @@ class Server
      * @param int $mode [optional] = OPENSWOOLE_STATS_DEFAULT
      * @return string|array|false
      */
-    public function stats(int $mode = \OPENSWOOLE_STATS_DEFAULT)
+    public function stats(int $mode = OPENSWOOLE_STATS_DEFAULT)
     {
     }
 
@@ -397,7 +404,7 @@ class Server
     }
 
     /**
-     * @return \Socket|resource
+     * @return Socket|resource
      */
     public function getSocket()
     {
