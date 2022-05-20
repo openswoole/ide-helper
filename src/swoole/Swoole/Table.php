@@ -17,9 +17,9 @@ class Table implements \Iterator, \Traversable, \Countable
 
     public const TYPE_FLOAT = 2;
 
-    public $size;
+    public int $size;
 
-    public $memorySize;
+    public int $memorySize;
 
     /**
      * @param int $size [required]
