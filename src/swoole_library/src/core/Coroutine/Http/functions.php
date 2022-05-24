@@ -14,7 +14,7 @@ use Swoole\Coroutine\Http\Client\Exception;
 /**
  * @param mixed $data
  * @throws Exception
- * @return mixed
+ * @return Client|false
  */
 function request(string $url, string $method, $data = null, array $options = null, array $headers = null, array $cookies = null)
 {
@@ -52,7 +52,7 @@ function request(string $url, string $method, $data = null, array $options = nul
 /**
  * @param mixed $data
  * @throws Exception
- * @return Client|false|mixed
+ * @return Client|false
  */
 function post(string $url, $data, array $options = null, array $headers = null, array $cookies = null)
 {
@@ -61,7 +61,7 @@ function post(string $url, $data, array $options = null, array $headers = null, 
 
 /**
  * @throws Exception
- * @return Client|false|mixed
+ * @return Client|false
  */
 function get(string $url, array $options = null, array $headers = null, array $cookies = null)
 {

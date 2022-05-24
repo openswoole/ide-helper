@@ -13,20 +13,15 @@ use Swoole\Http\Status;
 
 class HttpResponse extends Response
 {
-    /** @var int */
-    protected $statusCode;
+    protected int $statusCode;
 
-    /** @var string */
-    protected $reasonPhrase;
+    protected string $reasonPhrase;
 
-    /** @var array */
-    protected $headers = [];
+    protected array $headers = [];
 
-    /** @var array */
-    protected $headersMap = [];
+    protected array $headersMap = [];
 
-    /** @var array */
-    protected $setCookieHeaderLines = [];
+    protected array $setCookieHeaderLines = [];
 
     public function __construct(array $records = [])
     {

@@ -13,7 +13,7 @@ use InvalidArgumentException;
 
 class HttpRequest extends Request
 {
-    protected $params = [
+    protected array $params = [
         'REQUEST_SCHEME'    => 'http',
         'REQUEST_METHOD'    => 'GET',
         'DOCUMENT_ROOT'     => '',
@@ -411,12 +411,12 @@ class HttpRequest extends Request
         return $this->withContentLength(strlen($body));
     }
 
-    protected static function convertHeaderNameToParamName(string $name)
+    protected static function convertHeaderNameToParamName(string $name): string
     {
         return 'HTTP_' . str_replace('-', '_', strtoupper($name));
     }
 
-    protected static function convertParamNameToHeaderName(string $name)
+    protected static function convertParamNameToHeaderName(string $name): string
     {
         return ucwords(str_replace('_', '-', substr($name, strlen('HTTP_'))), '-');
     }

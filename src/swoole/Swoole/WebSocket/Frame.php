@@ -11,22 +11,22 @@ namespace Swoole\WebSocket;
 
 class Frame implements \Stringable
 {
-    public $fd;
+    public int $fd;
 
-    public $data;
+    public ?string $data;
 
-    public $opcode;
+    public int $opcode;
 
-    public $flags;
+    public int $flags;
 
-    public $finish;
+    public bool $finish;
 
     public function __toString(): string
     {
     }
 
     /**
-     * @param Swoole\WebSocket\Frame|string $data [required]
+     * @param \Swoole\WebSocket\Frame|string $data [required]
      * @param int $opcode [optional] = \SWOOLE_WEBSOCKET_OPCODE_TEXT
      * @param int $flags [optional] = \SWOOLE_WEBSOCKET_FLAG_FIN
      */
