@@ -21,20 +21,15 @@ use Swoole\FastCGI\Response;
 
 class Client
 {
-    /** @var int */
-    protected $af;
+    protected int $af;
 
-    /** @var string */
-    protected $host;
+    protected string $host;
 
-    /** @var int */
-    protected $port;
+    protected int $port;
 
-    /** @var bool */
-    protected $ssl;
+    protected bool $ssl;
 
-    /** @var Socket */
-    protected $socket;
+    protected Socket $socket;
 
     public function __construct(string $host, int $port = 0, bool $ssl = false)
     {
