@@ -13,32 +13,23 @@ class PDOConfig
 {
     public const DRIVER_MYSQL = 'mysql';
 
-    /** @var string */
-    protected $driver = self::DRIVER_MYSQL;
+    protected string $driver = self::DRIVER_MYSQL;
 
-    /** @var string */
-    protected $host = '127.0.0.1';
+    protected string $host = '127.0.0.1';
 
-    /** @var int */
-    protected $port = 3306;
+    protected int $port = 3306;
 
-    /** @var string|null */
-    protected $unixSocket;
+    protected ?string $unixSocket;
 
-    /** @var string */
-    protected $dbname = 'test';
+    protected string $dbname = 'test';
 
-    /** @var string */
-    protected $charset = 'utf8mb4';
+    protected string $charset = 'utf8mb4';
 
-    /** @var string */
-    protected $username = 'root';
+    protected string $username = 'root';
 
-    /** @var string */
-    protected $password = 'root';
+    protected string $password = 'root';
 
-    /** @var array */
-    protected $options = [];
+    protected array $options = [];
 
     public function getDriver(): string
     {

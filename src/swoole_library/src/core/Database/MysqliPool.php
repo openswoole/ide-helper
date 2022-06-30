@@ -18,8 +18,7 @@ use Swoole\ConnectionPool;
  */
 class MysqliPool extends ConnectionPool
 {
-    /** @var MysqliConfig */
-    protected $config;
+    protected MysqliConfig $config;
 
     public function __construct(MysqliConfig $config, int $size = self::DEFAULT_SIZE)
     {

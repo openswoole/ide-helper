@@ -17,20 +17,16 @@ class ConnectionPool
 {
     public const DEFAULT_SIZE = 64;
 
-    /** @var Channel */
-    protected $pool;
+    protected Channel $pool;
 
     /** @var callable */
     protected $constructor;
 
-    /** @var int */
-    protected $size;
+    protected int $size;
 
-    /** @var int */
-    protected $num;
+    protected int $num;
 
-    /** @var string|null */
-    protected $proxy;
+    protected ?string $proxy;
 
     public function __construct(callable $constructor, int $size = self::DEFAULT_SIZE, ?string $proxy = null)
     {

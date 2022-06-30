@@ -16,7 +16,7 @@ use PDOStatement;
 class PDOStatementProxy extends ObjectProxy
 {
     /** @var PDOStatement */
-    protected $__object;
+    protected object $__object;
 
     /** @var array|null */
     protected $setAttributeContext;

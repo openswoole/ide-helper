@@ -13,8 +13,7 @@ use TypeError;
 
 class ObjectProxy
 {
-    /** @var object */
-    protected $__object;
+    protected object $__object;
 
     public function __construct($object)
     {
@@ -24,7 +23,7 @@ class ObjectProxy
         $this->__object = $object;
     }
 
-    public function __getObject()
+    public function __getObject(): object
     {
         return $this->__object;
     }
@@ -39,7 +38,7 @@ class ObjectProxy
         $this->__object->{$name} = $value;
     }
 
-    public function __isset($name)
+    public function __isset($name): bool
     {
         return isset($this->__object->{$name});
     }
