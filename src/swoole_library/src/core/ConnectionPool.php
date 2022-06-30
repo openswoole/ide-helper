@@ -45,7 +45,7 @@ class ConnectionPool
 
     public function get(float $timeout = -1)
     {
-        if ($this->pool === null) {
+        if (!isset($this->pool)) {
             throw new RuntimeException('Pool has been closed');
         }
         if ($this->pool->isEmpty() && $this->num < $this->size) {
@@ -56,7 +56,7 @@ class ConnectionPool
 
     public function put($connection): void
     {
-        if ($this->pool === null) {
+        if (!isset($this->pool)) {
             return;
         }
         if ($connection !== null) {
@@ -71,7 +71,7 @@ class ConnectionPool
     public function close(): void
     {
         $this->pool->close();
-        $this->pool = null;
+        unset($this->pool);
         $this->num  = 0;
     }
 
