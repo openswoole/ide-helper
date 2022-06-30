@@ -21,12 +21,9 @@ use Swoole\Http\Status;
 
 final class Handler
 {
-    /**
-     * @var Client
-     */
-    private $client;
+    private Client $client;
 
-    private $info = [
+    private array $info = [
         'url'                     => '',
         'content_type'            => '',
         'http_code'               => 0,
@@ -60,9 +57,9 @@ final class Handler
         'private'                 => '',
     ];
 
-    private $withHeaderOut = false;
+    private bool $withHeaderOut = false;
 
-    private $withFileTime = false;
+    private bool $withFileTime = false;
 
     private $urlInfo;
 
@@ -70,7 +67,7 @@ final class Handler
 
     private $infile;
 
-    private $infileSize = PHP_INT_MAX;
+    private int $infileSize = PHP_INT_MAX;
 
     private $outputStream;
 
@@ -78,7 +75,7 @@ final class Handler
 
     private $proxy;
 
-    private $proxyPort = 1080;
+    private int $proxyPort = 1080;
 
     private $proxyUsername;
 
@@ -86,15 +83,15 @@ final class Handler
 
     private $clientOptions = [];
 
-    private $followLocation = false;
+    private bool $followLocation = false;
 
-    private $autoReferer = false;
+    private bool $autoReferer = false;
 
     private $maxRedirects;
 
-    private $withHeader = false;
+    private bool $withHeader = false;
 
-    private $nobody = false;
+    private bool $nobody = false;
 
     /** @var callable */
     private $headerFunction;
@@ -105,32 +102,32 @@ final class Handler
     /** @var callable */
     private $writeFunction;
 
-    private $noProgress = true;
+    private bool $noProgress = true;
 
     /** @var callable */
     private $progressFunction;
 
-    private $returnTransfer = false;
+    private bool $returnTransfer = false;
 
-    private $method = '';
+    private string $method = '';
 
-    private $headers = [];
+    private array $headers = [];
 
-    private $headerMap = [];
+    private array $headerMap = [];
 
     private $transfer;
 
-    private $errCode = 0;
+    private int $errCode = 0;
 
-    private $errMsg = '';
+    private string $errMsg = '';
 
-    private $failOnError = false;
+    private bool $failOnError = false;
 
-    private $closed = false;
+    private bool $closed = false;
 
-    private $cookieJar = '';
+    private string $cookieJar = '';
 
-    private $resolve = [];
+    private array $resolve = [];
 
     public function __construct(string $url = '')
     {
@@ -161,6 +158,10 @@ final class Handler
         return $this->isAvailable() and $this->setOption($opt, $value);
     }
 
+    /**
+     * @throws Exception
+     * @return bool|string|null
+     */
     public function exec()
     {
         if (!$this->isAvailable()) {
@@ -194,7 +195,7 @@ final class Handler
         }
     }
 
-    public function getContent()
+    public function getContent(): bool
     {
         if (!$this->isAvailable()) {
             return false;
