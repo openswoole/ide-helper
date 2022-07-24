@@ -207,4 +207,8 @@ class Process
     public function name(string $processName): bool
     {
     }
+
+    public function setAffinity(array $cpu_set): bool
+    {
+    }
 }

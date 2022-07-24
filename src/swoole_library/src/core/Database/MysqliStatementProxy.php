@@ -17,7 +17,7 @@ class MysqliStatementProxy extends ObjectProxy
     public const IO_METHOD_REGEX = '/^close|execute|fetch|prepare$/i';
 
     /** @var mysqli_stmt */
-    protected $__object;
+    protected object $__object;
 
     /** @var string|null */
     protected $queryString;

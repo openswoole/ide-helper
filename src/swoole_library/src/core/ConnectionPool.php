@@ -17,20 +17,16 @@ class ConnectionPool
 {
     public const DEFAULT_SIZE = 64;
 
-    /** @var Channel */
-    protected $pool;
+    protected Channel $pool;
 
     /** @var callable */
     protected $constructor;
 
-    /** @var int */
-    protected $size;
+    protected int $size;
 
-    /** @var int */
-    protected $num;
+    protected int $num;
 
-    /** @var string|null */
-    protected $proxy;
+    protected ?string $proxy;
 
     public function __construct(callable $constructor, int $size = self::DEFAULT_SIZE, ?string $proxy = null)
     {
@@ -49,7 +45,7 @@ class ConnectionPool
 
     public function get(float $timeout = -1)
     {
-        if ($this->pool === null) {
+        if (!isset($this->pool)) {
             throw new RuntimeException('Pool has been closed');
         }
         if ($this->pool->isEmpty() && $this->num < $this->size) {
@@ -60,7 +56,7 @@ class ConnectionPool
 
     public function put($connection): void
     {
-        if ($this->pool === null) {
+        if (!isset($this->pool)) {
             return;
         }
         if ($connection !== null) {
@@ -75,7 +71,7 @@ class ConnectionPool
     public function close(): void
     {
         $this->pool->close();
-        $this->pool = null;
+        unset($this->pool);
         $this->num  = 0;
     }
 

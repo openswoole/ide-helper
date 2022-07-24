@@ -18,11 +18,9 @@ use Swoole\ConnectionPool;
  */
 class PDOPool extends ConnectionPool
 {
-    /** @var int */
-    protected $size = 64;
+    protected int $size = 64;
 
-    /** @var PDOConfig */
-    protected $config;
+    protected PDOConfig $config;
 
     public function __construct(PDOConfig $config, int $size = self::DEFAULT_SIZE)
     {

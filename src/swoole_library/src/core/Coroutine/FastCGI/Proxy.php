@@ -17,25 +17,25 @@ use Swoole\Http;
 class Proxy
 {
     /* @var string */
-    protected $host;
+    protected string $host;
 
     /* @var int */
-    protected $port;
+    protected int $port;
 
     /* @var float */
-    protected $timeout = -1;
+    protected float $timeout = -1;
 
     /* @var string */
-    protected $documentRoot;
+    protected string $documentRoot;
 
     /* @var bool */
-    protected $https = false;
+    protected bool $https = false;
 
     /* @var string */
-    protected $index = 'index.php';
+    protected string $index = 'index.php';
 
     /* @var array */
-    protected $params = [];
+    protected array $params = [];
 
     /* @var null|callable */
     protected $staticFileFilter;

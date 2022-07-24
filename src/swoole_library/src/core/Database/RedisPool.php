@@ -18,8 +18,7 @@ use Swoole\ConnectionPool;
  */
 class RedisPool extends ConnectionPool
 {
-    /** @var RedisConfig */
-    protected $config;
+    protected RedisConfig $config;
 
     public function __construct(RedisConfig $config, int $size = self::DEFAULT_SIZE)
     {

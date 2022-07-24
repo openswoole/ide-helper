@@ -11,13 +11,13 @@ namespace Swoole\Server;
 
 class Packet
 {
-    public $server_socket;
+    public int $server_socket;
 
-    public $server_port;
+    public int $server_port;
 
-    public $dispatch_time;
+    public float $dispatch_time;
 
-    public $address;
+    public string $address;
 
-    public $port;
+    public int $port;
 }

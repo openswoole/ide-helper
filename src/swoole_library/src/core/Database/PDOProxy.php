@@ -23,7 +23,7 @@ class PDOProxy extends ObjectProxy
     ];
 
     /** @var PDO */
-    protected $__object;
+    protected object $__object;
 
     /** @var array|null */
     protected $setAttributeContext;

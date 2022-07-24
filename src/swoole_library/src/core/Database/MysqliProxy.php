@@ -22,22 +22,18 @@ class MysqliProxy extends ObjectProxy
     ];
 
     /** @var mysqli */
-    protected $__object;
+    protected object $__object;
 
-    /** @var string */
-    protected $charsetContext;
+    protected string $charsetContext;
 
-    /** @var array|null */
-    protected $setOptContext;
+    protected ?array $setOptContext;
 
-    /** @var array|null */
-    protected $changeUserContext;
+    protected ?array $changeUserContext;
 
     /** @var callable */
     protected $constructor;
 
-    /** @var int */
-    protected $round = 0;
+    protected int $round = 0;
 
     public function __construct(callable $constructor)
     {
