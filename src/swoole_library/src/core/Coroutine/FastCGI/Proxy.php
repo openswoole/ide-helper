@@ -112,7 +112,7 @@ class Proxy
             $server   = $userRequest->server;
             $headers  = $userRequest->header;
             $pathInfo = $userRequest->server['path_info'];
-            $pathInfo = '/' . (ltrim($pathInfo, '/'));
+            $pathInfo = '/' . ltrim($pathInfo, '/');
             if (strlen($this->index) !== 0) {
                 $extension = pathinfo($pathInfo, PATHINFO_EXTENSION);
                 if (empty($extension)) {

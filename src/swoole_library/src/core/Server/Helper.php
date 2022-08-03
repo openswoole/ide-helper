@@ -170,8 +170,8 @@ class Helper
     {
         if (!empty($server->setting['stats_file']) and $workerId == 0) {
             $server->stats_timer = Timer::tick(self::STATS_TIMER_INTERVAL_TIME, function () use ($server) {
-                $stats = $server->stats();
-                $lines = [];
+                $stats           = $server->stats();
+                $lines           = [];
                 foreach ($stats as $k => $v) {
                     $lines[] = "{$k}: {$v}";
                 }
