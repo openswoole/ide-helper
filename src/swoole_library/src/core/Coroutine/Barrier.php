@@ -53,7 +53,7 @@ class Barrier
         $cid          = Coroutine::getCid();
         $barrier->cid = $cid;
         if ($timeout > 0 && ($timeout_ms = (int) ($timeout * 1000)) > 0) {
-            $barrier->timer = Timer::after($timeout_ms, function () use ($cid) {
+            $barrier->timer              = Timer::after($timeout_ms, function () use ($cid) {
                 self::$cancel_list[$cid] = true;
                 Coroutine::resume($cid);
             });
