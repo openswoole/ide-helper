@@ -43,7 +43,3 @@ Make sure you have included the openswoole ide-helper in the includePaths:
 ```bash
 ./vendor/bin/php-cs-fixer fix
 ```
-
-## Credits
-
-* [Demin](https://github.com/deminy)
