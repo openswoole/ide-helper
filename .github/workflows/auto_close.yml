@@ -8,5 +8,5 @@ jobs:
       uses: roots/issue-closer@v1.1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-close-message: "@${issue.user.login} please post your issues or PR at https://github.com/openswoole/openswoole"
+        issue-close-message: "@${issue.user.login} this repo is read only. Please post your issues or PR at https://github.com/openswoole/openswoole"
         issue-pattern: ".*READONLY REPO.*"
