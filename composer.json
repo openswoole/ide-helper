@@ -15,5 +15,10 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenSwoole\\": "src/OpenSwoole/"
+        }
     }
 }
