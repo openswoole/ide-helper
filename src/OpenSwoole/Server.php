@@ -109,7 +109,7 @@ class Server
 
     private $onPipeMessage;
 
-    public function __construct(string $host, int $port = 0, int $mode = \OpenSwoole\Server::SIMPLE_MODE, int $sockType = \OpenSwoole\Constant::SOCK_TCP) {}
+    public function __construct(string $host, int $port = 0, int $mode = \OpenSwoole\Server::POOL_MODE, int $sockType = \OpenSwoole\Constant::SOCK_TCP) {}
 
     public function __destruct() {}
 
